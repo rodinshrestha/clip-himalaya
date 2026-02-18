@@ -1,0 +1,112 @@
+'use client';
+import styled, { css, DefaultTheme } from 'styled-components';
+
+const style = (theme: DefaultTheme) => css`
+  &.h1,
+  &.h2,
+  &.h3,
+  &.h4,
+  &.h5,
+  &.h6,
+  &.p,
+  &.subtitle2,
+  &.subtitle1,
+  &.body1,
+  &.body2 {
+    font-family: ${theme.fonts.magra};
+    margin-block-start: 0;
+    margin-block-end: 0;
+  }
+
+  &.h1 {
+    font-size: 31px;
+  }
+
+  &.h2 {
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: 1px;
+  }
+
+  &.h3 {
+    font-size: 28px;
+  }
+
+  &.h4 {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  &.h5 {
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 1px;
+    font-weight: 400;
+  }
+
+  &.h6 {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 1px;
+  }
+
+  &.p {
+    font-size: 14px;
+
+    &.input-error {
+      font-size: 12px;
+      color: red;
+      /* margin-top: 5px; */
+      margin-left: 5px;
+    }
+  }
+
+  &.subtitle1 {
+    font-size: 16px;
+  }
+
+  &.subtitle2 {
+    font-size: 14px;
+  }
+
+  &.body1 {
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: 500;
+  }
+  &.body2 {
+    font-size: 16px;
+  }
+`;
+
+export const H1 = styled.h1`
+  ${({ theme }) => style(theme)}
+`;
+
+export const H2 = styled.h2`
+  ${({ theme }) => style(theme)}
+`;
+
+export const H3 = styled.h3`
+  ${({ theme }) => style(theme)}
+`;
+
+export const H4 = styled.h4`
+  ${({ theme }) => style(theme)}
+`;
+
+export const H5 = styled.h5`
+  ${({ theme }) => style(theme)}
+`;
+
+export const H6 = styled.h6`
+  ${({ theme }) => style(theme)}
+`;
+
+export const Paragraph = styled.p`
+  ${({ theme }) => style(theme)}
+`;
+
+export const Span = styled.span`
+  ${({ theme }) => style(theme)}
+`;

@@ -1,0 +1,81 @@
+'use client';
+import { createGlobalStyle } from 'styled-components';
+
+export const GlobalStyle = createGlobalStyle`
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: ${({ theme }) => theme.fonts.magra};
+    width: 100%;
+    &.modal-open{
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+    }
+  }
+
+
+ .container {
+    /* max-width: 1600px; optional: adjust for your breakpoint */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    height: 100%;
+}
+
+.container-fluid {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    height: 100%;
+
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -1rem;  /* compensate for .col padding */
+    margin-right: -1rem;
+    height: 100%;
+   
+}
+
+
+.col {
+    flex: 1 0 0%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    height: 100%;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6); 
+}
+a{
+  color: inherit;
+  text-decoration: none;
+}
+
+ .section-title-wrapper {
+      padding: 40px 0;
+      .section-title {
+        text-align: center;
+        font-size: 42px !important;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+    }
+`;
