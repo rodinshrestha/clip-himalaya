@@ -7,6 +7,7 @@ import { useTypewriter } from 'react-simple-typewriter';
 import ImageWithFallback from '@/components/ImageWithFallBack';
 import Typography from '@/components/Typography';
 import { getTransition } from '@/utils/get-transition';
+import { goToSection } from '@/utils/go-to-section';
 import { interpolate } from '@/utils/interpolate';
 
 import { StyledDiv } from './style';
@@ -77,7 +78,11 @@ const HeroSection = () => {
         </Typography>
         <Typography as="body2">Walk Above the Clouds.</Typography>
       </motion.div>
-      <div className="scroll-indicator" style={{ opacity }}>
+      <div
+        className="scroll-indicator"
+        style={{ opacity }}
+        onClick={() => goToSection('top-trek-section')}
+      >
         <ImageWithFallback
           src="/images/down-arrow.png"
           alt="scroll-indicator"

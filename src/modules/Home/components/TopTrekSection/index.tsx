@@ -19,7 +19,7 @@ const MySwiper = dynamic(() => import('@/components/MySwiper'), {
 
 const TopTrekSection = () => {
   return (
-    <StyledDiv className="top-trek-section">
+    <StyledDiv className="top-trek-section" id="top-trek-section">
       <Container>
         <Row>
           <Col>
