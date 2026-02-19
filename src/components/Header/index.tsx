@@ -45,10 +45,10 @@ const Header = () => {
                 </div>
               </div>
               <div className="header-navigation-wrapper">
-                <Link href="#" className="navigation-link active">
+                <Link href="/" className="navigation-link active">
                   Home
                 </Link>
-                <Link href="#" className="navigation-link">
+                <Link href="/treks" className="navigation-link">
                   treks
                 </Link>
                 <Link href="#" className="navigation-link">

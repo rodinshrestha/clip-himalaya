@@ -54,6 +54,7 @@ const HeroSection = () => {
       <div className="overlay" />
       <motion.div
         style={{
+          height: '100%',
           y: getTransition(position, 0.5),
         }}
       >
@@ -76,7 +77,7 @@ const HeroSection = () => {
         </Typography>
         <Typography as="body2">Walk Above the Clouds.</Typography>
       </motion.div>
-      <div className="scroll-indicator">
+      <div className="scroll-indicator" style={{ opacity }}>
         <ImageWithFallback
           src="/images/down-arrow.png"
           alt="scroll-indicator"

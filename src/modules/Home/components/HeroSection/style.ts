@@ -4,7 +4,6 @@ import styled from 'styled-components';
 export const StyledDiv = styled.div`
   &.hero-section-wrapper {
     height: 100vh;
-    border: 1px solid black;
     overflow: hidden;
     position: relative;
 
@@ -38,6 +37,7 @@ export const StyledDiv = styled.div`
       }
       .body2 {
         font-size: 45px;
+        opacity: 0.6;
       }
     }
     .scroll-indicator {
@@ -45,28 +45,22 @@ export const StyledDiv = styled.div`
       left: 50%;
       transform: translateX(-50%);
       bottom: 10px;
-      width: 120px;
+      width: 80px;
       height: 50px;
       z-index: 10;
       animation:
         dropDown 1.2s ease-out forwards,
         bounce 1.8s 1.2s infinite;
-
       cursor: pointer;
-
-      img {
-        object-fit: contain;
-      }
     }
 
     @keyframes dropDown {
       0% {
-        transform: translateX(-50%) translateY(-200px);
+        transform: translateX(-50%) translateY(-400px);
         opacity: 0;
       }
       100% {
         transform: translateX(-50%) translateY(0);
-        opacity: 1;
       }
     }
 
