@@ -16,7 +16,9 @@
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-simple-star-rating": "^5.1.7",
-    "styled-components": "^6.3.9"
+    "react-simple-typewriter": "^5.0.1",
+    "styled-components": "^6.3.9",
+    "swiper": "^12.1.2"
   },
   "devDependencies": {
     "@rodinshrestha/prettier-config": "^1.0.0",

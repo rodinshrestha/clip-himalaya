@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 export const StyledDiv = styled.div`
   flex: 1;
-  padding: 10px;
   .image-wrapper {
     position: relative;
     width: 100%;

@@ -12,20 +12,39 @@ export const StyledDiv = styled.div`
   .adventure-specialist-content {
     display: flex;
     margin-bottom: 40px;
+    @media (max-width: ${({ theme }) => theme.breakPoints.smallScreen}) {
+      flex-direction: column;
+      gap: 60px;
+    }
 
     .adventure-expert-list {
-      flex: 0 0 60%;
+      width: 60%;
       display: flex;
-      gap: 10px;
+      gap: 20px;
+      height: 530px;
+      @media (max-width: ${({ theme }) => theme.breakPoints.smallScreen}) {
+        width: 100%;
+        height: 510px;
+      }
+
+      .mySwiper {
+        .swiper-button-prev,
+        .swiper-button-next {
+          top: 40%;
+        }
+      }
     }
 
     .adventure-contact-us {
-      flex: 0 0 40%;
+      width: 40%;
       width: 100%;
       display: flex;
       align-items: center;
       flex-direction: column;
       justify-content: center;
+      @media (max-width: ${({ theme }) => theme.breakPoints.smallScreen}) {
+        width: 100%;
+      }
 
       .call-us-text {
         font-size: 24px;

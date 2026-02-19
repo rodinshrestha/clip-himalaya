@@ -1,9 +1,12 @@
+'use client';
 import React from 'react';
 
+import clsx from 'clsx';
 import Link from 'next/link';
 
 import Col from '../Col';
 import Container from '../Container';
+import HamburgerMenuIcon from '../HamburgerMenuIcon';
 import ImageWithFallback from '../ImageWithFallBack';
 import Row from '../Row';
 import Typography from '../Typography';
@@ -11,8 +14,19 @@ import Typography from '../Typography';
 import { StyledHeader } from './style';
 
 const Header = () => {
+  const [isScrolled, setIsScrolled] = React.useState(false);
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 80);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <StyledHeader>
+    <StyledHeader className={clsx({ active: isScrolled })}>
       <Container>
         <Row>
           <Col>
@@ -44,8 +58,14 @@ const Header = () => {
                   Gallery
                 </Link>
                 <Link href="#" className="navigation-link">
-                  Contact
+                  Contact Us
                 </Link>
+              </div>
+              <div className="hamburger-menu-wrapper">
+                <HamburgerMenuIcon
+                  isOpen={isMenuOpen}
+                  onClick={() => setIsMenuOpen((prev) => !prev)}
+                />
               </div>
             </div>
           </Col>

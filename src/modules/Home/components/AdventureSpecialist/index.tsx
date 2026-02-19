@@ -1,6 +1,9 @@
+'use client';
 import React from 'react';
 
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import { SwiperSlide } from 'swiper/react';
 
 import Button from '@/components/Button';
 import Col from '@/components/Col';
@@ -11,6 +14,10 @@ import Row from '@/components/Row';
 import Typography from '@/components/Typography';
 
 import { StyledDiv } from './style';
+
+const MySwiper = dynamic(() => import('@/components/MySwiper'), {
+  ssr: false,
+});
 
 const AdventureSpecialist = () => {
   return (
@@ -28,9 +35,15 @@ const AdventureSpecialist = () => {
 
               <div className="adventure-specialist-content">
                 <div className="adventure-expert-list">
-                  <ExpertCard />
-                  <ExpertCard />
-                  <ExpertCard />
+                  <MySwiper slidePerView={3.5}>
+                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((x) => {
+                      return (
+                        <SwiperSlide key={x}>
+                          <ExpertCard />
+                        </SwiperSlide>
+                      );
+                    })}
+                  </MySwiper>
                 </div>
 
                 <div className="adventure-contact-us">

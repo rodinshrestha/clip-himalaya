@@ -13,8 +13,12 @@ export const StyledDiv = styled.div`
 
     .footer-logo-wrapper {
       position: relative;
-      width: 160px;
-      height: 160px;
+      width: 120px;
+      height: 120px;
+      margin-bottom: 20px;
+      @media (max-width: ${({ theme }) => theme.breakPoints.tablet}) {
+        margin-bottom: 40px;
+      }
 
       img {
         object-fit: cover;
@@ -25,10 +29,19 @@ export const StyledDiv = styled.div`
       display: flex;
       justify-content: space-between;
 
+      @media (max-width: ${({ theme }) => theme.breakPoints.tablet}) {
+        flex-direction: column;
+        gap: 40px;
+      }
+
       .footer-item-wrapper {
         display: flex;
         flex-direction: column;
         gap: 20px;
+        @media (max-width: ${({ theme }) => theme.breakPoints.tablet}) {
+          flex-direction: column;
+          gap: 5px;
+        }
         .footer-item-title {
           font-size: 18px;
           font-weight: 800;
@@ -39,6 +52,9 @@ export const StyledDiv = styled.div`
           display: flex;
           flex-direction: column;
           gap: 5px;
+          a:hover {
+            text-decoration: underline;
+          }
           .footer-item {
             font-family: ${({ theme }) => theme.fonts.poppins};
             font-weight: 400;

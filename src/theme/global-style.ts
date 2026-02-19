@@ -13,7 +13,7 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: ${({ theme }) => theme.fonts.magra};
-    width: 100%;
+    width: 100vw;
     &.modal-open{
       height: 100vh;
       width: 100vw;
@@ -40,11 +40,10 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 .row {
-    display: flex;
-    flex-wrap: wrap;
     margin-left: -1rem;  /* compensate for .col padding */
     margin-right: -1rem;
     height: 100%;
+    width: 100%;
    
 }
 
@@ -54,6 +53,7 @@ export const GlobalStyle = createGlobalStyle`
     padding-left: 1rem;
     padding-right: 1rem;
     height: 100%;
+    width: 100%;
 }
 
 .overlay {
@@ -62,7 +62,8 @@ export const GlobalStyle = createGlobalStyle`
     left: 0;
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.6); 
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.2); 
 }
 a{
   color: inherit;
@@ -78,4 +79,22 @@ a{
         letter-spacing: 1px;
       }
     }
+
+ .mySwiper{
+  width: 100%;
+  height: 100%;
+
+  .swiper-button-prev, .swiper-button-next{
+    width: 20px;
+    height: 20px;
+    color: ${({ theme }) => theme.color.grey['100']};
+  }
+
+  .swiper-pagination{
+    bottom: -5px;
+      .swiper-pagination-bullet-active{
+        background: ${({ theme }) => theme.color.black['100']};
+    }
+  }
+ }   
 `;
