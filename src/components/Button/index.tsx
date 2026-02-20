@@ -1,14 +1,14 @@
-import React from "react";
+import React from 'react';
 
-import clsx from "clsx";
-import Link from "next/link";
+import clsx from 'clsx';
+import Link from 'next/link';
 
-import { StyledButton, StyledLink } from "./style";
+import { StyledButton, StyledLink } from './style';
 
 interface ButtonBaseProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-  variant?: "contained" | "outline";
-  size?: "sm" | "md" | "full-width";
+  variant?: 'contained' | 'outline' | 'black';
+  size?: 'sm' | 'md' | 'full-width';
   className?: string;
   loading?: boolean;
 }
@@ -27,8 +27,8 @@ interface LinkButtonProps extends ButtonBaseProps {
 
 const Button = ({
   children,
-  variant = "contained",
-  size = "sm",
+  variant = 'contained',
+  size = 'sm',
   loading = false,
   className,
   ...rest
@@ -37,10 +37,10 @@ const Button = ({
     return (
       <Link
         href={rest.href}
-        target={rest.newTab ? "_blank" : "_self"}
+        target={rest.newTab ? '_blank' : '_self'}
         data-testid="link-button"
       >
-        <StyledLink className={clsx(variant, className, size, "btn")}>
+        <StyledLink className={clsx(variant, className, size, 'btn')}>
           {children}
         </StyledLink>
       </Link>
@@ -49,12 +49,12 @@ const Button = ({
 
   return (
     <StyledButton
-      className={clsx(variant, size, className, "btn", {
-        ["btn-loader"]: loading,
+      className={clsx(variant, size, className, 'btn', {
+        ['btn-loader']: loading,
       })}
       disabled={rest.disabled}
       {...rest}
-      aria-label={typeof children === "string" ? children : "button"}
+      aria-label={typeof children === 'string' ? children : 'button'}
       data-testid="button"
     >
       {loading ? (

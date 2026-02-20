@@ -26,6 +26,19 @@ const defaultBtnStyle = (theme: DefaultTheme) => css`
       border: 1px solid ${theme.color.grey['100']};
     }
   }
+  &.outline {
+    background-color: transparent;
+    border: 1px solid ${theme.color.black['200']};
+    &:hover {
+      background-color: ${theme.color.black['100']};
+      color: ${({ theme }) => theme.color.white['100']};
+    }
+  }
+  &.black {
+    background-color: ${theme.color.black['100']};
+    border: 1px solid ${theme.color.black['100']};
+    color: ${({ theme }) => theme.color.grey['100']};
+  }
 
   &.sm {
     min-width: 100px;

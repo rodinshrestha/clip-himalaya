@@ -9,4 +9,7 @@ export const color = {
   white: {
     100: '#fff',
   },
+  red: {
+    100: 'red',
+  },
 };
