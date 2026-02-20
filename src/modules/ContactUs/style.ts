@@ -9,12 +9,21 @@ export const StyledDiv = styled.div`
     display: flex;
     justify-content: space-between;
     height: 800px;
+    @media (max-width: ${({ theme }) => theme.breakPoints.mobile}) {
+      flex-direction: column;
+      gap: 20px;
+      height: unset;
+    }
 
     .image-wrapper {
       position: relative;
       flex: 1;
       border-radius: 8px;
       overflow: hidden;
+
+      @media (max-width: ${({ theme }) => theme.breakPoints.mobile}) {
+        height: 1500px;
+      }
 
       img {
         object-fit: cover;

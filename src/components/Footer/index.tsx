@@ -85,13 +85,13 @@ const Footer = () => {
                     Legal
                   </Typography>
                   <div className="footer-items-inner-wrapper">
-                    <Link href="#" className="footer-item">
+                    <Link href="/terms-and-conditions" className="footer-item">
                       Terms Of Use
                     </Link>
-                    <Link href="#" className="footer-item">
+                    <Link href="/terms-and-conditions" className="footer-item">
                       Privacy Policy
                     </Link>
-                    <Link href="#" className="footer-item">
+                    <Link href="/terms-and-conditions" className="footer-item">
                       Cookie Policy
                     </Link>
                   </div>
