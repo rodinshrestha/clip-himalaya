@@ -51,7 +51,7 @@ const Header = () => {
                 <Link href="/treks" className="navigation-link">
                   treks
                 </Link>
-                <Link href="#" className="navigation-link">
+                <Link href="/our-story" className="navigation-link">
                   Our Story
                 </Link>
                 <Link href="#" className="navigation-link">

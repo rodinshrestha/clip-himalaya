@@ -14,6 +14,7 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family: ${({ theme }) => theme.fonts.magra};
     width: 100vw;
+    position: relative;
     &.modal-open{
       height: 100vh;
       width: 100vw;
