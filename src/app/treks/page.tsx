@@ -1,7 +1,9 @@
 import React from 'react';
 
+import Treks from '@/modules/Treks';
+
 const TreksPage = () => {
-  return <div>TreksPage</div>;
+  return <Treks />;
 };
 
 export default TreksPage;

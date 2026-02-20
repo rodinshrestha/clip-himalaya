@@ -3,6 +3,7 @@ import React from 'react';
 
 import clsx from 'clsx';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 import Col from '../Col';
 import Container from '../Container';
@@ -16,6 +17,7 @@ import { StyledHeader } from './style';
 const Header = () => {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const pathname = usePathname();
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -24,6 +26,14 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const navigation = [
+    { link: '/', label: 'Home' },
+    { link: '/treks', label: 'Treks' },
+    { link: '/our-story', label: 'Our Story' },
+    { link: '/gallery', label: 'Gallery' },
+    { link: '/contact-us', label: 'Contact Us' },
+  ];
 
   return (
     <StyledHeader className={clsx({ active: isScrolled })}>
@@ -45,21 +55,18 @@ const Header = () => {
                 </div>
               </div>
               <div className="header-navigation-wrapper">
-                <Link href="/" className="navigation-link active">
-                  Home
-                </Link>
-                <Link href="/treks" className="navigation-link">
-                  treks
-                </Link>
-                <Link href="/our-story" className="navigation-link">
-                  Our Story
-                </Link>
-                <Link href="#" className="navigation-link">
-                  Gallery
-                </Link>
-                <Link href="#" className="navigation-link">
-                  Contact Us
-                </Link>
+                {navigation.map((x) => {
+                  const active = x.link === pathname;
+                  return (
+                    <Link
+                      href={x.link}
+                      className={clsx('navigation-link', { active })}
+                      key={x.label}
+                    >
+                      {x.label}
+                    </Link>
+                  );
+                })}
               </div>
               <div className="hamburger-menu-wrapper">
                 <HamburgerMenuIcon
