@@ -31,7 +31,7 @@ const Header = () => {
     { link: '/', label: 'Home' },
     { link: '/treks', label: 'Treks' },
     { link: '/our-story', label: 'Our Story' },
-    { link: '/gallery', label: 'Gallery' },
+    { link: '/our-team', label: 'Our Team' },
     { link: '/contact-us', label: 'Contact Us' },
   ];
 
