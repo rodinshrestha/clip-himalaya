@@ -68,13 +68,13 @@ const Footer = () => {
                     COMPANY
                   </Typography>
                   <div className="footer-items-inner-wrapper">
-                    <Link href="#" className="footer-item">
-                      About Us
+                    <Link href="/our-story" className="footer-item">
+                      Our Story
                     </Link>
-                    <Link href="#" className="footer-item">
+                    <Link href="/our-team" className="footer-item">
                       Our Team
                     </Link>
-                    <Link href="#" className="footer-item">
+                    <Link href="/contact-us" className="footer-item">
                       Contact Us
                     </Link>
                   </div>

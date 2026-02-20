@@ -9,11 +9,12 @@ import { StyledDiv } from './style';
 
 type Props = {
   crumbTitle: string;
+  className?: string;
 };
 
-const BreadCrumbs = ({ crumbTitle }: Props) => {
+const BreadCrumbs = ({ crumbTitle, className }: Props) => {
   return (
-    <StyledDiv>
+    <StyledDiv className={className}>
       <Container>
         <Row>
           <Col>
