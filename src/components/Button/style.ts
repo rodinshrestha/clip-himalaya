@@ -59,6 +59,7 @@ export const StyledLink = styled.div`
     width: 100%;
     height: 100%;
     z-index: 10;
+    font-size: 21px;
   }
   ${({ theme }) => css`
     ${defaultBtnStyle(theme)}

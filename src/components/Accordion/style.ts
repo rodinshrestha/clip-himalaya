@@ -57,13 +57,14 @@ export const DotTitleRow = styled.div`
 `;
 
 export const Dot = styled.div<{ $isOpen: boolean }>`
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   flex-shrink: 0;
   background-color: ${({ $isOpen, theme }) =>
     $isOpen ? theme.color.black['100'] : '#94a3b8'};
-  border: 2px solid ${({ $isOpen }) => ($isOpen ? '#93c5fd' : '#cbd5e1')};
+  border: 1px solid
+    ${({ $isOpen, theme }) => ($isOpen ? theme.color.black['200'] : '#cbd5e1')};
   transition:
     background-color 0.2s ease,
     border-color 0.2s ease;

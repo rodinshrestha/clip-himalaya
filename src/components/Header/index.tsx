@@ -57,7 +57,8 @@ const Header = () => {
               </div>
               <div className="header-navigation-wrapper">
                 {navigation.map((x) => {
-                  const active = x.link === pathname;
+                  const active =
+                    pathname === x.link || pathname.startsWith(`${x.link}/`);
                   return (
                     <Link
                       href={x.link}

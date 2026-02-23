@@ -15,12 +15,12 @@ export const StyledDiv = styled.div`
     width: 16px;
 
     .dot {
-      width: 10px;
-      height: 10px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
       background-color: ${({ theme }) =>
         theme.color.black['100']}; /* your brand color */
-      border: 2px solid #93c5fd;
+      border: 1px solid ${({ theme }) => theme.color.black['200']};
       flex-shrink: 0;
       margin-top: 7px; /* aligns dot with the title text baseline */
       z-index: 1;
