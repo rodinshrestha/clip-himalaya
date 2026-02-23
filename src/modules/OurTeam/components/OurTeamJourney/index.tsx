@@ -11,7 +11,10 @@ import { StyledDiv } from './style';
 const OurTeamJourney = () => {
   return (
     <StyledDiv>
-      <BreadCrumbs crumbTitle="Our Team" className="journey-bread-crumbs" />
+      <BreadCrumbs
+        crumbs={[{ label: 'Our Team' }]}
+        className="journey-bread-crumbs"
+      />
       <Container>
         <Row>
           <Col>

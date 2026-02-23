@@ -10,7 +10,7 @@ const TermsAndCondition = () => {
   return (
     <StyledDiv>
       <TermsAndConditionLandingPage />
-      <BreadCrumbs crumbTitle="Term & Conditions" />
+      <BreadCrumbs crumbs={[{ label: 'Term & Conditions' }]} />
       <TermsAndConditionList />
     </StyledDiv>
   );

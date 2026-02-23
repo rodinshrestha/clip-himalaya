@@ -10,7 +10,7 @@ const OurStory = () => {
   return (
     <StyledDiv>
       <OurStoryImageBanner />
-      <BreadCrumbs crumbTitle="Our Story" />
+      <BreadCrumbs crumbs={[{ label: 'Our Story' }]} />
       <StoryDescription />
     </StyledDiv>
   );

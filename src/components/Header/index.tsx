@@ -30,6 +30,7 @@ const Header = () => {
   const navigation = [
     { link: '/', label: 'Home' },
     { link: '/treks', label: 'Treks' },
+    { link: '/annapurna-circuit', label: 'Annapurna Circuit' },
     { link: '/our-story', label: 'Our Story' },
     { link: '/our-team', label: 'Our Team' },
     { link: '/contact-us', label: 'Contact Us' },

@@ -10,7 +10,7 @@ const Treks = () => {
   return (
     <StyledDiv>
       <TrekLandingPage />
-      <BreadCrumbs crumbTitle="Treks" />
+      <BreadCrumbs crumbs={[{ label: 'Treks' }]} />
       <TrekInformation />
     </StyledDiv>
   );
