@@ -11,7 +11,7 @@ import Typography from '../Typography';
 import { StyledDiv } from './style';
 
 type Props = {
-  crumbs: [{ label: string; href?: string }];
+  crumbs: { label: string; href?: string }[];
   className?: string;
 };
 

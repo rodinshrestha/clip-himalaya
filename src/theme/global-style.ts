@@ -84,6 +84,7 @@ a{
  .mySwiper{
   width: 100%;
   height: 100%;
+  max-width: 100%;
 
   .swiper-button-prev, .swiper-button-next{
     width: 20px;

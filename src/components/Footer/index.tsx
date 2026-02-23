@@ -12,7 +12,7 @@ import { StyledDiv } from './style';
 
 const Footer = () => {
   return (
-    <StyledDiv>
+    <StyledDiv className="footer">
       <Container>
         <Row>
           <Col>
@@ -51,11 +51,11 @@ const Footer = () => {
                     ADVENTURE
                   </Typography>
                   <div className="footer-items-inner-wrapper">
-                    <Link href="#" className="footer-item">
-                      Expendition
+                    <Link href="/annapurna-circuit" className="footer-item">
+                      Annapurna Circuit
                     </Link>
-                    <Link href="#" className="footer-item">
-                      Treks
+                    <Link href="/our-story" className="footer-item">
+                      Our Story
                     </Link>
                     <Link href="#" className="footer-item">
                       Activities
@@ -68,11 +68,11 @@ const Footer = () => {
                     COMPANY
                   </Typography>
                   <div className="footer-items-inner-wrapper">
-                    <Link href="/our-story" className="footer-item">
-                      Our Story
-                    </Link>
                     <Link href="/our-team" className="footer-item">
                       Our Team
+                    </Link>
+                    <Link href="/our-story" className="footer-item">
+                      FAQ
                     </Link>
                     <Link href="/contact-us" className="footer-item">
                       Contact Us

@@ -3,7 +3,6 @@ import type { Metadata } from 'next';
 import BaseLayout from '@/layout/BaseLayout';
 import StyledComponentsRegistry from '@/lib/registry';
 import StyledProviders from '@/providers/StyledProviders';
-
 import { magra, poppins } from '@/theme/fonts';
 
 export const metadata: Metadata = {
