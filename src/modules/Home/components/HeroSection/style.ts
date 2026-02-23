@@ -29,7 +29,7 @@ export const StyledDiv = styled.div`
       gap: 10px;
       .h1 {
         font-size: 45px;
-        color: ${({ theme }) => theme.color.black['200']};
+        color: ${({ theme }) => theme.color.black['100']};
 
         .auto-text {
           color: ${({ theme }) => theme.color.grey['100']} !important;

@@ -17,6 +17,8 @@ export const StyledDiv = styled.div`
     position: relative;
     border-radius: 8px;
     overflow: hidden;
+    filter: grayscale(100%) brightness(0.7);
+
     img {
       object-fit: cover;
     }

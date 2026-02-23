@@ -86,7 +86,7 @@ export const StyledHeader = styled.header`
       .navigation-link {
         font-size: 21px;
         text-transform: uppercase;
-        color: ${({ theme }) => theme.color.black['200']};
+        color: ${({ theme }) => theme.color.black['100']};
         position: relative;
         display: inline-block;
         font-weight: 400;

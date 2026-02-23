@@ -20,7 +20,7 @@ const TrekCard = () => {
           Everest Base Camp
         </Typography>
         <div className="rating-wrapper">
-          <Rating initialValue={4} readonly size={18} />
+          <Rating initialValue={4} readonly size={18} fillColor="#000" />
           <Typography as="body2" className="difficult-text">
             Difficult: Moderate
           </Typography>
