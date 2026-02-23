@@ -54,7 +54,7 @@ const AdventureSpecialist = () => {
                     +977 9801234567
                   </Link>
 
-                  <Button className="call-btn" size="md">
+                  <Button className="call-btn" size="md" variant="outline">
                     START PLANNING MY TRIP
                   </Button>
                 </div>

@@ -20,7 +20,9 @@ const Card = () => {
         <li>Welcome</li>
       </ul>
 
-      <Button size="full-width">BOOK NOW</Button>
+      <Button size="full-width" variant="outline">
+        BOOK NOW
+      </Button>
     </StyledDiv>
   );
 };
