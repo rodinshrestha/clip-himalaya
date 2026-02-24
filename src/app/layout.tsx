@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 
 import BaseLayout from '@/layout/BaseLayout';
 import StyledComponentsRegistry from '@/lib/registry';
+import ProgressBarProvider from '@/providers/ProgressBarProvider';
 import StyledProviders from '@/providers/StyledProviders';
 import { magra, poppins } from '@/theme/fonts';
 
@@ -20,7 +21,9 @@ export default function RootLayout({
       <body className={`${poppins.variable} ${magra.variable}`}>
         <StyledComponentsRegistry>
           <StyledProviders>
-            <BaseLayout>{children}</BaseLayout>
+            <ProgressBarProvider>
+              <BaseLayout>{children}</BaseLayout>
+            </ProgressBarProvider>
           </StyledProviders>
         </StyledComponentsRegistry>
       </body>
