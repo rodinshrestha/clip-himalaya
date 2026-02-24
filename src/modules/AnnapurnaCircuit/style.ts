@@ -3,6 +3,9 @@
 import styled from 'styled-components';
 
 export const StyledDiv = styled.div`
+  .aanupuran-bread-crumbs {
+    background-color: transparent;
+  }
   .annapurna-trekking-information-wrapper {
     display: flex;
     margin-top: 120px;

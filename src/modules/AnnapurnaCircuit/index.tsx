@@ -15,7 +15,10 @@ const AnnapurnaCircuit = () => {
   return (
     <StyledDiv>
       <AnnapurnaLandingPage />
-      <BreadCrumbs crumbs={[{ label: 'Annapurna Circuit' }]} />
+      <BreadCrumbs
+        crumbs={[{ label: 'Annapurna Circuit' }]}
+        className="aanupuran-bread-crumbs"
+      />
       <Container>
         <Row>
           <Col>
