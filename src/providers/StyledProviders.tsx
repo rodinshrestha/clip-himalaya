@@ -7,6 +7,8 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from '@/theme';
 import { GlobalStyle } from '@/theme/global-style';
 
+import HeaderProviders from './HeaderProviders';
+
 type Props = {
   children: React.ReactNode;
 };
@@ -14,8 +16,10 @@ type Props = {
 export default function StyledProviders({ children }: Props) {
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      {children}
+      <HeaderProviders>
+        <GlobalStyle />
+        {children}
+      </HeaderProviders>
     </ThemeProvider>
   );
 }

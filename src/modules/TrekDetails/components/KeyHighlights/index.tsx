@@ -9,7 +9,7 @@ import { StyledDiv } from './style';
 
 const KeyHighlights = () => {
   return (
-    <StyledDiv className="key-highlights-container">
+    <StyledDiv className="key-highlights-container" id="key-highlights">
       <TrekkingTitleSection icon={Sun} title="KEY HIGHLIGHTS" />
       <div className="key-hightlights-wrapper">
         <TrekkingInfo

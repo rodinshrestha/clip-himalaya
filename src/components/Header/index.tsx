@@ -5,6 +5,8 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+import useHeader from '@/hooks/useHeader';
+
 import Col from '../Col';
 import Container from '../Container';
 import HamburgerMenuIcon from '../HamburgerMenuIcon';
@@ -18,6 +20,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const pathname = usePathname();
+  const { trekStickyHeader } = useHeader();
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -37,7 +40,12 @@ const Header = () => {
   ];
 
   return (
-    <StyledHeader className={clsx({ active: isScrolled })}>
+    <StyledHeader
+      className={clsx({
+        active: isScrolled && !trekStickyHeader,
+        hide: trekStickyHeader,
+      })}
+    >
       <Container>
         <Row>
           <Col>

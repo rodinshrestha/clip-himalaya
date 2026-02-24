@@ -17,7 +17,7 @@ import 'swiper/css/pagination';
 
 const Gallery = () => {
   return (
-    <StyledDiv>
+    <StyledDiv id="gallery">
       <TrekkingTitleSection icon={Images} title="GALLERY" />
 
       <div className="gallery-wrapper">

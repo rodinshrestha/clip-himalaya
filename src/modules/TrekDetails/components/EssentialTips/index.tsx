@@ -9,7 +9,7 @@ import { StyledDiv } from './style';
 
 const EssentialTips = () => {
   return (
-    <StyledDiv className="essential-tips-container">
+    <StyledDiv className="essential-tips-container" id="essential-tips">
       <TrekkingTitleSection icon={Info} title="ESSENTIAL TIPS" />
 
       <div className="essential-tip-wrapper">

@@ -8,14 +8,55 @@ export const StyledHeader = styled.header`
   padding: 20px 0;
   box-sizing: border-box;
   transition: transform 0.4s ease;
+
+  @keyframes slideDown {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-100%);
+    }
+  }
+
   &.active {
     position: fixed;
     top: 0;
     left: 0;
     padding: 5px 0;
-    /* slide animation */
     animation: slideDown 0.4s ease forwards;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.95);
 
+    .logo-wrapper {
+      height: 65px !important;
+      width: 65px !important;
+    }
+
+    .title-content {
+      .h1 {
+        font-size: 24px !important;
+      }
+      .body1 {
+        font-size: 16px !important;
+      }
+    }
+  }
+  &.hide {
+    position: fixed;
+    top: 0;
+    left: 0;
+    animation: slideUp 0.4s ease forwards;
+    pointer-events: none;
     background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(8px);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.95);
@@ -120,15 +161,6 @@ export const StyledHeader = styled.header`
       @media (max-width: ${({ theme }) => theme.breakPoints.smallScreen}) {
         display: flex;
       }
-    }
-  }
-
-  @keyframes slideDown {
-    from {
-      transform: translateY(-100%);
-    }
-    to {
-      transform: translateY(0);
     }
   }
 `;

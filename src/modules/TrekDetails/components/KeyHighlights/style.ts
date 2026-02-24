@@ -2,12 +2,12 @@
 
 import styled from 'styled-components';
 
-export const StyledDiv = styled.div`
+export const StyledDiv = styled.section`
   &.key-highlights-container {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    margin-top: 20px;
+    padding-top: 60px;
 
     .key-hightlights-wrapper {
       display: flex;

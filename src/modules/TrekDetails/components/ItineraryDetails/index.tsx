@@ -51,7 +51,7 @@ const ItineraryDetails = () => {
     },
   ];
   return (
-    <StyledDiv className="itinerary-details-wrapper">
+    <StyledDiv className="itinerary-details-wrapper" id="itinerary">
       <TrekkingTitleSection icon={Waypoints} title="ITINERARY DETAILS" />
 
       <div className="ininerary-list-wrapper">

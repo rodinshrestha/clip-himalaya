@@ -22,10 +22,13 @@ const TrekItinerary = () => {
             <ItineraryHeader />
             <KeyHighlights />
             <ItineraryDetails />
-            <div className="trek-cost-include-exclude-wrapper">
+            <section
+              className="trek-cost-include-exclude-wrapper"
+              id="costs-include"
+            >
               <CostInclude />
               <CostExclude />
-            </div>
+            </section>
             <EssentialTips />
             <Gallery />
           </Col>
