@@ -3,8 +3,9 @@
 import styled from 'styled-components';
 
 export const StyledDiv = styled.div`
-  background-color: ${({ theme }) => theme.color.grey['100']};
   padding-top: 120px;
+  padding-bottom: 80px;
+
   .contact-wrapper {
     display: flex;
     justify-content: space-between;

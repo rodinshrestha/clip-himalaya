@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 export const StyledDiv = styled.div`
   margin: 20px 0;
+  margin-bottom: 40px;
   .our-team-faq-wrapper {
     display: flex;
     flex-direction: column;

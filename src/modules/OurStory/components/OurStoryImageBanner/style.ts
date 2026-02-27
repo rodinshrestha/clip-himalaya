@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const StyledDiv = styled.div`
   &.our-story-image-banner-wrapper {
     padding-top: 120px;
-    background-color: ${({ theme }) => theme.color.grey['100']};
+    margin-bottom: 40px;
     .first-row {
       display: flex;
       gap: 10px;

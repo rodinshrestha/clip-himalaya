@@ -53,7 +53,6 @@ export const InputContainer = styled.div`
     textarea {
       box-sizing: border-box;
       border-radius: 8px;
-      background-color: ${({ theme }) => theme.color.grey['100']} !important;
       padding: 10px 12px;
       font-size: 14px;
       border: 1px solid ${({ theme }) => theme.color.black['200']};

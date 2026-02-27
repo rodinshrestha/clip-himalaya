@@ -13,6 +13,7 @@ import TextArea from '@/components/TextArea';
 import Typography from '@/components/Typography';
 
 import { StyledDiv } from './style';
+import Overlay from '@/components/Overlay';
 
 const ContactUs = () => {
   return (
@@ -22,6 +23,7 @@ const ContactUs = () => {
           <Col>
             <div className="contact-wrapper">
               <div className="image-wrapper">
+                <Overlay />
                 <ImageWithFallback
                   src="/images/contact-us-image.png"
                   alt="contact-us-bg-image"

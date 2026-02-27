@@ -7,10 +7,12 @@ import Row from '@/components/Row';
 import Typography from '@/components/Typography';
 
 import { StyledDiv } from './style';
+import Overlay from '@/components/Overlay';
 
 const TrekLandingPage = () => {
   return (
     <StyledDiv>
+      <Overlay overlayValue={0.4} />
       <ImageWithFallback src="/images/trek.png" alt="trek-image" fill />
       <div className="text-content">
         <Container>

@@ -11,6 +11,7 @@ import { goToSection } from '@/utils/go-to-section';
 import { interpolate } from '@/utils/interpolate';
 
 import { StyledDiv } from './style';
+import Overlay from '@/components/Overlay';
 
 const HeroSection = () => {
   const [factor, setFactor] = React.useState({
@@ -59,6 +60,7 @@ const HeroSection = () => {
           y: getTransition(position, 0.5),
         }}
       >
+        <Overlay overlayValue={0.4} />
         <video autoPlay muted loop playsInline className="bg-video">
           <source src="/video.mp4" type="video/mp4" />
         </video>

@@ -14,7 +14,7 @@ export const StyledDiv = styled.div`
   }
 
   .text-content {
-    z-index: 5px;
+    z-index: 2;
     position: relative;
     margin-top: 200px;
 

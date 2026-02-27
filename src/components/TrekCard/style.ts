@@ -9,7 +9,7 @@ export const StyledDiv = styled.div`
   flex-direction: column;
   gap: 10px;
   min-width: 400px;
-  padding: 10px;
+  max-width: 500px;
 
   .image-wrapper {
     width: 100%;
@@ -25,6 +25,7 @@ export const StyledDiv = styled.div`
   .content-wrapper {
     display: flex;
     flex-direction: column;
+    padding: 10px;
 
     .title {
       font-size: 24px;

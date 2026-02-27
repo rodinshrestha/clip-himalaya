@@ -7,6 +7,7 @@ export const StyledDiv = styled.section`
   flex-direction: column;
   gap: 20px;
   margin-top: 60px;
+  margin-bottom: 60px;
 
   .gallery-wrapper {
     height: 550px;

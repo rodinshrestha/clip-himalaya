@@ -17,12 +17,11 @@ export const StyledDiv = styled.div`
   cursor: pointer;
   transform: translateX(100px);
   transition: transform 0.3s ease;
+  background-color: ${({ theme }) => theme.color.black['100']};
+    color: ${({ theme }) => theme.color.grey['100']};
 
   &.active {
     transform: translateX(0);
   }
-  &:hover {
-    background-color: ${({ theme }) => theme.color.black['100']};
-    color: ${({ theme }) => theme.color.grey['100']};
-  }
+ 
 `;

@@ -3,7 +3,7 @@
 import styled from 'styled-components';
 
 export const StyledDiv = styled.div`
-  margin-top: 40px;
+  padding: 40px 0;
 
   .section-title {
     text-align: center;
@@ -13,5 +13,6 @@ export const StyledDiv = styled.div`
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    row-gap: 60px;
   }
 `;
