@@ -7,7 +7,6 @@ export const StyledDiv = styled.div`
     position: relative;
     width: 100%;
     height: 300px;
-    filter: grayscale(100%) brightness(0.7);
 
     img {
       object-fit: cover;

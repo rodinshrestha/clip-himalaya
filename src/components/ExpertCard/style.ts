@@ -11,7 +11,6 @@ export const StyledDiv = styled.div`
       height: 400px;
       border-radius: 8px;
       overflow: hidden;
-      filter: grayscale(100%) brightness(0.7);
 
       img {
         object-fit: cover;

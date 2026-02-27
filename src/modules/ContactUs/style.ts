@@ -27,7 +27,6 @@ export const StyledDiv = styled.div`
 
       img {
         object-fit: cover;
-        filter: grayscale(100%) brightness(0.7);
       }
 
       .contact-us-info-wrapper {

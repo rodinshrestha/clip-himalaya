@@ -6,7 +6,6 @@ export const StyledDiv = styled.div`
   width: 100%;
   height: 99vh;
   position: relative;
-  filter: grayscale(100%) brightness(0.7);
   display: flex;
   align-items: center;
 

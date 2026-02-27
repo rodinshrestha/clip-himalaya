@@ -8,7 +8,6 @@ export const StyledDiv = styled.div`
   width: 100%;
   img {
     object-fit: cover;
-    filter: grayscale(100%) brightness(0.7);
   }
 
   .information-content {
