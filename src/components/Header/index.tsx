@@ -15,12 +15,24 @@ import Row from '../Row';
 import Typography from '../Typography';
 
 import { StyledHeader } from './style';
+import { SiteSettingTypes } from '@/types/site-settings.type';
+import { urlFor } from '@/sanity/client';
 
-const Header = () => {
+type Props = {
+  siteSettings: SiteSettingTypes;
+};
+
+const Header = ({ siteSettings }: Props) => {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const pathname = usePathname();
   const { trekStickyHeader } = useHeader();
+
+  const {
+    logoImage = null,
+    siteTitle = '',
+    siteHelperText = '',
+  } = siteSettings || {};
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -53,14 +65,14 @@ const Header = () => {
               <div className="logo-content">
                 <div className="logo-wrapper">
                   <ImageWithFallback
-                    src="/images/logo.png"
+                    src={urlFor(logoImage).url()}
                     alt="clip-himalaya-logo"
                     fill
                   />
                 </div>
                 <div className="title-content">
-                  <Typography as="h1">CLIP HIMALAYA</Typography>
-                  <Typography as="body1">Wander where wifi is weak</Typography>
+                  <Typography as="h1">{siteTitle}</Typography>
+                  <Typography as="body1">{siteHelperText}</Typography>
                 </div>
               </div>
               <div className="header-navigation-wrapper">

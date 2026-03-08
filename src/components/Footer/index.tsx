@@ -9,8 +9,19 @@ import Row from '../Row';
 import Typography from '../Typography';
 
 import { StyledDiv } from './style';
+import { SiteSettingTypes } from '@/types/site-settings.type';
+import { urlFor } from '@/sanity/client';
 
-const Footer = () => {
+type Props = {
+  siteSettings: SiteSettingTypes;
+};
+
+const Footer = ({ siteSettings }: Props) => {
+  const {
+    footerLogoImage = null,
+    address = '',
+    city = '',
+  } = siteSettings || {};
   return (
     <StyledDiv className="footer">
       <Container>
@@ -19,7 +30,7 @@ const Footer = () => {
             <div className="footer-wrapper">
               <div className="footer-logo-wrapper">
                 <ImageWithFallback
-                  src="/images/logo.png"
+                  src={urlFor(footerLogoImage).url()}
                   alt="footer-logo"
                   fill
                 />
@@ -32,10 +43,10 @@ const Footer = () => {
                   </Typography>
                   <div className="footer-items-inner-wrapper">
                     <Typography as="p" className="footer-item">
-                      Boudha 06,
+                      {address}
                     </Typography>
                     <Typography as="p" className="footer-item">
-                      Kathmandu, Nepal
+                      {city}
                     </Typography>
                     <Link
                       href="mail:cliphimalaya@gmail.com"
