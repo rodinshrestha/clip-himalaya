@@ -3,29 +3,50 @@ import React from 'react';
 import Typography from '@/components/Typography';
 
 import { StyledDiv } from './style';
+import { AnnapuranCircuitType } from '../../aanapurna-circuit-type';
 
-const AnnapurnaTrekkingFacts = () => {
+type Props = {
+  data: AnnapuranCircuitType;
+};
+
+const AnnapurnaTrekkingFacts = ({ data }: Props) => {
+  const {
+    bestSeason = '',
+    transportation = '',
+    accommodation = '',
+    grade = '',
+    highestPoint = '',
+    duration = '',
+    groupSize = '',
+    culture = '',
+    himalayanSight = '',
+    attraction = '',
+  } = data || {};
   return (
     <StyledDiv>
       <div className="title-wrapper">Trekking Facts</div>
-      <Typography as="body2">
-        Best Season: Autumn (Sep to Dec) & Spring (Feb to May)
-      </Typography>
-      <Typography as="body2">
-        Transportation: By tourist Vehicles (bus, Car, Van)
-      </Typography>
-      <Typography as="body2">Accommodation: Tea house /Camping</Typography>
-      <Typography as="body2">Grade: Strenuous Trek</Typography>
-      <Typography as="body2">Highest Point: 5416m</Typography>
-      <Typography as="body2">Duration: 18 Days</Typography>
-      <Typography as="body2">Group Size: Min 1 to Max 10</Typography>
-      <Typography as="body2">Culture: Gurung, Magar, Thakali</Typography>
-      <Typography as="body2">
-        Himalayan Sights: Annapurna, Dhaulagiri and Fishtail
-      </Typography>
-      <Typography as="body2">
-        Attraction: Close Mountain View, Villages
-      </Typography>
+      {bestSeason && (
+        <Typography as="body2">Best Season: {bestSeason}</Typography>
+      )}
+      {transportation && (
+        <Typography as="body2">Transportation: {transportation}</Typography>
+      )}
+      {accommodation && (
+        <Typography as="body2">Accommodation: {accommodation}</Typography>
+      )}
+      {grade && <Typography as="body2">Grade: {grade}</Typography>}
+      {highestPoint && (
+        <Typography as="body2">Highest Point: {highestPoint}</Typography>
+      )}
+      {duration && <Typography as="body2">Duration: {duration}</Typography>}
+      {groupSize && <Typography as="body2">Group Size: {groupSize}</Typography>}
+      {culture && <Typography as="body2">Culture: {culture}</Typography>}
+      {himalayanSight && (
+        <Typography as="body2">Himalayan Sights: {himalayanSight}</Typography>
+      )}
+      {attraction && (
+        <Typography as="body2">Attraction: {attraction}</Typography>
+      )}
     </StyledDiv>
   );
 };

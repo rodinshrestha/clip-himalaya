@@ -7,17 +7,23 @@ import { SwiperSlide } from 'swiper/react';
 import Card from '@/components/Card';
 import Col from '@/components/Col';
 import Container from '@/components/Container';
-// import MySwiper from '@/components/MySwiper';
+import { urlFor } from '@/sanity/client';
 import Row from '@/components/Row';
 import Typography from '@/components/Typography';
 
 import { StyledDiv } from './style';
+import { HomePageType } from '../../home-page.types';
 
 const MySwiper = dynamic(() => import('@/components/MySwiper'), {
   ssr: false,
 });
 
-const TopTrekSection = () => {
+type Props = {
+  data: HomePageType;
+};
+
+const TopTrekSection = ({ data }: Props) => {
+  const { sectionTitle = '', popularTreks = [] } = data?.homeData || {};
   return (
     <StyledDiv className="top-trek-section" id="top-trek-section">
       <Container>
@@ -26,15 +32,17 @@ const TopTrekSection = () => {
             <div className="top-trek-wrapper">
               <div className="section-title-wrapper">
                 <Typography as="h3" className="section-title">
-                  CLIP HIMALAYA TOP TREK
+                  {sectionTitle}
                 </Typography>
               </div>
               <div className="top-trek-card-wrapper">
                 <MySwiper>
-                  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((x) => {
+                  {popularTreks.map((x, i) => {
+                    const imageUrl = urlFor(x.image).url();
+
                     return (
-                      <SwiperSlide key={x}>
-                        <Card />
+                      <SwiperSlide key={i}>
+                        <Card imageUrl={imageUrl} textInfo={x.titles} />
                       </SwiperSlide>
                     );
                   })}

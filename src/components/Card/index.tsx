@@ -5,19 +5,22 @@ import ImageWithFallback from '../ImageWithFallBack';
 
 import { StyledDiv } from './style';
 
-const Card = () => {
+type Props = {
+  imageUrl: string;
+  textInfo: string[];
+};
+
+const Card = ({ imageUrl = '', textInfo = [] }: Props) => {
   return (
     <StyledDiv>
       <div className="image-wrapper">
-        <ImageWithFallback fill alt="trek-image" src="/images/trek.jpeg" />
+        <ImageWithFallback fill alt="trek-image" src={imageUrl} />
       </div>
 
       <ul className="card-information-list">
-        <li>Round trip airfare</li>
-        <li>4D/3N Twin share room</li>
-        <li>Half board meals</li>
-        <li>Guided nature tour</li>
-        <li>Welcome</li>
+        {textInfo.map((x, i) => {
+          return <li key={i}>{x}</li>;
+        })}
       </ul>
 
       <Button size="full-width" variant="outline">

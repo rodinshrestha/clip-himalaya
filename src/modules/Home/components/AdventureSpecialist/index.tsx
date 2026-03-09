@@ -14,12 +14,24 @@ import Row from '@/components/Row';
 import Typography from '@/components/Typography';
 
 import { StyledDiv } from './style';
+import { HomePageType } from '../../home-page.types';
+import { urlFor } from '@/sanity/client';
 
 const MySwiper = dynamic(() => import('@/components/MySwiper'), {
   ssr: false,
 });
 
-const AdventureSpecialist = () => {
+type Props = {
+  data: HomePageType;
+};
+
+const AdventureSpecialist = ({ data }: Props) => {
+  const {
+    contactUsTitle = '',
+    contactUsInfo = '',
+    contactUsNumber = '',
+  } = data?.homeData || {};
+  const { memberList = [] } = data?.memberList || [];
   return (
     <StyledDiv>
       <Container>
@@ -29,17 +41,22 @@ const AdventureSpecialist = () => {
               <Divider />
               <div className="section-title-wrapper">
                 <Typography as="h3" className="section-title">
-                  Plan your trek with our adventure expert
+                  {contactUsTitle}
                 </Typography>
               </div>
 
               <div className="adventure-specialist-content">
                 <div className="adventure-expert-list">
                   <MySwiper slidePerView={3.5}>
-                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((x) => {
+                    {memberList.map((x, i) => {
+                      const imageUrl = urlFor(x.memberImage).url();
                       return (
-                        <SwiperSlide key={x}>
-                          <ExpertCard />
+                        <SwiperSlide key={i}>
+                          <ExpertCard
+                            imageUrl={imageUrl}
+                            designation={x.memberDesignation}
+                            name={x.memberName}
+                          />
                         </SwiperSlide>
                       );
                     })}
@@ -48,10 +65,10 @@ const AdventureSpecialist = () => {
 
                 <div className="adventure-contact-us">
                   <Typography as="p" className="call-us-text">
-                    Call us, We&apos;re available 24/7
+                    {contactUsInfo}
                   </Typography>
                   <Link href="tel:+977 980123456" className="contact-us">
-                    +977 9801234567
+                    {contactUsNumber}
                   </Link>
 
                   <Button className="call-btn" size="md" variant="outline">

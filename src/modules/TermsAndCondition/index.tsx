@@ -5,13 +5,18 @@ import BreadCrumbs from '@/components/BreadCrumbs';
 import TermsAndConditionLandingPage from './components/TermAndConditionLandingPage';
 import TermsAndConditionList from './components/TermAndConditionList';
 import { StyledDiv } from './style';
+import { TermConditionType } from './term-condition.type';
 
-const TermsAndCondition = () => {
+type Props = {
+  data: TermConditionType;
+};
+
+const TermsAndCondition = ({ data }: Props) => {
   return (
     <StyledDiv>
-      <TermsAndConditionLandingPage />
+      <TermsAndConditionLandingPage data={data} />
       <BreadCrumbs crumbs={[{ label: 'Term & Conditions' }]} />
-      <TermsAndConditionList />
+      <TermsAndConditionList data={data} />
     </StyledDiv>
   );
 };

@@ -7,8 +7,14 @@ import Row from '@/components/Row';
 import Typography from '@/components/Typography';
 
 import { StyledDiv } from './style';
+import { OurTeamType } from '../../our-team.type';
 
-const OurTeamJourney = () => {
+type Props = {
+  data: OurTeamType;
+};
+
+const OurTeamJourney = ({ data }: Props) => {
+  const { sectionTitle = '', sectionDescription = [] } = data || {};
   return (
     <StyledDiv>
       <BreadCrumbs
@@ -19,14 +25,12 @@ const OurTeamJourney = () => {
         <Row>
           <Col>
             <div className="text-wrapper">
-              <Typography as="p">Journey With Experts</Typography>
-              <Typography as="body1">
-                Our team of travel experts is dedicated to making your journey
-                seamless and unforgettable. With years of experience and a
-                passion for exploration, we ensure every trip is planned to
-                perfection. From breathtaking destinations to personalized
-                itineraries, we’re here to guide you every step of the way.
-              </Typography>
+              <Typography as="p">{sectionTitle}</Typography>
+              {sectionDescription.map((x, i) => {
+                const { text = '' } = x?.children?.[0] || {};
+                if (!text) return;
+                return <Typography as="body1">{text}</Typography>;
+              })}
             </div>
           </Col>
         </Row>

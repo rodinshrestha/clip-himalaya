@@ -6,6 +6,13 @@ export const ourStoryPageType = defineType({
   title: 'Our Story Page',
   type: 'document',
   icon: UserIcon,
+  preview: {
+    prepare() {
+      return {
+        title: 'Our Story Page',
+      };
+    },
+  },
   fields: [
     defineField({
       name: 'galleryImages',

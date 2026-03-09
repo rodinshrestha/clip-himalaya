@@ -6,6 +6,13 @@ export const ourTeamPageType = defineType({
   title: 'Our Team Page',
   type: 'document',
   icon: UserIcon,
+  preview: {
+    prepare() {
+      return {
+        title: 'Our Team Page',
+      };
+    },
+  },
   fields: [
     defineField({
       name: 'bannerImage',
@@ -16,19 +23,16 @@ export const ourTeamPageType = defineType({
       },
     }),
     defineField({
-      name: 'bannerText1',
-      title: 'Banner Text 1',
-      type: 'string',
-    }),
-    defineField({
-      name: 'bannerText2',
-      title: 'Banner Text 2',
-      type: 'string',
-    }),
-    defineField({
-      name: 'bannerText3',
-      title: 'Banner Text 3',
-      type: 'string',
+      name: 'bannerText',
+      title: 'Banner Text',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'block',
+          styles: [{ title: 'Normal', value: 'normal' }],
+          lists: [],
+        }),
+      ],
     }),
 
     defineField({
@@ -39,7 +43,14 @@ export const ourTeamPageType = defineType({
     defineField({
       name: 'sectionDescription',
       title: 'Section Description',
-      type: 'string',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'block',
+          styles: [{ title: 'Normal', value: 'normal' }],
+          lists: [],
+        }),
+      ],
     }),
 
     defineField({

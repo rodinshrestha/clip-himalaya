@@ -1,9 +1,13 @@
 import React from 'react';
 
 import AnnapurnaCircuit from '@/modules/AnnapurnaCircuit';
+import { annapurnaPageQuery } from '@/query';
+import { client } from '@/sanity/client';
 
-const AnnapurnaCircuitPage = () => {
-  return <AnnapurnaCircuit />;
+const AnnapurnaCircuitPage = async () => {
+  const data = await client.fetch(annapurnaPageQuery);
+
+  return <AnnapurnaCircuit data={data} />;
 };
 
 export default AnnapurnaCircuitPage;

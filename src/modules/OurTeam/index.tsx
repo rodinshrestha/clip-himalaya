@@ -5,14 +5,19 @@ import OurTeamFaq from './components/OurTeamFaq';
 import OurTeamJourney from './components/OurTeamJourney';
 import OurTeamLandingPage from './components/OurTeamLandingPage';
 import { StyledDiv } from './style';
+import { OurTeamType } from './our-team.type';
 
-const OurTeam = () => {
+type Props = {
+  data: OurTeamType;
+};
+
+const OurTeam = ({ data }: Props) => {
   return (
     <StyledDiv>
-      <OurTeamLandingPage />
-      <OurTeamJourney />
-      <OurExpertList />
-      <OurTeamFaq />
+      <OurTeamLandingPage data={data} />
+      <OurTeamJourney data={data} />
+      <OurExpertList data={data} />
+      <OurTeamFaq data={data} />
     </StyledDiv>
   );
 };

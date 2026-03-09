@@ -7,8 +7,26 @@ import Row from '@/components/Row';
 import Typography from '@/components/Typography';
 
 import { StyledDiv } from './style';
+import { OurStoryType } from '../../our-story.type';
+import { urlFor } from '@/sanity/client';
+type Props = {
+  data: OurStoryType;
+};
 
-const OurStoryImageBanner = () => {
+const OurStoryImageBanner = ({ data }: Props) => {
+  const { galleryImages = [] } = data || {};
+  const [
+    image1 = '',
+    image2 = '',
+    image3 = '',
+    image4 = '',
+    image5 = '',
+    image6 = '',
+    image7 = '',
+    image8 = '',
+    image9 = '',
+    image10 = '',
+  ] = galleryImages || [];
   return (
     <StyledDiv className="our-story-image-banner-wrapper">
       <Container>
@@ -17,7 +35,7 @@ const OurStoryImageBanner = () => {
             <div className="first-row">
               <div className="first-row-left-column-image-wrapper">
                 <ImageWithFallback
-                  src="/images/1.jpeg"
+                  src={urlFor(image1).url()}
                   alt="story-image-1"
                   fill
                 />
@@ -25,21 +43,21 @@ const OurStoryImageBanner = () => {
               <div className="first-row-center-column-image-wrapper">
                 <div className="first-row-center-image-1">
                   <ImageWithFallback
-                    src="/images/1.jpeg"
+                    src={urlFor(image2).url()}
                     alt="story-image-1"
                     fill
                   />
                 </div>
                 <div className="first-row-center-image-2">
                   <ImageWithFallback
-                    src="/images/1.jpeg"
+                    src={urlFor(image3).url()}
                     alt="story-image-1"
                     fill
                   />
                 </div>
                 <div className="first-row-center-image-3">
                   <ImageWithFallback
-                    src="/images/1.jpeg"
+                    src={urlFor(image4).url()}
                     alt="story-image-1"
                     fill
                   />
@@ -47,7 +65,7 @@ const OurStoryImageBanner = () => {
               </div>
               <div className="first-row-right-column-image-wrapper">
                 <ImageWithFallback
-                  src="/images/1.jpeg"
+                  src={urlFor(image5).url()}
                   alt="story-image-1"
                   fill
                 />
@@ -56,7 +74,7 @@ const OurStoryImageBanner = () => {
             <div className="second-row">
               <div className="second-row-left-column-image-wrapper">
                 <ImageWithFallback
-                  src="/images/1.jpeg"
+                  src={urlFor(image6).url()}
                   alt="story-image-1"
                   fill
                 />
@@ -66,7 +84,7 @@ const OurStoryImageBanner = () => {
               </div>
               <div className="second-row-right-column-image-wrapper">
                 <ImageWithFallback
-                  src="/images/1.jpeg"
+                  src={urlFor(image7).url()}
                   alt="story-image-1"
                   fill
                 />
@@ -77,21 +95,21 @@ const OurStoryImageBanner = () => {
               <div className="third-row-center-column-image-wrapper">
                 <div className="third-row-center-image-1">
                   <ImageWithFallback
-                    src="/images/1.jpeg"
+                    src={urlFor(image8).url()}
                     alt="story-image-1"
                     fill
                   />
                 </div>
                 <div className="third-row-center-image-2">
                   <ImageWithFallback
-                    src="/images/1.jpeg"
+                    src={urlFor(image9).url()}
                     alt="story-image-1"
                     fill
                   />
                 </div>
                 <div className="third-row-center-image-3">
                   <ImageWithFallback
-                    src="/images/1.jpeg"
+                    src={urlFor(image10).url()}
                     alt="story-image-1"
                     fill
                   />

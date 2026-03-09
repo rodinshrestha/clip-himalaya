@@ -10,8 +10,14 @@ import AnnapurnaLandingPage from './components/AnnapurnaLandingPage';
 import AnnapurnaTrekingDetails from './components/AnnapurnaTrekingDetails';
 import AnnapurnaTrekkingFacts from './components/AnnapurnaTrekkingFacts';
 import { StyledDiv } from './style';
+import { AnnapuranCircuitType } from './aanapurna-circuit-type';
 
-const AnnapurnaCircuit = () => {
+type Props = {
+  data: AnnapuranCircuitType;
+};
+
+const AnnapurnaCircuit = ({ data }: Props) => {
+  const { itineraryDetails = [] } = data || {};
   return (
     <StyledDiv>
       <AnnapurnaLandingPage />
@@ -24,20 +30,21 @@ const AnnapurnaCircuit = () => {
           <Col>
             <div className="annapurna-trekking-information-wrapper">
               <div className="annapurna-trekking-list">
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((x) => {
+                {itineraryDetails.map((x, i) => {
+                  const { day = '', elevation = '', details = [] } = x;
                   return (
                     <AnnapurnaTrekingDetails
-                      key={x}
-                      day={`Day ${x} - Kathmandu: Arrival Day`}
-                      elevation="1350m/4428ft"
-                      description="Welcome to Nepal and the start of our adventure! One of our Airport Representatives will be on hand to greet you when your plane lands and transfer you to your hotel in Kathmandu. We'll have a final briefing in the evening and then turn in early in advance of a big day tomorrow"
+                      key={i}
+                      day={day}
+                      elevation={elevation}
+                      description={details}
                     />
                   );
                 })}
               </div>
               <div className="trekking-facts-wrapper">
-                <AnnapurnaTrekkingFacts />
-                <AnnapurnaBookWithUs />
+                <AnnapurnaTrekkingFacts data={data} />
+                <AnnapurnaBookWithUs data={data} />
               </div>
             </div>
           </Col>

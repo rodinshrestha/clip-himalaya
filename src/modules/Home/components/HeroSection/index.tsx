@@ -12,14 +12,26 @@ import { interpolate } from '@/utils/interpolate';
 
 import { StyledDiv } from './style';
 import Overlay from '@/components/Overlay';
+import { HomePageType } from '../../home-page.types';
 
-const HeroSection = () => {
+type Props = {
+  data: HomePageType;
+};
+
+const HeroSection = ({ data }: Props) => {
   const [factor, setFactor] = React.useState({
     position: 0,
     opacity: 1,
   });
   const { scrollY } = useScroll();
   const ref = React.useRef<HTMLDivElement | null>(null);
+
+  const {
+    animatedTextList = [],
+    title = '',
+    helperText = '',
+  } = data?.homeData || {};
+
   React.useEffect(() => {
     const handleScroll = () => {
       if (ref.current) {
@@ -40,13 +52,7 @@ const HeroSection = () => {
   }, [scrollY]);
 
   const [text] = useTypewriter({
-    words: [
-      'Find Yourself.',
-      'Break Your Limits!',
-      'Disconnect to Reconnect.',
-      'Chase Real Adventures.',
-      'Create Lifelong Stories.',
-    ],
+    words: animatedTextList,
     loop: 0,
   });
 
@@ -76,9 +82,9 @@ const HeroSection = () => {
         }}
       >
         <Typography as="h1">
-          This Is Where You <span className="auto-text">{text}</span>
+          {title} <span className="auto-text">{text}</span>
         </Typography>
-        <Typography as="body2">Walk Above the Clouds.</Typography>
+        <Typography as="body2">{helperText} </Typography>
       </motion.div>
       <div
         className="scroll-indicator"

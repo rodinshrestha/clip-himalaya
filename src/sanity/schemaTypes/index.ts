@@ -10,6 +10,7 @@ import { annapurnaCircuitPageType } from './annapurnaCircuitPageType';
 import { ourStoryPageType } from './ourStoryPageType';
 import { ourTeamPageType } from './ourTeamPageType';
 import { contactUsPageType } from './contactUsPageType';
+import { termConditionPageType } from './termsConditionPageType';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -20,5 +21,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     ourStoryPageType,
     ourTeamPageType,
     contactUsPageType,
+    termConditionPageType,
   ],
 };

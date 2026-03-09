@@ -3,19 +3,30 @@ import Typography from '../Typography';
 
 import { StyledDiv } from './style';
 
-const ExpertCard = () => {
+type Props = {
+  imageUrl: string;
+  name: string;
+  designation: string;
+};
+
+const ExpertCard = ({ imageUrl = '', name = '', designation = '' }: Props) => {
   return (
     <StyledDiv className="expert-card-wrapper">
-      <div className="image-wrapper">
-        <ImageWithFallback src="/images/expert.jpeg" alt="expert-card" fill />
-      </div>
-
-      <Typography as="p" className="expert-title">
-        Nawag
-      </Typography>
-      <Typography as="p" className="expert-desigination">
-        CEO
-      </Typography>
+      {imageUrl && (
+        <div className="image-wrapper">
+          <ImageWithFallback src={imageUrl} alt="expert-card" fill />
+        </div>
+      )}
+      {name && (
+        <Typography as="p" className="expert-title">
+          {name}
+        </Typography>
+      )}
+      {designation && (
+        <Typography as="p" className="expert-desigination">
+          {designation}
+        </Typography>
+      )}
     </StyledDiv>
   );
 };

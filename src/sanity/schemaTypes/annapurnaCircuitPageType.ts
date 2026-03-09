@@ -3,10 +3,17 @@ import { UserIcon } from '@sanity/icons';
 
 export const annapurnaCircuitPageType = defineType({
   name: 'annapurnaCircuitPage',
-  title: 'Annapurna Circuit Page Settings',
+  title: 'Annapurna Circuit Page',
   type: 'document',
   icon: UserIcon,
   fieldsets: [{ name: 'trekkingFact', title: 'Trekking Fact' }],
+  preview: {
+    prepare() {
+      return {
+        title: 'Annapurna Circuit Page',
+      };
+    },
+  },
   fields: [
     defineField({
       name: 'bannerImage',

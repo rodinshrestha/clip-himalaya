@@ -14,8 +14,24 @@ import Typography from '@/components/Typography';
 
 import { StyledDiv } from './style';
 import Overlay from '@/components/Overlay';
+import { ContactUsType } from './contact-us.type';
+import { urlFor } from '@/sanity/client';
 
-const ContactUs = () => {
+type Props = {
+  data: ContactUsType;
+};
+
+const ContactUs = ({ data }: Props) => {
+  const {
+    bannerImage = '',
+    title = '',
+    helperText = '',
+    phoneNumber = '',
+    mobileNumber = '',
+    officeHour = '',
+  } = data?.contact || {};
+
+  const { address = '', city = '', gmail = '' } = data?.address || {};
   return (
     <StyledDiv>
       <Container>
@@ -25,7 +41,7 @@ const ContactUs = () => {
               <div className="image-wrapper">
                 <Overlay />
                 <ImageWithFallback
-                  src="/images/contact-us-image.png"
+                  src={urlFor(bannerImage).url()}
                   alt="contact-us-bg-image"
                   fill
                 />
@@ -38,42 +54,38 @@ const ContactUs = () => {
                         fill
                       />
                     </div>
-                    <Typography as="p">CLIP HIMALAYA</Typography>
+                    <Typography as="p">{title}</Typography>
                   </div>
                   <Typography as="p" className="plan-text">
-                    Let&apos;s plan your next trip
+                    {helperText}
                   </Typography>
 
                   <div className="contact-info-wrapper">
                     <div className="contact-info-left">
                       <Typography as="p">Address</Typography>
-                      <Typography as="body2">Boudha 06</Typography>
-                      <Typography as="body2">Kathmandu, Nepal</Typography>
+                      <Typography as="body2">{address}</Typography>
+                      <Typography as="body2">{city}</Typography>
                     </div>
                     <div className="contact-info-right">
                       <Typography as="p">Contact</Typography>
                       <Typography as="body2">
-                        Phone: <Link href="tel:123">(123) 123456788</Link>
+                        Phone:{' '}
+                        <Link href={`tel:${phoneNumber}`}>{phoneNumber}</Link>
                       </Typography>
                       <Typography as="body2">
-                        Mobile: <Link href="tel:123">(+977) 123456788</Link>
+                        Mobile:{' '}
+                        <Link href={`tel:${mobileNumber}`}>{mobileNumber}</Link>
                       </Typography>
                       <Typography as="body2">
                         Email:
-                        <Link href="mail:123@gmail.com">
-                          cliphimalaya@gmail.com
-                        </Link>
+                        <Link href={`mail:${gmail}`}>{gmail}</Link>
                       </Typography>
                     </div>
                   </div>
 
                   <div className="office-hour-wrapper">
                     <Typography as="p"> Office Hours</Typography>
-                    <Typography as="body2">
-                      Open 24 * 7 (For instant replies, custom trek planning,
-                      and any inquiries, message us on WhatsApp. We respond
-                      ASAP!)
-                    </Typography>
+                    <Typography as="body2">{officeHour}</Typography>
                   </div>
                 </div>
               </div>

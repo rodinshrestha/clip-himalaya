@@ -1,4 +1,4 @@
-import { defineArrayMember, defineField, defineType } from 'sanity';
+import { defineField, defineType } from 'sanity';
 import { UserIcon } from '@sanity/icons';
 
 export const contactUsPageType = defineType({
@@ -6,7 +6,22 @@ export const contactUsPageType = defineType({
   title: 'Contact Us Page',
   type: 'document',
   icon: UserIcon,
+  preview: {
+    prepare() {
+      return {
+        title: 'Contact Us Page',
+      };
+    },
+  },
   fields: [
+    defineField({
+      name: 'bannerImage',
+      title: 'Banner Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    }),
     defineField({
       name: 'title',
       title: 'Title',

@@ -1,26 +1,28 @@
 import React from 'react';
 
-import Link from 'next/link';
-
 import Typography from '@/components/Typography';
 
 import { StyledDiv } from './style';
+import { AnnapuranCircuitType } from '../../aanapurna-circuit-type';
 
-const AnnapurnaBookWithUs = () => {
+type Props = {
+  data: AnnapuranCircuitType;
+};
+
+const AnnapurnaBookWithUs = ({ data }: Props) => {
+  const { whyBookWithUs = [] } = data || {};
+  if (!whyBookWithUs.length) {
+    return null;
+  }
   return (
     <StyledDiv>
       <Typography as="body1">
         Here&apos;s several reasons why you should book with us:
       </Typography>
       <ul>
-        <li>Best Price & Value for Money</li>
-        <li>Experienced Guides & Porters</li>
-        <li>Have a Big Group? We can Help.</li>
-        <li>Top Notch Customer Service</li>
-        <li>Local Knowledge Counts</li>
-        <li>
-          Every Departure Date is Guaranteed. <Link href="#">Readmore...</Link>
-        </li>
+        {whyBookWithUs.map((x, i) => {
+          return <li key={i}>{x}</li>;
+        })}
       </ul>
     </StyledDiv>
   );

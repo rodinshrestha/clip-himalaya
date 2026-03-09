@@ -47,7 +47,7 @@ export const homePageType = defineType({
     }),
     // Second Section
     defineField({
-      name: 'Title',
+      name: 'sectionTitle',
       title: 'Popular Trek Section Title',
       type: 'string',
       fieldset: 'popularTrek',
@@ -99,39 +99,6 @@ export const homePageType = defineType({
       title: 'Contact Us Phone Number',
       type: 'string',
       fieldset: 'contactUs',
-    }),
-    defineField({
-      name: 'memberList',
-      title: 'Our Members',
-      type: 'array',
-      fieldset: 'contactUs',
-      of: [
-        defineArrayMember({
-          type: 'object',
-          name: 'memberList',
-          title: 'Member List',
-          fields: [
-            defineField({
-              name: 'memberImage',
-              title: 'Member Image',
-              type: 'image',
-              options: {
-                hotspot: true,
-              },
-            }),
-            defineField({
-              name: 'memberName',
-              title: 'Member Name',
-              type: 'string',
-            }),
-            defineField({
-              name: 'memberDesignation',
-              title: 'Member Desigantion',
-              type: 'string',
-            }),
-          ],
-        }),
-      ],
     }),
   ],
 });

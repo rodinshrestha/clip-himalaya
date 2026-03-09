@@ -6,16 +6,31 @@ import ExpertCard from '@/components/ExpertCard';
 import Row from '@/components/Row';
 
 import { StyledDiv } from './style';
+import { OurTeamType } from '../../our-team.type';
+import { urlFor } from '@/sanity/client';
 
-const OurExpertList = () => {
+type Props = {
+  data: OurTeamType;
+};
+
+const OurExpertList = ({ data }: Props) => {
+  const { memberList = [] } = data || {};
   return (
     <StyledDiv>
       <Container>
         <Row>
           <Col>
             <div className="expert-list-wrapper">
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((x) => {
-                return <ExpertCard key={x} />;
+              {memberList.map((x, i) => {
+                const imageUrl = urlFor(x.memberImage).url();
+                return (
+                  <ExpertCard
+                    key={i}
+                    imageUrl={imageUrl}
+                    designation={x.memberDesignation}
+                    name={x.memberName}
+                  />
+                );
               })}
             </div>
           </Col>

@@ -22,7 +22,7 @@ export const structure: StructureResolver = (S) =>
       // Annapurna Page Settings
       S.listItem()
         .id('annapurnaCircuitPage')
-        .title('Annapurna Circuit Page Settings')
+        .title('Annapurna Circuit Page')
         .child(
           S.document()
             .schemaType('annapurnaCircuitPage')
@@ -52,6 +52,16 @@ export const structure: StructureResolver = (S) =>
           S.document().schemaType('contactUsPage').documentId('contactUsPage')
         ),
 
+      // Term and condition page
+      S.listItem()
+        .id('termConditionpage')
+        .title('Term and Condition Page')
+        .child(
+          S.document()
+            .schemaType('termConditionpage')
+            .documentId('termConditionpage')
+        ),
+
       S.divider(),
       ...S.documentTypeListItems().filter(
         (item) =>
@@ -63,6 +73,7 @@ export const structure: StructureResolver = (S) =>
             'ourStoryPage',
             'ourTeamPage',
             'contactUsPage',
+            'termConditionpage',
           ].includes(item.getId()!)
       ),
     ]);

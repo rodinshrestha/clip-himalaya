@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Accordion from '@/components/Accordion';
 import Col from '@/components/Col';
 import Container from '@/components/Container';
@@ -7,25 +5,19 @@ import Row from '@/components/Row';
 import Typography from '@/components/Typography';
 
 import { StyledDiv } from './style';
+import { OurTeamType } from '../../our-team.type';
 
-const OurTeamFaq = () => {
-  const items = [
-    {
-      title: 'Day 1',
-      description:
-        'The excitement of spotting Everest for the first time while sipping tea at a Namche Bazaar viewpoint is surreal.',
-    },
-    {
-      title: 'Day 2',
-      description:
-        'A rewarding short hike offering one of the best panoramic views of Everest, Lhotse, and Ama Dablam.',
-    },
-    {
-      title: 'Day 3',
-      description:
-        'A rewarding short hike offering one of the best panoramic views of Everest, Lhotse, and Ama Dablam.',
-    },
-  ];
+type Props = {
+  data: OurTeamType;
+};
+
+const OurTeamFaq = ({ data }: Props) => {
+  const { faqList } = data || {};
+
+  const items = faqList.map((x) => ({
+    title: x.question,
+    description: x.answer,
+  }));
   return (
     <StyledDiv>
       <Container>

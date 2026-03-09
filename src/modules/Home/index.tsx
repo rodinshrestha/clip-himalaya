@@ -5,13 +5,18 @@ import HeroSection from './components/HeroSection';
 import Testimonial from './components/Testimonial';
 import TopTrekSection from './components/TopTrekSection';
 import { StyledDiv } from './style';
+import { HomePageType } from './home-page.types';
 
-const Home = () => {
+type Props = {
+  data: HomePageType;
+};
+
+const Home = ({ data }: Props) => {
   return (
     <StyledDiv>
-      <HeroSection />
-      <TopTrekSection />
-      <AdventureSpecialist />
+      <HeroSection data={data} />
+      <TopTrekSection data={data} />
+      <AdventureSpecialist data={data} />
       <Testimonial />
     </StyledDiv>
   );

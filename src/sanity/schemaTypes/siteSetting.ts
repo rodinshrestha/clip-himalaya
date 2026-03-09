@@ -6,6 +6,13 @@ export const siteSettingType = defineType({
   title: 'Site Settings',
   type: 'document',
   icon: UserIcon,
+  preview: {
+    prepare() {
+      return {
+        title: 'Site Global Setting',
+      };
+    },
+  },
   fields: [
     defineField({
       name: 'logoImage',

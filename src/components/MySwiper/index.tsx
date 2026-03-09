@@ -21,8 +21,6 @@ const MySwiper = ({ children, slidePerView = 4.5 }: Props) => {
       navigation
       pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log('slide change')}
       className="mySwiper"
       breakpoints={{
         0: {
