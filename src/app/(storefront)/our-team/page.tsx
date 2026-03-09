@@ -5,7 +5,7 @@ import { client } from '@/sanity/client';
 import { ourTeamPageQuery } from '@/query';
 import { REVALIDATE } from '@/constants/revalidate.constant';
 
-export const revalidate = REVALIDATE;
+export const revalidate = 30;
 
 const OurTeamPage = async () => {
   const data = await client.fetch(ourTeamPageQuery);
