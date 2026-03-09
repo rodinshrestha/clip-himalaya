@@ -11,6 +11,11 @@ type keyHighlightsType = {
   description: BlockType[];
 };
 
+type EssentialTipsType = {
+  title: string;
+  description: BlockType[];
+};
+
 export type TrekDetailsType = {
   difficult: string;
   image: ImageType;
@@ -22,7 +27,7 @@ export type TrekDetailsType = {
   trekDescription: BlockType[];
   costExclude: string[];
   costInclude: string[];
-  essentialTips: BlockType[];
+  essentialTips: EssentialTipsType[];
   helperTitle: string;
   imageGallery: [{ image: ImageType }];
   itineraryDetails: ItineraryDetailType[];

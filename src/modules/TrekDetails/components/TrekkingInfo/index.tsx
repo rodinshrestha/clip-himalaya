@@ -6,7 +6,7 @@ import { StyledDiv } from './style';
 
 type Props = {
   title: string;
-  description?: string;
+  description?: string | string[];
 };
 
 const TrekkingInfo = ({ title, description }: Props) => {
@@ -17,8 +17,14 @@ const TrekkingInfo = ({ title, description }: Props) => {
         <div className="connector" />
       </div>
       <div className="content-wrapper">
-        <Typography as="body1">{title}</Typography>
-        {description && <Typography as="body2">{description}</Typography>}
+        {title && <Typography as="body1">{title}</Typography>}
+        {Array.isArray(description) && description.length ? (
+          description.map((x) => {
+            return <Typography as="body2">{description}</Typography>;
+          })
+        ) : (
+          <Typography as="body2">{description}</Typography>
+        )}
       </div>
     </StyledDiv>
   );

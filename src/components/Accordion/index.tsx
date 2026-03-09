@@ -17,8 +17,8 @@ import {
 
 interface AccordionItem {
   title: string;
-  description: string;
-  children?: { label: string; description: string }[];
+  description?: string;
+  children?: string[];
 }
 
 type AccordionProps = {
@@ -76,11 +76,12 @@ const Accordion = ({ items, allowMultiple = false }: AccordionProps) => {
               {children.length ? (
                 children.map((x, innerIndex) => {
                   return (
-                    <TrekkingInfo
-                      key={innerIndex}
-                      title="First Glimpse of Everest from Namche Bazaar"
-                      description="The excitement of spotting Everest for the first time while sipping tea at a Namche Bazaar viewpoint is surreal."
-                    />
+                    // <TrekkingInfo
+                    //   key={innerIndex}
+                    //   title="First Glimpse of Everest from Namche Bazaar"
+                    //   description="The excitement of spotting Everest for the first time while sipping tea at a Namche Bazaar viewpoint is surreal."
+                    // />
+                    <Description key={innerIndex}>{x}</Description>
                   );
                 })
               ) : (

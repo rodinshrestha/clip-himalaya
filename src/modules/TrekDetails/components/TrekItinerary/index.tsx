@@ -27,7 +27,7 @@ const TrekItinerary = ({ data }: Props) => {
           <Col>
             <ItineraryHeader />
             <KeyHighlights data={data} />
-            <ItineraryDetails />
+            <ItineraryDetails data={data} />
             <section
               className="trek-cost-include-exclude-wrapper"
               id="costs-include"
@@ -35,7 +35,7 @@ const TrekItinerary = ({ data }: Props) => {
               <CostInclude data={data} />
               <CostExclude data={data} />
             </section>
-            <EssentialTips />
+            <EssentialTips data={data} />
             <Gallery data={data} />
           </Col>
         </Row>

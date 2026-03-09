@@ -7,6 +7,7 @@ import TrekkingTitleSection from '../TrekkingTitleSection';
 
 import { StyledDiv } from './style';
 import { TrekDetailsType } from '../../trek-details.types';
+import { sanitizeBlockData } from '@/utils/sanitize-block-data';
 
 type Props = {
   data: TrekDetailsType;
@@ -14,43 +15,20 @@ type Props = {
 
 const KeyHighlights = ({ data }: Props) => {
   const { keyHighlights } = data || {};
+
+  const items = keyHighlights.map((x) => ({
+    title: x.title,
+    children: sanitizeBlockData(x.description),
+  }));
   return (
     <StyledDiv className="key-highlights-container" id="key-highlights">
       <TrekkingTitleSection icon={Sun} title="KEY HIGHLIGHTS" />
       <div className="key-hightlights-wrapper">
-        <TrekkingInfo
-          title="First Glimpse of Everest from Namche Bazaar"
-          description="The excitement of spotting Everest for the first time while sipping tea at a Namche Bazaar viewpoint is surreal."
-        />
-        <TrekkingInfo
-          title="Acclimatization Hike to Everest View Hotel"
-          description="A rewarding short hike offering one of the best panoramic views of Everest, Lhotse, and Ama Dablam."
-        />
-        <TrekkingInfo
-          title="Crossing High Suspension Bridges"
-          description="Adrenaline rushes as you walk across swaying suspension bridges over deep gorges, prayer flags fluttering in the wind."
-        />
-        <TrekkingInfo
-          title="Reaching the Everest Base Camp"
-          description="The thrill of standing at the foot of Everest, surrounded by climbers, colorful tents, and the mighty Khumbu Icefall."
-        />
-        <TrekkingInfo
-          title="CSunrise at Kala Patthar"
-          description="The awesomeness will drive you next level."
-        />
-        <TrekkingInfo
-          title="Duration"
-          description="10 Days, Best Time: (Sep-Oct-Nov) and (March-Aprill-May)"
-        />
-        <TrekkingInfo title="Difficuilt" description="Challenging, Grade : 7" />
-        <TrekkingInfo
-          title="Altitude"
-          description="Start: 2610M, Highest: 5545M"
-        />
-        <TrekkingInfo
-          title="Journey"
-          description="From: Kathmandu, To: Lukla"
-        />
+        {items.map((x, i) => {
+          return (
+            <TrekkingInfo title={x.title} description={x.children} key={i} />
+          );
+        })}
       </div>
     </StyledDiv>
   );

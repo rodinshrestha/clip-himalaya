@@ -18,7 +18,6 @@ const PopularTrek = ({ data }: Props) => {
   const { trekList = [] } = data || {};
   const { sectionTitle = '' } = data?.pageData || {};
 
-  console.log(trekList, '@@@@');
   return (
     <StyledDiv>
       <Container>
