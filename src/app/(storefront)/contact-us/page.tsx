@@ -1,6 +1,9 @@
+import { REVALIDATE } from '@/constants/revalidate.constant';
 import ContactUs from '@/modules/ContactUs';
 import { ContactUsPageQuery } from '@/query';
 import { client } from '@/sanity/client';
+
+export const revalidate = REVALIDATE;
 
 const ContactUsPage = async () => {
   const data = await client.fetch(ContactUsPageQuery);

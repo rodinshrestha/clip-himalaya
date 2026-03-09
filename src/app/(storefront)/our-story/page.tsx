@@ -3,6 +3,9 @@ import React from 'react';
 import OurStory from '@/modules/OurStory';
 import { ourStoryQuery } from '@/query';
 import { client } from '@/sanity/client';
+import { REVALIDATE } from '@/constants/revalidate.constant';
+
+export const revalidate = REVALIDATE;
 
 const OurStoryPage = async () => {
   const data = await client.fetch(ourStoryQuery);
