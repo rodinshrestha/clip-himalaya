@@ -8,8 +8,13 @@ import TrekDetailslandingPage from './components/TrekDetailsLandingPage';
 import TrekItinerary from './components/TrekItinerary';
 import TrekSummary from './components/TrekSummary';
 import { StyledDiv } from './style';
+import { TrekDetailsType } from './trek-details.types';
 
-const TrekDetails = () => {
+type Props = {
+  data: TrekDetailsType;
+};
+
+const TrekDetails = ({ data }: Props) => {
   const [stickyBtn, setStickyBtn] = React.useState(false);
 
   const crumbs = [
@@ -21,10 +26,10 @@ const TrekDetails = () => {
     <StyledDiv>
       <StickyButton stickyBtn={stickyBtn} />
 
-      <TrekDetailslandingPage setStickyBtn={setStickyBtn} />
+      <TrekDetailslandingPage setStickyBtn={setStickyBtn} data={data} />
       <BreadCrumbs crumbs={crumbs} />
-      <TrekSummary />
-      <TrekItinerary />
+      <TrekSummary data={data} />
+      <TrekItinerary data={data} />
     </StyledDiv>
   );
 };

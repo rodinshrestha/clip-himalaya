@@ -14,8 +14,15 @@ import { StyledDiv } from './style';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { TrekDetailsType } from '../../trek-details.types';
+import { urlFor } from '@/sanity/client';
 
-const Gallery = () => {
+type Props = {
+  data: TrekDetailsType;
+};
+
+const Gallery = ({ data }: Props) => {
+  const { imageGallery = [] } = data || {};
   return (
     <StyledDiv id="gallery">
       <TrekkingTitleSection icon={Images} title="GALLERY" />
@@ -30,31 +37,16 @@ const Gallery = () => {
           scrollbar={{ draggable: true }}
           className="mySwiper"
         >
-          <SwiperSlide>
-            <div className="slide-image">
-              <ImageWithFallback src="/images/everest.jpeg" alt="image" fill />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="slide-image">
-              <ImageWithFallback src="/images/everest.jpeg" alt="image" fill />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="slide-image">
-              <ImageWithFallback src="/images/everest.jpeg" alt="image" fill />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="slide-image">
-              <ImageWithFallback src="/images/everest.jpeg" alt="image" fill />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="slide-image">
-              <ImageWithFallback src="/images/everest.jpeg" alt="image" fill />
-            </div>
-          </SwiperSlide>
+          {imageGallery.map((x, i) => {
+            const imageUrl = urlFor(x.image).url();
+            return (
+              <SwiperSlide key={i}>
+                <div className="slide-image">
+                  <ImageWithFallback src={imageUrl} alt="image" fill />
+                </div>
+              </SwiperSlide>
+            );
+          })}
         </Swiper>
       </div>
     </StyledDiv>

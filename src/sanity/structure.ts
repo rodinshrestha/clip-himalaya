@@ -5,19 +5,21 @@ export const structure: StructureResolver = (S) =>
   S.list()
     .title('Dashboard')
     .items([
+      // Site Settings
+      S.listItem()
+        .id('siteSettings')
+        .title('Global Settings')
+        .child(
+          S.document().schemaType('siteSettings').documentId('siteSettings')
+        ),
+
+      S.divider(),
+
       //Home Page
       S.listItem()
         .id('home-page')
         .title('Home Page')
         .child(S.document().schemaType('home-page').documentId('home-page')),
-
-      // Site Settings
-      S.listItem()
-        .id('siteSettings')
-        .title('Site Settings')
-        .child(
-          S.document().schemaType('siteSettings').documentId('siteSettings')
-        ),
 
       // Annapurna Page Settings
       S.listItem()
@@ -62,6 +64,12 @@ export const structure: StructureResolver = (S) =>
             .documentId('termConditionpage')
         ),
 
+      // Trek page
+      S.listItem()
+        .id('trekPage')
+        .title('Trek Page')
+        .child(S.document().schemaType('trekPage').documentId('trekPage')),
+
       S.divider(),
       ...S.documentTypeListItems().filter(
         (item) =>
@@ -74,6 +82,7 @@ export const structure: StructureResolver = (S) =>
             'ourTeamPage',
             'contactUsPage',
             'termConditionpage',
+            'trekPage',
           ].includes(item.getId()!)
       ),
     ]);

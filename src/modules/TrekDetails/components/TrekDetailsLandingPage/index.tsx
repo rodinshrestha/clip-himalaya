@@ -5,13 +5,18 @@ import ImageWithFallback from '@/components/ImageWithFallBack';
 import Typography from '@/components/Typography';
 
 import { StyledDiv } from './style';
+import { TrekDetailsType } from '../../trek-details.types';
+import { urlFor } from '@/sanity/client';
 
 type Props = {
   setStickyBtn: React.Dispatch<React.SetStateAction<boolean>>;
+  data: TrekDetailsType;
 };
 
-const TrekDetailslandingPage = ({ setStickyBtn }: Props) => {
+const TrekDetailslandingPage = ({ setStickyBtn, data }: Props) => {
   const ref = React.useRef<HTMLDivElement | null>(null);
+
+  const { image = '', title = '', helperTitle = '' } = data || {};
 
   React.useEffect(() => {
     const section = ref.current;
@@ -29,14 +34,14 @@ const TrekDetailslandingPage = ({ setStickyBtn }: Props) => {
   return (
     <StyledDiv ref={ref}>
       <ImageWithFallback
-        src="/images/termandcondition.jpeg"
+        src={urlFor(image).url()}
         fill
         alt="background image"
       />
 
       <div className="information-content">
-        <Typography as="h1">Everest Base Camp</Typography>
-        <Typography as="body2">Wander Where Wifi Is Weak</Typography>
+        {title && <Typography as="h1">{title}</Typography>}
+        {helperTitle && <Typography as="body2">{helperTitle}</Typography>}
       </div>
     </StyledDiv>
   );

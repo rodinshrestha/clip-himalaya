@@ -79,3 +79,37 @@ export const termConditionPageQuery = `*[_type == "termConditionpage"][0]{
     termConditionList,
   }
 `;
+
+export const trekPageQuery = `{
+  "pageData": *[_type == "trekPage"][0]{
+    bannerImage,
+    title,
+    helperText,
+    sectionDescription,
+    sectionTitle
+  },
+  "trekList": *[_type == "trekDetails"]{
+    title,
+    image,
+    slug,
+    rating,
+    difficult,
+    trekDescription
+  }
+}`;
+
+export const trekDetailsQuery = `*[_type == "trekDetails" && slug.current == $slug][0]{
+  title,
+  image,
+  slug,
+  helperTitle,
+  rating,
+  difficult,
+  trekDescription,
+  keyHighlights,
+  itineraryDetails,
+  costInclude,
+  costExclude,
+  essentialTips,
+  imageGallery
+}`;

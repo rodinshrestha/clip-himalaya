@@ -6,8 +6,14 @@ import TrekkingInfo from '../TrekkingInfo';
 import TrekkingTitleSection from '../TrekkingTitleSection';
 
 import { StyledDiv } from './style';
+import { TrekDetailsType } from '../../trek-details.types';
 
-const KeyHighlights = () => {
+type Props = {
+  data: TrekDetailsType;
+};
+
+const KeyHighlights = ({ data }: Props) => {
+  const { keyHighlights } = data || {};
   return (
     <StyledDiv className="key-highlights-container" id="key-highlights">
       <TrekkingTitleSection icon={Sun} title="KEY HIGHLIGHTS" />

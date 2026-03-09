@@ -7,22 +7,42 @@ import TrekCard from '@/components/TrekCard';
 import Typography from '@/components/Typography';
 
 import { StyledDiv } from './style';
+import { TrekPageType } from '../../treks.type';
+import { urlFor } from '@/sanity/client';
 
-const PopularTrek = () => {
+type Props = {
+  data: TrekPageType;
+};
+
+const PopularTrek = ({ data }: Props) => {
+  const { trekList = [] } = data || {};
+  const { sectionTitle = '' } = data?.pageData || {};
+
+  console.log(trekList, '@@@@');
   return (
     <StyledDiv>
       <Container>
         <Row>
           <Col>
             <Typography as="h3" className="section-title">
-              View Our Popular Trek
+              {sectionTitle}
             </Typography>
             <div className="trek-wrapper">
-              <TrekCard />
-              <TrekCard />
-              <TrekCard />
-              <TrekCard />
-              <TrekCard />
+              {trekList.map((x, i) => {
+                const { image = '' } = x || {};
+                const imgUrl = urlFor(image).url() || '';
+                return (
+                  <TrekCard
+                    imgUrl={imgUrl}
+                    key={i}
+                    title={x.title}
+                    description={x.trekDescription}
+                    rating={x.rating}
+                    difficult={x.difficult}
+                    slug={x.slug.current}
+                  />
+                );
+              })}
             </div>
           </Col>
         </Row>

@@ -1,11 +1,11 @@
-import { UserIcon } from '@sanity/icons';
+import { UsersIcon } from '@sanity/icons';
 import { defineType, defineField } from 'sanity';
 
 export const contactSubmissionType = defineType({
   name: 'contactSubmission',
   title: 'User Inquery',
   type: 'document',
-  icon: UserIcon,
+  icon: UsersIcon,
   fields: [
     defineField({
       name: 'name',

@@ -8,21 +8,34 @@ import Typography from '@/components/Typography';
 
 import { StyledDiv } from './style';
 import Overlay from '@/components/Overlay';
+import { TrekPageType } from '../../treks.type';
+import { urlFor } from '@/sanity/client';
 
-const TrekLandingPage = () => {
+type Props = {
+  data: TrekPageType;
+};
+
+const TrekLandingPage = ({ data }: Props) => {
+  const {
+    bannerImage = '',
+    title = '',
+    helperText = '',
+  } = data?.pageData || {};
   return (
     <StyledDiv>
       <Overlay overlayValue={0.4} />
-      <ImageWithFallback src="/images/trek.png" alt="trek-image" fill />
+      <ImageWithFallback
+        src={urlFor(bannerImage).url()}
+        alt="trek-image"
+        fill
+      />
       <div className="text-content">
         <Container>
           <Row>
             <Col>
               <div className="text-inner-content">
-                <Typography as="h1">
-                  The Himalayas Await. Trek with Confidence.
-                </Typography>
-                <Typography as="p">TREKKING ADVENTURE</Typography>
+                {title && <Typography as="h1">{title}</Typography>}
+                {helperText && <Typography as="p">{helperText}</Typography>}
               </div>
             </Col>
           </Row>

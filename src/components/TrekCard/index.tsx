@@ -8,31 +8,57 @@ import ImageWithFallback from '../ImageWithFallBack';
 import Typography from '../Typography';
 
 import { StyledDiv } from './style';
+import { BlockType } from '@/types/block.type';
+import { truncate } from '@/utils/string-turncate';
 
-const TrekCard = () => {
+type Props = {
+  title: string;
+  description: BlockType[];
+  difficult: string;
+  rating: number;
+  slug: string;
+  imgUrl: string;
+};
+
+const TrekCard = ({
+  imgUrl = '',
+  title = '',
+  description = [],
+  rating = 0,
+  slug = '',
+  difficult = '',
+}: Props) => {
   return (
     <StyledDiv>
       <div className="image-wrapper">
-        <ImageWithFallback src="/images/everest.jpeg" alt="image" fill />
+        <ImageWithFallback src={imgUrl} alt="image" fill />
       </div>
       <div className="content-wrapper">
-        <Typography as="body2" className="title">
-          Everest Base Camp
-        </Typography>
+        {title && (
+          <Typography as="body2" className="title">
+            {title}
+          </Typography>
+        )}
         <div className="rating-wrapper">
-          <Rating initialValue={4} readonly size={18} fillColor="#000" />
+          <Rating initialValue={rating} readonly size={18} fillColor="#000" />
+
           <Typography as="body2" className="difficult-text">
-            Difficult: Moderate
+            Difficult: {difficult}
           </Typography>
         </div>
 
-        <Typography as="body1" className="trek-description">
-          With Clip Himalaya, embark on safe, expertly guided, and deeply
-          authentic treks. Years of experience and a friendly team ensure your
-          dream adventure becomes a reality...
-        </Typography>
+        {description.map((x, i) => {
+          const { text = '' } = x?.children?.[0] || {};
 
-        <Button variant="outline" className="trek-btn" href="/treks/abc">
+          if (!text) return;
+          return (
+            <Typography as="body1" className="trek-description" key={i}>
+              {truncate(text)}
+            </Typography>
+          );
+        })}
+
+        <Button variant="outline" className="trek-btn" href={`/treks/${slug}`}>
           VIEW DETAILS
         </Button>
       </div>

@@ -9,6 +9,8 @@ import { ourTeamPageType } from './ourTeamPageType';
 import { contactUsPageType } from './contactUsPageType';
 import { termConditionPageType } from './termsConditionPageType';
 import { contactSubmissionType } from './contactSubmissionType';
+import { trekPageType } from './trekPageType';
+import { trekDetailsType } from './trekDetailsType';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -21,5 +23,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     contactUsPageType,
     termConditionPageType,
     contactSubmissionType,
+    trekPageType,
+    trekDetailsType,
   ],
 };

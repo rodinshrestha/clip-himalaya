@@ -1,9 +1,11 @@
 import React from 'react';
 import { magra, poppins } from '@/theme/fonts';
+import { Metadata } from 'next';
 
 type Props = {
   children: React.ReactNode;
 };
+
 const RootLayout = ({ children }: Props) => {
   return (
     <html lang="en">

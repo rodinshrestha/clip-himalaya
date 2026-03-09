@@ -6,18 +6,29 @@ import Row from '@/components/Row';
 import Typography from '@/components/Typography';
 
 import { StyledDiv } from './style';
+import { TrekPageType } from '../../treks.type';
 
-const TrekInformation = () => {
+type Props = {
+  data: TrekPageType;
+};
+
+const TrekInformation = ({ data }: Props) => {
+  const { sectionDescription = [] } = data?.pageData || {};
   return (
     <StyledDiv>
       <Container>
         <Row>
           <Col>
-            <Typography as="p" className="trek-description">
-              With Clip Himalaya, embark on safe, expertly guided, and deeply
-              authentic treks. Years of experience and a friendly team ensure
-              your dream adventure becomes a reality.
-            </Typography>
+            {sectionDescription.map((x, i) => {
+              const { text = '' } = x?.children?.[0] || {};
+              if (!text) return;
+
+              return (
+                <Typography as="p" className="trek-description" key={i}>
+                  {text}
+                </Typography>
+              );
+            })}
           </Col>
         </Row>
       </Container>

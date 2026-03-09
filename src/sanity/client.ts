@@ -14,4 +14,7 @@ export const client = createClient({
 });
 
 // Helper to generate image URLs
-export const urlFor = (source: any) => imageUrlBuilder(client).image(source);
+export const urlFor = (source: any) => {
+  // if (!source) return '';
+  return imageUrlBuilder(client).image(source);
+};

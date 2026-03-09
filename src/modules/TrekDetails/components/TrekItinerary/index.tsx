@@ -13,24 +13,30 @@ import ItineraryHeader from '../ItineraryHeader';
 import KeyHighlights from '../KeyHighlights';
 
 import { StyledDiv } from './style';
-const TrekItinerary = () => {
+import { TrekDetailsType } from '../../trek-details.types';
+
+type Props = {
+  data: TrekDetailsType;
+};
+
+const TrekItinerary = ({ data }: Props) => {
   return (
     <StyledDiv>
       <Container>
         <Row>
           <Col>
             <ItineraryHeader />
-            <KeyHighlights />
+            <KeyHighlights data={data} />
             <ItineraryDetails />
             <section
               className="trek-cost-include-exclude-wrapper"
               id="costs-include"
             >
-              <CostInclude />
-              <CostExclude />
+              <CostInclude data={data} />
+              <CostExclude data={data} />
             </section>
             <EssentialTips />
-            <Gallery />
+            <Gallery data={data} />
           </Col>
         </Row>
       </Container>
