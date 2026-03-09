@@ -4,19 +4,19 @@ import styled from 'styled-components';
 
 import { breakPoints } from '@/theme/break-points';
 
-export const InputContainer = styled.div`
+export const TextAreaContainer = styled.div`
   display: flex;
-  gap: 8px;
+  gap: 2px;
   flex-direction: column;
+  min-height: 160px;
 
   &.error {
-    input {
+    textarea {
       border: 1px solid ${({ theme }) => theme.color.red['100']} !important;
     }
   }
-
-  &.flex-2 {
-    flex: 2;
+  .red {
+    color: red;
   }
 
   @media (max-width: ${breakPoints.mobile}) {
@@ -36,20 +36,7 @@ export const InputContainer = styled.div`
   .input-wrapper {
     width: 100%;
     position: relative;
-    .spinner-loader-wrapper {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      top: 48%;
-      .spinner-loader {
-        width: 15px;
-        height: 15px;
-        border-width: 2px;
-        position: absolute;
-      }
-    }
+
     textarea {
       box-sizing: border-box;
       border-radius: 8px;
@@ -69,12 +56,8 @@ export const InputContainer = styled.div`
         opacity: 0.5;
       }
     }
-    .password-toggle-icon {
-      position: absolute;
-      right: 5px;
-      top: 50%;
-      transform: translateY(-50%);
-      cursor: pointer;
-    }
+  }
+  .input-error {
+    /* margin-top: 2px; */
   }
 `;

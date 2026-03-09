@@ -138,13 +138,13 @@ export const StyledDiv = styled.div`
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
-      gap: 20px;
       justify-content: center;
 
       .btn {
         height: 50px;
         font-size: 16px;
         letter-spacing: 1px;
+        margin-top: 20px;
       }
     }
   }

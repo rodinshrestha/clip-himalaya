@@ -2,8 +2,10 @@
 import React from 'react';
 
 import Link from 'next/link';
+import { useFormik } from 'formik';
 
 import Button from '@/components/Button';
+
 import Col from '@/components/Col';
 import Container from '@/components/Container';
 import ImageWithFallback from '@/components/ImageWithFallBack';
@@ -15,13 +17,17 @@ import Typography from '@/components/Typography';
 import { StyledDiv } from './style';
 import Overlay from '@/components/Overlay';
 import { ContactUsType } from './contact-us.type';
-import { urlFor } from '@/sanity/client';
+import { client, urlFor } from '@/sanity/client';
+import { contactUsSchema } from './contact-us.schema';
+import { toast } from 'react-toastify';
 
 type Props = {
   data: ContactUsType;
 };
 
 const ContactUs = ({ data }: Props) => {
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+
   const {
     bannerImage = '',
     title = '',
@@ -32,6 +38,40 @@ const ContactUs = ({ data }: Props) => {
   } = data?.contact || {};
 
   const { address = '', city = '', gmail = '' } = data?.address || {};
+
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+      email: '',
+      message: '',
+      phone: '',
+    },
+    validationSchema: contactUsSchema,
+    onSubmit: async (values, { resetForm }) => {
+      try {
+        setIsSubmitting(true);
+        await client.create({
+          _type: 'contactSubmission',
+          name: values.name,
+          email: values.email,
+          message: values.message,
+          phone: values.phone,
+        });
+
+        toast.success(
+          'Thanks for your inquery. Our team will get back you as soon as possible'
+        );
+        resetForm();
+      } catch (error) {
+        toast.error('Something went wrong. Please try again later');
+      } finally {
+        setIsSubmitting(false);
+      }
+    },
+  });
+
+  console.log(formik);
+
   return (
     <StyledDiv>
       <Container>
@@ -90,15 +130,57 @@ const ContactUs = ({ data }: Props) => {
                 </div>
               </div>
               <div className="contact-us-form">
-                <InputField label="Full Name" placeholder="Your Full Name" />
-                <InputField label="Email" placeholder="Email" />
+                <InputField
+                  name="name"
+                  label="Full Name"
+                  placeholder="Your Full Name"
+                  value={formik.values.name}
+                  onChange={formik.handleChange}
+                  touched={formik.touched.name}
+                  error={formik.errors.name}
+                  onBlur={formik.handleBlur}
+                  requiredField
+                />
+                <InputField
+                  name="email"
+                  label="Email"
+                  placeholder="Email"
+                  value={formik.values.email}
+                  onChange={formik.handleChange}
+                  touched={formik.touched.email}
+                  error={formik.errors.email}
+                  onBlur={formik.handleBlur}
+                />
+                <InputField
+                  name="phone"
+                  label="Phone Number"
+                  placeholder="Contact number"
+                  value={formik.values.phone}
+                  onChange={formik.handleChange}
+                  touched={formik.touched.phone}
+                  error={formik.errors.phone}
+                  onBlur={formik.handleBlur}
+                  requiredField
+                />
                 <TextArea
                   label="Message"
                   placeholder="Your Message"
-                  value=""
-                  onChange={() => {}}
+                  value={formik.values.message}
+                  onChange={(e) => {
+                    formik.setFieldValue('message', e.target.value);
+                  }}
+                  touched={formik.touched.message}
+                  error={formik.errors.message}
+                  onBlur={() => formik.setFieldTouched('message', true)}
+                  requiredField
                 />
-                <Button variant="outline" size="full-width">
+                <Button
+                  variant="outline"
+                  size="full-width"
+                  disabled={!formik.isValid || isSubmitting}
+                  loading={isSubmitting}
+                  onClick={() => formik.handleSubmit()}
+                >
                   SUBMIT
                 </Button>
               </div>

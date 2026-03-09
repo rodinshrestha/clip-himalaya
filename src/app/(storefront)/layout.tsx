@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { ToastContainer } from 'react-toastify';
 
 import BaseLayout from '@/layout/BaseLayout';
 import StyledComponentsRegistry from '@/lib/registry';
@@ -19,7 +20,10 @@ export default function StoreFrontRootLayout({
     <StyledComponentsRegistry>
       <StyledProviders>
         <ProgressBarProvider>
-          <BaseLayout>{children}</BaseLayout>
+          <BaseLayout>
+            <ToastContainer theme="colored" />
+            {children}
+          </BaseLayout>
         </ProgressBarProvider>
       </StyledProviders>
     </StyledComponentsRegistry>

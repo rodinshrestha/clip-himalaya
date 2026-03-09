@@ -5,7 +5,7 @@ import clsx from 'clsx';
 
 import Typography from '../Typography';
 
-import { InputContainer } from './style';
+import { TextAreaContainer } from './style';
 
 type InputProps = {
   value: string;
@@ -17,6 +17,7 @@ type InputProps = {
   loader?: boolean;
   className?: string;
   placeholder?: string;
+  onBlur?: () => void;
 };
 
 const TextArea = ({
@@ -28,6 +29,7 @@ const TextArea = ({
   value,
   onChange,
   placeholder,
+  onBlur,
 }: InputProps) => {
   const inputId = React.useId();
   const errorId = React.useId();
@@ -36,7 +38,7 @@ const TextArea = ({
   const isError = !!error && touched;
 
   return (
-    <InputContainer
+    <TextAreaContainer
       className={clsx({ error: !!isError }, 'input-field-wrapper', className)}
     >
       {label && (
@@ -60,6 +62,7 @@ const TextArea = ({
           rows={5}
           value={value}
           cols={100}
+          onBlur={onBlur}
         />
       </div>
       {isError && (
@@ -72,7 +75,7 @@ const TextArea = ({
           {error}
         </Typography>
       )}
-    </InputContainer>
+    </TextAreaContainer>
   );
 };
 

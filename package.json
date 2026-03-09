@@ -16,6 +16,7 @@
     "@sanity/vision": "4",
     "@types/styled-components": "^5.1.36",
     "clsx": "^2.1.1",
+    "formik": "^2.4.9",
     "lucide-react": "^0.575.0",
     "motion": "^12.34.2",
     "next": "^16.0.0",
@@ -25,9 +26,11 @@
     "react-dom": "^19",
     "react-simple-star-rating": "^5.1.7",
     "react-simple-typewriter": "^5.0.1",
+    "react-toastify": "^11.0.5",
     "sanity": "^4.22.0",
     "styled-components": "^6.1",
-    "swiper": "^12.1.2"
+    "swiper": "^12.1.2",
+    "yup": "^1.7.1"
   },
   "devDependencies": {
     "@rodinshrestha/prettier-config": "^1.0.0",

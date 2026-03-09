@@ -6,8 +6,9 @@ import { breakPoints } from '@/theme/break-points';
 
 export const InputContainer = styled.div`
   display: flex;
-  gap: 8px;
+  gap: 2px;
   flex-direction: column;
+  min-height: 100px;
 
   &.error {
     input {
@@ -17,6 +18,10 @@ export const InputContainer = styled.div`
 
   &.flex-2 {
     flex: 2;
+  }
+
+  .red {
+    color: red;
   }
 
   @media (max-width: ${breakPoints.mobile}) {
@@ -77,5 +82,8 @@ export const InputContainer = styled.div`
       transform: translateY(-50%);
       cursor: pointer;
     }
+  }
+  .input-error {
+    margin-top: 2px;
   }
 `;
