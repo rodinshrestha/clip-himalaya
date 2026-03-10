@@ -157,7 +157,7 @@ export const StyledHeader = styled.header`
           top: 0;
           left: 0;
           width: 100%;
-          height: 100%;
+          height: 100dvh;
           background-color: #fff;
           z-index: 99;
           padding: 40px 0;
@@ -176,10 +176,11 @@ export const StyledHeader = styled.header`
           .drawer-header {
             display: flex;
             justify-content: space-between;
-            padding-left: 35px;
+            padding-left: 26px;
             padding-right: 25px;
             box-sizing: border-box;
             border-bottom: 1px solid #000;
+            padding-bottom: 20px;
 
             .p {
               font-size: 21px;
@@ -188,7 +189,6 @@ export const StyledHeader = styled.header`
               display: flex;
               justify-content: flex-end;
               font-size: 45px;
-              padding-bottom: 60px;
             }
           }
 
