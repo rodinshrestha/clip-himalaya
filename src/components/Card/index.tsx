@@ -23,7 +23,7 @@ const Card = ({ imageUrl = '', textInfo = [] }: Props) => {
         })}
       </ul>
 
-      <Button size="full-width" variant="outline">
+      <Button size="full-width" variant="outline" href="/contact-us">
         BOOK NOW
       </Button>
     </StyledDiv>

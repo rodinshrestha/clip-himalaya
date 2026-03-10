@@ -17,6 +17,7 @@ const defaultBtnStyle = (theme: DefaultTheme) => css`
   justify-content: center;
   font-family: ${({ theme }) => theme.fonts.poppins};
   font-weight: 500;
+  box-sizing: border-box;
 
   &.contained {
     background-color: ${theme.color.grey['100']};
@@ -56,7 +57,7 @@ export const StyledLink = styled.div`
   a {
     color: inherit;
     text-decoration: none;
-    width: 100%;
+    /* width: 100%; */
     height: 100%;
     z-index: 10;
   }

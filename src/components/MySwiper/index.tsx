@@ -26,6 +26,9 @@ const MySwiper = ({ children, slidePerView = 4.5 }: Props) => {
         0: {
           slidesPerView: slidePerView - 1.2,
         },
+        380: {
+          slidesPerView: slidePerView - (slidePerView === 3.5 ? 2.5 : 3.5),
+        },
         430: {
           slidesPerView: slidePerView - (slidePerView === 3.5 ? 2.5 : 3.5),
         },

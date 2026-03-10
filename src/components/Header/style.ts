@@ -45,36 +45,18 @@ export const StyledHeader = styled.header`
     .title-content {
       .h1 {
         font-size: 24px !important;
+        @media (max-width: ${({ theme }) => theme.breakPoints.mobile}) {
+          font-size: 18px !important;
+        }
       }
       .body1 {
         font-size: 16px !important;
+        @media (max-width: ${({ theme }) => theme.breakPoints.mobile}) {
+          font-size: 14px !important;
+        }
       }
     }
   }
-  /* &.hide {
-    position: fixed;
-    top: 0;
-    left: 0;
-    animation: slideUp 0.4s ease forwards;
-    pointer-events: none;
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(8px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.95);
-
-    .logo-wrapper {
-      height: 65px !important;
-      width: 65px !important;
-    }
-
-    .title-content {
-      .h1 {
-        font-size: 24px !important;
-      }
-      .body1 {
-        font-size: 16px !important;
-      }
-    }
-  } */
 
   .header-wrapper {
     display: flex;
@@ -86,6 +68,10 @@ export const StyledHeader = styled.header`
         position: relative;
         height: 80px;
         width: 80px;
+        @media (max-width: ${({ theme }) => theme.breakPoints.mobile}) {
+          height: 65px;
+          width: 65px;
+        }
         img {
           object-fit: cover;
         }
@@ -98,8 +84,10 @@ export const StyledHeader = styled.header`
         .h1 {
           font-family: ${({ theme }) => theme.fonts.magra};
           font-weight: 500;
+          font-size: 24px !important;
+
           @media (max-width: ${({ theme }) => theme.breakPoints.smallScreen}) {
-            font-size: 24px !important;
+            font-size: 18px !important;
           }
         }
         .body1 {
@@ -109,8 +97,10 @@ export const StyledHeader = styled.header`
           line-height: 21px;
           font-weight: 400;
           opacity: 0.8;
+          font-size: 16px !important;
+
           @media (max-width: ${({ theme }) => theme.breakPoints.smallScreen}) {
-            font-size: 16px !important;
+            font-size: 14px !important;
           }
         }
       }
@@ -167,10 +157,11 @@ export const StyledHeader = styled.header`
           top: 0;
           left: 0;
           width: 100%;
-          height: 100vh;
+          height: 100%;
           background-color: #fff;
           z-index: 99;
           padding: 40px 0;
+          overflow: hidden;
 
           box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 
@@ -182,13 +173,23 @@ export const StyledHeader = styled.header`
             transform: translateY(0); // 👈 slides down
           }
 
-          .drawer-close {
+          .drawer-header {
             display: flex;
-            justify-content: flex-end;
-            font-size: 45px;
+            justify-content: space-between;
+            padding-left: 35px;
+            padding-right: 25px;
+            box-sizing: border-box;
             border-bottom: 1px solid #000;
-            padding-right: 20px;
-            padding-bottom: 60px;
+
+            .p {
+              font-size: 21px;
+            }
+            .drawer-close {
+              display: flex;
+              justify-content: flex-end;
+              font-size: 45px;
+              padding-bottom: 60px;
+            }
           }
 
           .drawer-content {

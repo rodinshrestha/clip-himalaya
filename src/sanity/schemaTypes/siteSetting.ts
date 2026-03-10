@@ -55,5 +55,10 @@ export const siteSettingType = defineType({
       title: 'Gmail',
       type: 'string',
     }),
+    defineField({
+      name: 'footerText',
+      title: 'Footer Text',
+      type: 'string',
+    }),
   ],
 });

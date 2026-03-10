@@ -80,6 +80,10 @@ a{
         font-size: 42px !important;
         text-transform: uppercase;
         letter-spacing: 1px;
+        @media (max-width: ${({ theme }) => theme.breakPoints.smallScreen}) {
+        font-size: 36px !important;
+
+        }
       }
     }
 

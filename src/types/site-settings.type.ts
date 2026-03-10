@@ -8,4 +8,5 @@ export type SiteSettingTypes = {
   logoImage: ImageType;
   siteHelperText: string;
   siteTitle: string;
+  footerText: string;
 };

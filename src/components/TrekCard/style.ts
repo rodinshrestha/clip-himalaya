@@ -4,12 +4,14 @@ import styled from 'styled-components';
 
 export const StyledDiv = styled.div`
   flex: 1;
-  flex-grow: 0;
   display: flex;
   flex-direction: column;
   gap: 10px;
   min-width: 400px;
   max-width: 500px;
+  @media (max-width: ${({ theme }) => theme.breakPoints.smallMobile}) {
+    min-width: 360px;
+  }
 
   .image-wrapper {
     width: 100%;

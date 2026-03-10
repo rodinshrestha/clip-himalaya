@@ -5,7 +5,8 @@ export const siteSettingQuery = `*[_type == "siteSettings"][0]{
     footerLogoImage,
     address,
     city,
-    gmail
+    gmail,
+    footerText
   }
 `;
 

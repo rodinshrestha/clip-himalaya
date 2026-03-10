@@ -12,7 +12,7 @@ export const StyledDiv = styled.div`
     margin-top: 20px;
     height: 400px;
     @media (max-width: ${({ theme }) => theme.breakPoints.smallScreen}) {
-      height: 320px;
+      height: 350px;
     }
 
     .mySwiper {
@@ -20,6 +20,11 @@ export const StyledDiv = styled.div`
       .swiper-button-next {
         color: ${({ theme }) => theme.color.black['100']};
         top: 40%;
+      }
+      @media (max-width: ${({ theme }) => theme.breakPoints.mobile}) {
+        .swiper-pagination {
+          bottom: -5px;
+        }
       }
     }
   }

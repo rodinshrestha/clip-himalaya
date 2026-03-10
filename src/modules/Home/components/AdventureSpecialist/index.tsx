@@ -71,7 +71,12 @@ const AdventureSpecialist = ({ data }: Props) => {
                     {contactUsNumber}
                   </Link>
 
-                  <Button className="call-btn" size="md" variant="outline">
+                  <Button
+                    className="call-btn"
+                    size="md"
+                    variant="outline"
+                    href="/contact-us"
+                  >
                     START PLANNING MY TRIP
                   </Button>
                 </div>

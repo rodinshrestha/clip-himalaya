@@ -21,6 +21,7 @@ const Footer = ({ siteSettings }: Props) => {
     footerLogoImage = null,
     address = '',
     city = '',
+    footerText = '',
   } = siteSettings || {};
   return (
     <StyledDiv className="footer">
@@ -126,11 +127,11 @@ const Footer = ({ siteSettings }: Props) => {
                 </div>
               </div>
 
-              <div className="copy-right-trade-mark">
-                <Typography as="p">
-                  © Cliphimalaya.com - All Rights Reserved.
-                </Typography>
-              </div>
+              {footerText && (
+                <div className="copy-right-trade-mark">
+                  <Typography as="p">{footerText}</Typography>
+                </div>
+              )}
             </div>
           </Col>
         </Row>

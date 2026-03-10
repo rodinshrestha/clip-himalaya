@@ -61,6 +61,15 @@ export const StyledDiv = styled.div`
 
         .body1 {
           margin-top: 10px;
+          @media (max-width: ${({ theme }) => theme.breakPoints.smallMobile}) {
+            width: 140px;
+          }
+          @media (max-width: 430px) {
+            width: 157px;
+          }
+          @media (max-width: 393px) {
+            width: 138px;
+          }
         }
       }
 

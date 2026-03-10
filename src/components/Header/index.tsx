@@ -135,11 +135,14 @@ const Header = ({ siteSettings }: Props) => {
                 />
 
                 <div className={clsx('drawer', { open: isMenuOpen })}>
-                  <div className="drawer-close">
-                    <HamburgerMenuIcon
-                      onClick={() => setIsMenuOpen(false)}
-                      isOpen
-                    />
+                  <div className="drawer-header">
+                    <Typography as="p">Menu</Typography>
+                    <div className="drawer-close">
+                      <HamburgerMenuIcon
+                        onClick={() => setIsMenuOpen(false)}
+                        isOpen
+                      />
+                    </div>
                   </div>
                   <div className="drawer-content">
                     {mobileNavigation.map((x) => {
