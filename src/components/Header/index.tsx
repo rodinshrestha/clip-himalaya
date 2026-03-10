@@ -44,6 +44,16 @@ const Header = ({ siteSettings }: Props) => {
   } = siteSettings || {};
 
   React.useEffect(() => {
+    if (isMenuOpen) {
+      document.body.classList.add('modal-open');
+    } else {
+      document.body.classList.remove('modal-open');
+    }
+
+    return () => document.body.classList.remove('modal-open');
+  }, [isMenuOpen]);
+
+  React.useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 80);
     };
@@ -144,6 +154,7 @@ const Header = ({ siteSettings }: Props) => {
                             { active }
                           )}
                           key={x.label}
+                          onClick={() => setIsMenuOpen(false)}
                         >
                           <div className="content-wrapper">
                             <div className="icon-wrapper">{x.icon}</div>
