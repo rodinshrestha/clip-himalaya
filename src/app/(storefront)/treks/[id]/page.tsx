@@ -5,6 +5,8 @@ import { PagePropsType } from '@/types/page.type';
 import { client } from '@/sanity/client';
 import { trekDetailsQuery } from '@/query';
 
+export const revalidate = 30;
+
 const TrekDetailsPage = async ({ params }: PagePropsType) => {
   const param = await params;
 
