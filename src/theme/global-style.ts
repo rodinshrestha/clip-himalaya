@@ -18,9 +18,9 @@ export const GlobalStyle = createGlobalStyle`
     width: 100vw;
     position: relative;
     &.modal-open{
-      height: 100vh;
-      width: 100%;
-      overflow: hidden;
+       position: fixed;
+       width: 100%;
+       overflow: hidden;
     }
   }
 
