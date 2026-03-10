@@ -13,8 +13,6 @@ const TrekDetailsPage = async ({ params }: PagePropsType) => {
     { slug: param?.id } // 👈 pass it to GROQ
   );
 
-  console.log(data, '@@@@');
-
   return <TrekDetails data={data} />;
 };
 

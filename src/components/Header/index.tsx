@@ -17,6 +17,15 @@ import Typography from '../Typography';
 import { StyledHeader } from './style';
 import { SiteSettingTypes } from '@/types/site-settings.type';
 import { urlFor } from '@/sanity/client';
+import {
+  BookText,
+  Contact,
+  Home,
+  Map,
+  MountainSnow,
+  ReceiptText,
+  UsersRound,
+} from 'lucide-react';
 
 type Props = {
   siteSettings: SiteSettingTypes;
@@ -51,18 +60,37 @@ const Header = ({ siteSettings }: Props) => {
     { link: '/contact-us', label: 'Contact Us' },
   ];
 
+  const mobileNavigation = [
+    { link: '/', label: 'Home', icon: <Home size={31} /> },
+    { link: '/treks', label: 'Treks', icon: <MountainSnow size={31} /> },
+    {
+      link: '/annapurna-circuit',
+      label: 'Annapurna Circuit',
+      icon: <Map size={31} />,
+    },
+    { link: '/our-story', label: 'Our Story', icon: <BookText size={31} /> },
+    { link: '/our-team', label: 'Our Team', icon: <UsersRound size={31} /> },
+    { link: '/contact-us', label: 'Contact Us', icon: <Contact size={31} /> },
+    {
+      link: '/terms-and-conditions',
+      label: 'Terms and Conditions',
+      icon: <ReceiptText size={31} />,
+    },
+  ];
+
   return (
     <StyledHeader
       className={clsx({
-        active: isScrolled && !trekStickyHeader,
-        hide: trekStickyHeader,
+        // active: isScrolled && !trekStickyHeader,
+        active: isScrolled,
+        // hide: trekStickyHeader,
       })}
     >
       <Container>
         <Row>
           <Col>
             <div className="header-wrapper">
-              <div className="logo-content">
+              <Link href="/" className="logo-content">
                 <div className="logo-wrapper">
                   <ImageWithFallback
                     src={urlFor(logoImage).url()}
@@ -74,7 +102,7 @@ const Header = ({ siteSettings }: Props) => {
                   <Typography as="h1">{siteTitle}</Typography>
                   <Typography as="body1">{siteHelperText}</Typography>
                 </div>
-              </div>
+              </Link>
               <div className="header-navigation-wrapper">
                 {navigation.map((x) => {
                   const active =
@@ -95,6 +123,37 @@ const Header = ({ siteSettings }: Props) => {
                   isOpen={isMenuOpen}
                   onClick={() => setIsMenuOpen((prev) => !prev)}
                 />
+
+                <div className={clsx('drawer', { open: isMenuOpen })}>
+                  <div className="drawer-close">
+                    <HamburgerMenuIcon
+                      onClick={() => setIsMenuOpen(false)}
+                      isOpen
+                    />
+                  </div>
+                  <div className="drawer-content">
+                    {mobileNavigation.map((x) => {
+                      const active =
+                        pathname === x.link ||
+                        pathname.startsWith(`${x.link}/`);
+                      return (
+                        <Link
+                          href={x.link}
+                          className={clsx(
+                            'navigation-link navigation-mobile-link',
+                            { active }
+                          )}
+                          key={x.label}
+                        >
+                          <div className="content-wrapper">
+                            <div className="icon-wrapper">{x.icon}</div>
+                            <Typography as="p">{x.label}</Typography>
+                          </div>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
               </div>
             </div>
           </Col>

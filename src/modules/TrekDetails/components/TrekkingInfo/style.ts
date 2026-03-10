@@ -45,7 +45,7 @@ export const StyledDiv = styled.div`
       font-size: 16px;
       font-weight: 400;
       font-family: ${({ theme }) => theme.fonts.poppins};
-      padding-bottom: 40px;
+      padding-bottom: 15px;
     }
   }
 `;

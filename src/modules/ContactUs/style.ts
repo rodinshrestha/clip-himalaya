@@ -10,9 +10,9 @@ export const StyledDiv = styled.div`
     display: flex;
     justify-content: space-between;
     height: 800px;
-    @media (max-width: ${({ theme }) => theme.breakPoints.mobile}) {
+    @media (max-width: ${({ theme }) => theme.breakPoints.smallScreen}) {
       flex-direction: column;
-      gap: 20px;
+      gap: 60px;
       height: unset;
     }
 
@@ -22,8 +22,11 @@ export const StyledDiv = styled.div`
       border-radius: 8px;
       overflow: hidden;
 
-      @media (max-width: ${({ theme }) => theme.breakPoints.mobile}) {
-        height: 1500px;
+      @media (max-width: ${({ theme }) => theme.breakPoints.smallScreen}) {
+        min-height: 600px;
+      }
+      @media (max-width: ${({ theme }) => theme.breakPoints.tablet}) {
+        min-height: 800px;
       }
 
       img {
@@ -38,16 +41,20 @@ export const StyledDiv = styled.div`
         z-index: 20;
         padding: 0 20px;
         gap: 10px;
+        position: relative;
+        @media (max-width: ${({ theme }) => theme.breakPoints.smallScreen}) {
+          position: absolute;
+        }
 
         .location-info {
           display: flex;
           gap: 10px;
-          align-items: flex-end;
+          align-items: center;
 
           .icon-wrapper {
             position: relative;
-            width: 28px;
-            height: 28px;
+            width: 21px;
+            height: 21px;
           }
 
           .p {
@@ -56,6 +63,7 @@ export const StyledDiv = styled.div`
             z-index: 2;
             letter-spacing: 1px;
             display: flex;
+            margin-top: 10px;
           }
         }
         .plan-text {
@@ -67,6 +75,10 @@ export const StyledDiv = styled.div`
           display: flex;
           z-index: 2;
           position: relative;
+          @media (max-width: ${({ theme }) => theme.breakPoints.tablet}) {
+            flex-direction: column;
+            gap: 30px;
+          }
 
           .contact-info-left {
             flex: 1;
@@ -84,12 +96,6 @@ export const StyledDiv = styled.div`
               color: ${({ theme }) => theme.color.white['100']};
               font-size: 18px;
               font-family: ${({ theme }) => theme.fonts.poppins};
-
-              a {
-                &:hover {
-                  text-decoration: underline !important;
-                }
-              }
             }
           }
           .contact-info-right {
@@ -116,6 +122,9 @@ export const StyledDiv = styled.div`
           margin-top: 10px;
           z-index: 2;
           max-width: 70%;
+          @media (max-width: ${({ theme }) => theme.breakPoints.tablet}) {
+            max-width: 100%;
+          }
 
           .p {
             color: ${({ theme }) => theme.color.white['100']};
@@ -139,6 +148,10 @@ export const StyledDiv = styled.div`
       display: flex;
       flex-direction: column;
       justify-content: center;
+      @media (max-width: ${({ theme }) => theme.breakPoints.smallScreen}) {
+        padding: unset;
+        padding: 0 10px;
+      }
 
       .btn {
         height: 50px;

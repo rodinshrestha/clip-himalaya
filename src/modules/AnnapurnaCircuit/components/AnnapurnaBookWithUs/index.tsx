@@ -15,7 +15,7 @@ const AnnapurnaBookWithUs = ({ data }: Props) => {
     return null;
   }
   return (
-    <StyledDiv>
+    <StyledDiv className="annapurna-book-with-us-wrapper">
       <Typography as="body1">
         Here&apos;s several reasons why you should book with us:
       </Typography>

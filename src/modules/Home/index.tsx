@@ -12,6 +12,7 @@ type Props = {
 };
 
 const Home = ({ data }: Props) => {
+  console.log(data, '@@@@');
   return (
     <StyledDiv>
       <HeroSection data={data} />

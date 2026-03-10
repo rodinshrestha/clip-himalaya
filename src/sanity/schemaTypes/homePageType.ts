@@ -21,6 +21,15 @@ export const homePageType = defineType({
 
   fields: [
     defineField({
+      name: 'video',
+      title: 'Video',
+      type: 'file',
+      options: {
+        accept: 'video/*', // 👈 only allows video files
+      },
+    }),
+
+    defineField({
       name: 'title',
       title: 'Title',
       type: 'string',

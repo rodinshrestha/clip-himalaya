@@ -5,6 +5,9 @@ export const StyledDiv = styled.div`
   &.our-story-image-banner-wrapper {
     padding-top: 120px;
     margin-bottom: 40px;
+    @media (max-width: 1389px) {
+      display: none;
+    }
     .first-row {
       display: flex;
       gap: 10px;

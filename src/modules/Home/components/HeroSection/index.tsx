@@ -30,6 +30,7 @@ const HeroSection = ({ data }: Props) => {
     animatedTextList = [],
     title = '',
     helperText = '',
+    video = '',
   } = data?.homeData || {};
 
   React.useEffect(() => {
@@ -68,7 +69,7 @@ const HeroSection = ({ data }: Props) => {
       >
         <Overlay overlayValue={0.4} />
         <video autoPlay muted loop playsInline className="bg-video">
-          <source src="/video.mp4" type="video/mp4" />
+          <source src={video} type="video/mp4" />
         </video>
       </motion.div>
       <motion.div

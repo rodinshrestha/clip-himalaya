@@ -10,8 +10,13 @@ export const StyledDiv = styled.div`
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    flex-wrap: wrap;
+
     .expert-card-wrapper {
-      flex: 0 0 calc(25% - 20px);
+      flex: 1 0 calc(25% - 20px);
+      min-width: 400px;
+      /* max-width: 400px; */
+      flex: 1;
     }
   }
 `;

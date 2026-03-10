@@ -3,58 +3,66 @@
 import styled from 'styled-components';
 
 export const StyledDiv = styled.div`
+  position: relative;
+
+  .vertical-line {
+    display: none;
+    position: absolute;
+    height: 100%;
+    background-color: #000;
+    width: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    @media (max-width: ${({ theme }) => theme.breakPoints.smallScreen}) {
+      display: block;
+    }
+  }
+
   .header-wrapper {
     display: flex;
     justify-content: space-between;
-
-    &.show {
-      position: fixed;
-      box-sizing: border-box;
-      top: 0;
-      left: 0;
-      padding: 10px 12px;
-      width: 100%;
-      animation: slideDown 0.4s ease forwards;
-      background-color: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-      z-index: 10;
-
-      .itinerary-header-item {
-        align-items: center;
-
-        .body1 {
-          margin-top: 10px;
-          display: flex;
-          position: relative;
-          font-size: 18px;
-
-          &::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0px;
-            width: 100%;
-            height: 1px;
-            background-color: ${({ theme }) => theme.color.black['200']};
-            transform: scaleX(0);
-            transform-origin: center;
-            transition: transform 0.3s ease;
-          }
-          &:hover::after {
-            transform: scaleX(1);
-          }
-
-          &.active::after {
-            transform: scaleX(1);
-          }
-        }
-      }
+    @media (max-width: ${({ theme }) => theme.breakPoints.smallScreen}) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 60px;
     }
 
     .itinerary-header-item {
       display: flex;
       gap: 15px;
+      @media (max-width: ${({ theme }) => theme.breakPoints.smallScreen}) {
+        width: 100%;
+        align-items: center;
+        box-sizing: border-box;
+        svg {
+          width: 36px;
+          height: 36px;
+          background-color: #fff;
+          z-index: 2;
+          padding: 10px;
+          /* box-sizing: border-box; */
+        }
+
+        &.left {
+          flex-direction: row-reverse;
+          justify-content: flex-end;
+          padding-left: calc(50% - 225px);
+          &:first-child {
+            padding-left: calc(50% - 234px);
+          }
+        }
+
+        &.right {
+          flex-direction: row; // icon | text
+          justify-content: flex-start;
+          padding-left: calc(50% - 28px);
+        }
+
+        .body1 {
+          margin-top: 10px;
+        }
+      }
 
       .body1 {
         display: flex;

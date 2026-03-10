@@ -15,6 +15,7 @@ type HomeData = {
   contactUsTitle: string;
   contactUsInfo: string;
   contactUsNumber: string;
+  video: string;
 };
 
 export type HomePageType = {

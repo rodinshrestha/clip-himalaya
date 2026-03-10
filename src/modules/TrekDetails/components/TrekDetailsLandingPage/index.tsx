@@ -7,6 +7,7 @@ import Typography from '@/components/Typography';
 import { StyledDiv } from './style';
 import { TrekDetailsType } from '../../trek-details.types';
 import { urlFor } from '@/sanity/client';
+import Overlay from '@/components/Overlay';
 
 type Props = {
   setStickyBtn: React.Dispatch<React.SetStateAction<boolean>>;
@@ -38,6 +39,7 @@ const TrekDetailslandingPage = ({ setStickyBtn, data }: Props) => {
         fill
         alt="background image"
       />
+      <Overlay />
 
       <div className="information-content">
         {title && <Typography as="h1">{title}</Typography>}

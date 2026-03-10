@@ -23,7 +23,7 @@ const AnnapurnaTrekkingFacts = ({ data }: Props) => {
     attraction = '',
   } = data || {};
   return (
-    <StyledDiv>
+    <StyledDiv className="annaupurna-trekking-fact-wrapper">
       <div className="title-wrapper">Trekking Facts</div>
       {bestSeason && (
         <Typography as="body2">Best Season: {bestSeason}</Typography>

@@ -70,8 +70,6 @@ const ContactUs = ({ data }: Props) => {
     },
   });
 
-  console.log(formik);
-
   return (
     <StyledDiv>
       <Container>

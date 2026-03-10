@@ -15,12 +15,15 @@ export const StyledDiv = styled.div`
     top: 50%;
     padding-left: 15px;
     transform: translateY(-50%);
+    z-index: 2;
 
     .h1 {
       font-size: 49px;
+      color: ${({ theme }) => theme.color.white['100']};
     }
     .body2 {
       font-size: 31px;
+      color: ${({ theme }) => theme.color.white['100']};
     }
   }
 `;

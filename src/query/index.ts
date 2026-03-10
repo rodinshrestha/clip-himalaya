@@ -11,6 +11,7 @@ export const siteSettingQuery = `*[_type == "siteSettings"][0]{
 
 export const homePageQuery = `{
   "homeData": *[_type == "home-page"][0]{
+      "video": video.asset->url,
       title,
       animatedTextList,
       helperText,

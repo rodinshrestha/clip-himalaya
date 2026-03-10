@@ -8,5 +8,10 @@ export const StyledDiv = styled.div`
     justify-content: space-between;
     gap: 20px;
     margin-top: 60px;
+
+    @media (max-width: ${({ theme }) => theme.breakPoints.smallScreen}) {
+      flex-direction: column;
+      gap: 60px;
+    }
   }
 `;
