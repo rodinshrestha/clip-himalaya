@@ -215,7 +215,7 @@ export const StyledHeader = styled.header`
                 }
 
                 .p {
-                  font-size: 21px;
+                  font-size: 16px;
                   margin-top: 10px;
                 }
               }
