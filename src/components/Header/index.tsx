@@ -103,7 +103,11 @@ const Header = ({ siteSettings }: Props) => {
               <Link href="/" className="logo-content">
                 <div className="logo-wrapper">
                   <ImageWithFallback
-                    src={urlFor(logoImage).url()}
+                    src={
+                      logoImage
+                        ? urlFor(logoImage).url()
+                        : '/images/logo-transparent.png'
+                    }
                     alt="clip-himalaya-logo"
                     fill
                   />

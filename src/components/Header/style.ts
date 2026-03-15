@@ -50,12 +50,12 @@ export const StyledHeader = styled.header`
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
 
     .logo-wrapper {
-      height: 40px !important;
-      width: 40px !important;
+      height: 60px !important;
+      width: 60px !important;
       opacity: 1 !important;
 
       img {
-        filter: brightness(0) invert(0) !important;
+        object-fit: contain;
       }
     }
 
@@ -92,18 +92,17 @@ export const StyledHeader = styled.header`
       align-items: center;
       .logo-wrapper {
         position: relative;
-        height: 50px;
-        width: 50px;
+        height: 65px;
+        width: 65px;
         flex-shrink: 0;
         transition: all 0.3s ease;
-        opacity: 0.85;
+        opacity: 1;
         @media (max-width: ${({ theme }) => theme.breakPoints.mobile}) {
           height: 42px;
           width: 42px;
         }
         img {
           object-fit: contain;
-          filter: brightness(0) invert(1);
         }
       }
       .title-content {
