@@ -1,25 +1,19 @@
 'use client';
 import React from 'react';
 
-import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import { SwiperSlide } from 'swiper/react';
 
 import Button from '@/components/Button';
 import Col from '@/components/Col';
 import Container from '@/components/Container';
 import Divider from '@/components/Divider';
-import ExpertCard from '@/components/ExpertCard';
 import Row from '@/components/Row';
 import Typography from '@/components/Typography';
+import ImageWithFallback from '@/components/ImageWithFallBack';
 
 import { StyledDiv } from './style';
 import { HomePageType } from '../../home-page.types';
 import { urlFor } from '@/sanity/client';
-
-const MySwiper = dynamic(() => import('@/components/MySwiper'), {
-  ssr: false,
-});
 
 type Props = {
   data: HomePageType;
@@ -32,57 +26,60 @@ const AdventureSpecialist = ({ data }: Props) => {
     contactUsNumber = '',
   } = data?.homeData || {};
   const { memberList = [] } = data?.memberList || [];
+  const displayMembers = memberList.slice(0, 3);
+
   return (
     <StyledDiv>
       <Container>
         <Row>
           <Col>
-            <div className="adventure-specialist-wrapper">
-              <Divider />
-              <div className="section-title-wrapper">
-                <Typography as="h3" className="section-title">
-                  {contactUsTitle}
-                </Typography>
-              </div>
+            <Divider />
+            <div className="specialist-section">
+              <Typography as="h4" className="specialist-heading">
+                {contactUsTitle ||
+                  'Start planning your trek. Get matched with a local adventure specialist.'}
+              </Typography>
 
-              <div className="adventure-specialist-content">
-                <div className="adventure-expert-list">
-                  <MySwiper slidePerView={3.5}>
-                    {memberList.map((x, i) => {
-                      const imageUrl = urlFor(x.memberImage).url();
-                      return (
-                        <SwiperSlide key={i}>
-                          <ExpertCard
-                            imageUrl={imageUrl}
-                            designation={x.memberDesignation}
-                            name={x.memberName}
+              <div className="specialist-content">
+                <div className="member-list">
+                  {displayMembers.map((x, i) => {
+                    const imageUrl = urlFor(x.memberImage).url();
+                    return (
+                      <div className="member-item" key={i}>
+                        <div className="member-image">
+                          <ImageWithFallback
+                            src={imageUrl}
+                            alt={x.memberName}
+                            fill
                           />
-                        </SwiperSlide>
-                      );
-                    })}
-                  </MySwiper>
+                        </div>
+                        <Typography as="p" className="member-name">
+                          {x.memberName}
+                        </Typography>
+                      </div>
+                    );
+                  })}
                 </div>
 
-                <div className="adventure-contact-us">
+                <div className="contact-cta">
                   <Typography as="p" className="call-us-text">
                     {contactUsInfo}
                   </Typography>
-                  <Link href="tel:+977 980123456" className="contact-us">
+                  <Link href="tel:+977 980123456" className="phone-number">
                     {contactUsNumber}
                   </Link>
-
                   <Button
                     className="call-btn"
-                    size="md"
-                    variant="outline"
+                    size="sm"
+                    variant="black"
                     href="/contact-us"
                   >
-                    START PLANNING MY TRIP
+                    Start Planning My Trip
                   </Button>
                 </div>
               </div>
-              <Divider />
             </div>
+            <Divider />
           </Col>
         </Row>
       </Container>

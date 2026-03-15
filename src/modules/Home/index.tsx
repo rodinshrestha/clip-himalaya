@@ -4,6 +4,7 @@ import AdventureSpecialist from './components/AdventureSpecialist';
 import HeroSection from './components/HeroSection';
 import Testimonial from './components/Testimonial';
 import TopTrekSection from './components/TopTrekSection';
+import WhyChooseUs from './components/WhyChooseUs';
 import { StyledDiv } from './style';
 import { HomePageType } from './home-page.types';
 
@@ -15,9 +16,10 @@ const Home = ({ data }: Props) => {
   return (
     <StyledDiv>
       <HeroSection data={data} />
+      <WhyChooseUs data={data} />
       <TopTrekSection data={data} />
       <AdventureSpecialist data={data} />
-      <Testimonial />
+      <Testimonial data={data} />
     </StyledDiv>
   );
 };

@@ -4,6 +4,7 @@ import React from 'react';
 import { useScroll, motion } from 'framer-motion';
 import { useTypewriter } from 'react-simple-typewriter';
 
+import Button from '@/components/Button';
 import ImageWithFallback from '@/components/ImageWithFallBack';
 import Typography from '@/components/Typography';
 import { getTransition } from '@/utils/get-transition';
@@ -67,7 +68,7 @@ const HeroSection = ({ data }: Props) => {
           y: getTransition(position, 0.5),
         }}
       >
-        <Overlay overlayValue={0.4} />
+        <Overlay overlayValue={0.5} />
         <video autoPlay muted loop playsInline className="bg-video">
           <source src={video} type="video/mp4" />
         </video>
@@ -85,7 +86,15 @@ const HeroSection = ({ data }: Props) => {
         <Typography as="h1">
           {title} <span className="auto-text">{text}</span>
         </Typography>
-        <Typography as="body2">{helperText} </Typography>
+        <Typography as="body2">{helperText}</Typography>
+        <div className="hero-cta-wrapper">
+          <Button variant="black" size="md" href="/treks">
+            EXPLORE TREKS
+          </Button>
+          <Button variant="outline" size="md" href="/contact-us">
+            PLAN MY TRIP
+          </Button>
+        </div>
       </motion.div>
       <div
         className="scroll-indicator"

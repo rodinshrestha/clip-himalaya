@@ -6,6 +6,19 @@ type PopularTrek = {
   titles: string[];
 };
 
+export type FeatureItem = {
+  icon: string;
+  title: string;
+  description: string;
+};
+
+export type TestimonialItem = {
+  name: string;
+  trek: string;
+  rating: number;
+  review: string;
+};
+
 type HomeData = {
   title: string;
   animatedTextList: string[];
@@ -16,6 +29,12 @@ type HomeData = {
   contactUsInfo: string;
   contactUsNumber: string;
   video: string;
+  whyChooseUsLabel: string;
+  whyChooseUsHeading: string;
+  features: FeatureItem[];
+  testimonialLabel: string;
+  testimonialHeading: string;
+  testimonialList: TestimonialItem[];
 };
 
 export type HomePageType = {

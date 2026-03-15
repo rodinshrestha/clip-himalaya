@@ -21,6 +21,12 @@ export const homePageQuery = `{
       contactUsTitle,
       contactUsInfo,
       contactUsNumber,
+      whyChooseUsLabel,
+      whyChooseUsHeading,
+      features,
+      testimonialLabel,
+      testimonialHeading,
+      testimonialList,
   },
   "memberList": *[_type == "ourTeamPage"][0]{
       memberList

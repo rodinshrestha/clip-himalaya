@@ -7,7 +7,7 @@ export const StyledHeader = styled.header`
   z-index: 100;
   padding: 20px 0;
   box-sizing: border-box;
-  transition: transform 0.4s ease;
+  transition: all 0.4s ease;
 
   @keyframes slideDown {
     from {
@@ -18,89 +18,123 @@ export const StyledHeader = styled.header`
     }
   }
 
-  @keyframes slideUp {
-    from {
-      transform: translateY(0);
+  /* Default state: transparent header over hero */
+  .logo-content .title-content .h1,
+  .logo-content .title-content .body1 {
+    color: ${({ theme }) => theme.color.white['100']};
+    transition: color 0.3s ease;
+  }
+
+  .header-navigation-wrapper .navigation-link {
+    color: ${({ theme }) => theme.color.white['100']} !important;
+    transition: color 0.3s ease;
+
+    &::after {
+      background-color: ${({ theme }) => theme.color.white['100']} !important;
     }
-    to {
-      transform: translateY(-100%);
-    }
+  }
+
+  .hamburger-menu-wrapper svg {
+    color: ${({ theme }) => theme.color.white['100']};
+    transition: color 0.3s ease;
   }
 
   &.active {
     position: fixed;
     top: 0;
     left: 0;
-    padding: 5px 0;
+    padding: 10px 0;
     animation: slideDown 0.4s ease forwards;
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(8px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.95);
+    background-color: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
 
     .logo-wrapper {
-      height: 65px !important;
-      width: 65px !important;
+      height: 40px !important;
+      width: 40px !important;
+      opacity: 1 !important;
+
+      img {
+        filter: brightness(0) invert(0) !important;
+      }
     }
 
-    .title-content {
-      .h1 {
-        font-size: 24px !important;
-        @media (max-width: ${({ theme }) => theme.breakPoints.mobile}) {
-          font-size: 18px !important;
-        }
+    .logo-content .title-content .h1 {
+      color: ${({ theme }) => theme.color.black['100']} !important;
+      font-size: 20px !important;
+    }
+    .logo-content .title-content .body1 {
+      color: ${({ theme }) => theme.color.black['200']} !important;
+      font-size: 12px !important;
+    }
+
+    .header-navigation-wrapper .navigation-link {
+      color: ${({ theme }) => theme.color.black['100']} !important;
+      font-size: 15px;
+
+      &::after {
+        background-color: ${({ theme }) => theme.color.black['100']} !important;
       }
-      .body1 {
-        font-size: 16px !important;
-        @media (max-width: ${({ theme }) => theme.breakPoints.mobile}) {
-          font-size: 14px !important;
-        }
-      }
+    }
+
+    .hamburger-menu-wrapper svg {
+      color: ${({ theme }) => theme.color.black['100']};
     }
   }
 
   .header-wrapper {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
     .logo-content {
       display: flex;
       align-items: center;
       .logo-wrapper {
         position: relative;
-        height: 80px;
-        width: 80px;
+        height: 50px;
+        width: 50px;
+        flex-shrink: 0;
+        transition: all 0.3s ease;
+        opacity: 0.85;
         @media (max-width: ${({ theme }) => theme.breakPoints.mobile}) {
-          height: 65px;
-          width: 65px;
+          height: 42px;
+          width: 42px;
         }
         img {
-          object-fit: cover;
+          object-fit: contain;
+          filter: brightness(0) invert(1);
         }
       }
       .title-content {
-        margin-left: 20px;
+        margin-left: 14px;
         @media (max-width: ${({ theme }) => theme.breakPoints.mobile}) {
           margin-left: 10px;
         }
         .h1 {
           font-family: ${({ theme }) => theme.fonts.magra};
-          font-weight: 500;
-          font-size: 24px !important;
+          font-weight: 600;
+          font-size: 22px !important;
+          letter-spacing: 1.5px;
+          text-transform: uppercase;
+          transition: all 0.3s ease;
 
           @media (max-width: ${({ theme }) => theme.breakPoints.smallScreen}) {
             font-size: 18px !important;
           }
         }
         .body1 {
-          font-weight: normal;
           text-transform: uppercase;
-          font-size: 21px;
-          line-height: 21px;
+          font-size: 11px !important;
+          line-height: 16px;
           font-weight: 400;
-          opacity: 0.8;
-          font-size: 16px !important;
+          letter-spacing: 3px;
+          opacity: 0.75;
+          transition: all 0.3s ease;
 
           @media (max-width: ${({ theme }) => theme.breakPoints.smallScreen}) {
-            font-size: 14px !important;
+            font-size: 10px !important;
+            letter-spacing: 2px;
           }
         }
       }
@@ -109,27 +143,31 @@ export const StyledHeader = styled.header`
     .header-navigation-wrapper {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 28px;
       @media (max-width: ${({ theme }) => theme.breakPoints.smallScreen}) {
         display: none;
       }
 
       .navigation-link {
-        font-size: 21px;
+        font-size: 14px;
         text-transform: uppercase;
-        color: ${({ theme }) => theme.color.black['100']};
+        letter-spacing: 1px;
         position: relative;
         display: inline-block;
-        font-weight: 400;
+        font-weight: 500;
+        transition: opacity 0.2s ease;
+
+        &:hover {
+          opacity: 0.8;
+        }
 
         &::after {
           content: '';
           position: absolute;
           left: 0;
-          bottom: -2px;
+          bottom: -4px;
           width: 100%;
-          height: 1.5px;
-          background-color: ${({ theme }) => theme.color.black['200']};
+          height: 2px;
           transform: scaleX(0);
           transform-origin: center;
           transition: transform 0.3s ease;

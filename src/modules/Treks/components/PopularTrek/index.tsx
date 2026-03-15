@@ -23,13 +23,18 @@ const PopularTrek = ({ data }: Props) => {
       <Container>
         <Row>
           <Col>
-            <Typography as="h3" className="section-title">
-              {sectionTitle}
-            </Typography>
+            <div className="section-header">
+              <Typography as="p" className="section-label">
+                Explore Our Treks
+              </Typography>
+              <Typography as="h3" className="section-title">
+                {sectionTitle}
+              </Typography>
+            </div>
             <div className="trek-wrapper">
               {trekList.map((x, i) => {
-                const { image = '' } = x || {};
-                const imgUrl = urlFor(image).url() || '';
+                const { image } = x || {};
+                const imgUrl = image ? urlFor(image).url() : '';
                 return (
                   <TrekCard
                     imgUrl={imgUrl}

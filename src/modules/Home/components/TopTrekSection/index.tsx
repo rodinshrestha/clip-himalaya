@@ -4,6 +4,7 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import { SwiperSlide } from 'swiper/react';
 
+import Button from '@/components/Button';
 import Card from '@/components/Card';
 import Col from '@/components/Col';
 import Container from '@/components/Container';
@@ -31,12 +32,15 @@ const TopTrekSection = ({ data }: Props) => {
           <Col>
             <div className="top-trek-wrapper">
               <div className="section-title-wrapper">
+                <Typography as="p" className="section-label">
+                  Handpicked For You
+                </Typography>
                 <Typography as="h3" className="section-title">
                   {sectionTitle}
                 </Typography>
               </div>
               <div className="top-trek-card-wrapper">
-                <MySwiper>
+                <MySwiper slidePerView={3}>
                   {popularTreks.map((x, i) => {
                     const imageUrl = urlFor(x.image).url();
 
@@ -47,6 +51,11 @@ const TopTrekSection = ({ data }: Props) => {
                     );
                   })}
                 </MySwiper>
+              </div>
+              <div className="view-all-wrapper">
+                <Button variant="outline" size="md" href="/treks">
+                  VIEW ALL TREKS
+                </Button>
               </div>
             </div>
           </Col>

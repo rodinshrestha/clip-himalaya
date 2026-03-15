@@ -1,33 +1,37 @@
 'use client';
 import React from 'react';
 
-import { Rating } from 'react-simple-star-rating';
-
-import ImageWithFallback from '../ImageWithFallBack';
 import Typography from '../Typography';
 
 import { StyledDiv } from './style';
 
-const TestimonialCard = () => {
+type Props = {
+  name?: string;
+  trek?: string;
+  rating?: number;
+  review?: string;
+};
+
+const TestimonialCard = ({
+  name = 'Noah Schumacher',
+  trek = 'Everest Base Camp 2024',
+  review = 'An incredible experience from start to finish. The team was professional, knowledgeable, and genuinely cared about making our trek unforgettable.',
+}: Props) => {
   return (
     <StyledDiv>
-      <Typography as="p" className="rating-content">
-        Boost your product and service&apos;s credibility by adding testimonials
-        from your clients. People love recommendations so feedback from others
-        who&apos;ve tried it is invaluable.
-      </Typography>
-      <div className="rating-section">
-        <div className="image-wrapper">
-          <ImageWithFallback
-            src="/images/expert.jpeg"
-            alt="rating-image"
-            fill
-          />
-        </div>
-        <div className="rating-information-content">
-          <Typography as="p">Noah Schumacher</Typography>
-          <Rating readonly initialValue={5} size={18} fillColor="#000" />
-        </div>
+      <div className="quote-section">
+        <div className="quote-mark">&ldquo;&ldquo;</div>
+        <Typography as="p" className="review-text">
+          {review}
+        </Typography>
+      </div>
+      <div className="author-section">
+        <Typography as="p" className="author-name">
+          {name}
+        </Typography>
+        <Typography as="p" className="author-trek">
+          {trek}
+        </Typography>
       </div>
     </StyledDiv>
   );
