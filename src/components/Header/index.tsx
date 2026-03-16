@@ -71,20 +71,36 @@ const Header = ({ siteSettings }: Props) => {
   ];
 
   const mobileNavigation = [
-    { link: '/', label: 'Home', icon: <Home size={24} /> },
-    { link: '/treks', label: 'Treks', icon: <MountainSnow size={24} /> },
+    { link: '/', label: 'Home', icon: <Home size={21} color="#000" /> },
+    {
+      link: '/treks',
+      label: 'Treks',
+      icon: <MountainSnow size={21} color="#000" />,
+    },
     {
       link: '/annapurna-circuit',
       label: 'Annapurna Circuit',
-      icon: <Map size={24} />,
+      icon: <Map size={21} color="#000" />,
     },
-    { link: '/our-story', label: 'Our Story', icon: <BookText size={24} /> },
-    { link: '/our-team', label: 'Our Team', icon: <UsersRound size={24} /> },
-    { link: '/contact-us', label: 'Contact Us', icon: <Contact size={24} /> },
+    {
+      link: '/our-story',
+      label: 'Our Story',
+      icon: <BookText size={21} color="#000" />,
+    },
+    {
+      link: '/our-team',
+      label: 'Our Team',
+      icon: <UsersRound size={21} color="#000" />,
+    },
+    {
+      link: '/contact-us',
+      label: 'Contact Us',
+      icon: <Contact size={21} color="#000" />,
+    },
     {
       link: '/terms-and-conditions',
       label: 'Terms and Conditions',
-      icon: <ReceiptText size={24} />,
+      icon: <ReceiptText size={24} color="#000" />,
     },
   ];
 
