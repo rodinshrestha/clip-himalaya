@@ -35,7 +35,7 @@ export const StyledHeader = styled.header`
   }
 
   .hamburger-menu-wrapper svg {
-    color: ${({ theme }) => theme.color.white['100']};
+    color: ${({ theme }) => theme.color.white['100']} !important;
     transition: color 0.3s ease;
   }
 
@@ -79,6 +79,14 @@ export const StyledHeader = styled.header`
 
     .hamburger-menu-wrapper svg {
       color: ${({ theme }) => theme.color.black['100']};
+    }
+  }
+
+  .hamburger-menu-wrapper {
+    .hamburgerMenu {
+      span {
+        background-color: ${({ theme }) => theme.color.white['100']};
+      }
     }
   }
 
@@ -226,6 +234,12 @@ export const StyledHeader = styled.header`
               display: flex;
               justify-content: flex-end;
               font-size: 45px;
+
+              .hamburgerMenu {
+                span {
+                  background-color: ${({ theme }) => theme.color.black['100']};
+                }
+              }
             }
           }
 
