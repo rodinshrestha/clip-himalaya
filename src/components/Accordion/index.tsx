@@ -46,7 +46,7 @@ const Accordion = ({ items, allowMultiple = false }: AccordionProps) => {
 
   return (
     <AccordionWrapper>
-      {items.map((item, index) => {
+      {items?.map((item, index) => {
         const isOpen = openIndexes.has(index);
         const { children = [] } = item || {};
         return (

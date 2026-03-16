@@ -16,7 +16,7 @@ type Props = {
 const KeyHighlights = ({ data }: Props) => {
   const { keyHighlights } = data || {};
 
-  const items = keyHighlights.map((x) => ({
+  const items = keyHighlights?.map((x) => ({
     title: x.title,
     children: sanitizeBlockData(x.description),
   }));
@@ -24,7 +24,7 @@ const KeyHighlights = ({ data }: Props) => {
     <StyledDiv className="key-highlights-container" id="key-highlights">
       <TrekkingTitleSection icon={Sun} title="KEY HIGHLIGHTS" />
       <div className="key-hightlights-wrapper">
-        {items.map((x, i) => {
+        {items?.map((x, i) => {
           return (
             <TrekkingInfo title={x.title} description={x.children} key={i} />
           );

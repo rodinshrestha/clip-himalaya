@@ -22,6 +22,8 @@ const TrekDetails = ({ data }: Props) => {
     { label: 'Everest Base Camp' },
   ];
 
+  console.log({ data });
+
   return (
     <StyledDiv>
       <StickyButton stickyBtn={stickyBtn} />

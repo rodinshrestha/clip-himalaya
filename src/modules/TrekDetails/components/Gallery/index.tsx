@@ -37,7 +37,7 @@ const Gallery = ({ data }: Props) => {
           scrollbar={{ draggable: true }}
           className="mySwiper"
         >
-          {imageGallery.map((x, i) => {
+          {imageGallery?.map((x, i) => {
             const imageUrl = urlFor(x.image).url();
             return (
               <SwiperSlide key={i}>

@@ -26,11 +26,11 @@ export const StyledHeader = styled.header`
   }
 
   .header-navigation-wrapper .navigation-link {
-    color: ${({ theme }) => theme.color.white['100']} !important;
+    color: ${({ theme }) => theme.color.white['100']};
     transition: color 0.3s ease;
 
     &::after {
-      background-color: ${({ theme }) => theme.color.white['100']} !important;
+      background-color: ${({ theme }) => theme.color.white['100']};
     }
   }
 

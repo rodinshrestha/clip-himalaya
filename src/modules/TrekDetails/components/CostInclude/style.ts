@@ -6,6 +6,7 @@ export const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  flex: 1;
 
   .cost-include-wrapper {
     display: flex;

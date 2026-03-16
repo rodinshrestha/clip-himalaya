@@ -17,7 +17,7 @@ type Props = {
 const ItineraryDetails = ({ data }: Props) => {
   const { itineraryDetails = [] } = data || {};
 
-  const items = itineraryDetails.map((x) => ({
+  const items = itineraryDetails?.map((x) => ({
     title: x.itineraryTitle,
     children: sanitizeBlockData(x.itineraryDescription),
   }));

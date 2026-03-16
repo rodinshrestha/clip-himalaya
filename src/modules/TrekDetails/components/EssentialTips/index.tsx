@@ -16,7 +16,7 @@ type Props = {
 const EssentialTips = ({ data }: Props) => {
   const { essentialTips = [] } = data || {};
 
-  const items = essentialTips.map((x) => ({
+  const items = essentialTips?.map((x) => ({
     title: x.title,
     children: sanitizeBlockData(x.description),
   }));
@@ -25,7 +25,7 @@ const EssentialTips = ({ data }: Props) => {
       <TrekkingTitleSection icon={Info} title="ESSENTIAL TIPS" />
 
       <div className="essential-tip-wrapper">
-        {items.map((x, i) => {
+        {items?.map((x, i) => {
           return (
             <TrekkingInfo key={i} title={x.title} description={x.children} />
           );
