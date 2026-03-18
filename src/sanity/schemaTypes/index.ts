@@ -11,6 +11,9 @@ import { termConditionPageType } from './termsConditionPageType';
 import { contactSubmissionType } from './contactSubmissionType';
 import { trekPageType } from './trekPageType';
 import { trekDetailsType } from './trekDetailsType';
+import { activityDetailsType } from './activityDetailsType';
+import { otherActivitiesPageType } from './otherActivitiesPageType';
+import { trekkingRegionType } from './trekkingRegionType';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -25,5 +28,8 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     contactSubmissionType,
     trekPageType,
     trekDetailsType,
+    trekkingRegionType,
+    activityDetailsType,
+    otherActivitiesPageType,
   ],
 };

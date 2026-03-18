@@ -18,8 +18,8 @@ const Home = ({ data }: Props) => {
       <HeroSection data={data} />
       <WhyChooseUs data={data} />
       <TopTrekSection data={data} />
-      <AdventureSpecialist data={data} />
       <Testimonial data={data} />
+      <AdventureSpecialist data={data} />
     </StyledDiv>
   );
 };

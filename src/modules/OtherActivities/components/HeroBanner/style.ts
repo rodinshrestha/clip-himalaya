@@ -51,6 +51,7 @@ export const StyledDiv = styled.div`
           font-size: 28px;
         }
       }
+
       .p {
         color: rgba(255, 255, 255, 0.9);
         font-size: 16px;

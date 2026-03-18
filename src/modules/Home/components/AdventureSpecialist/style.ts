@@ -72,6 +72,14 @@ export const StyledDiv = styled.div`
       font-weight: 500;
       text-align: center;
     }
+
+    .member-designation {
+      font-size: 12px;
+      font-family: ${({ theme }) => theme.fonts.poppins};
+      font-weight: 400;
+      text-align: center;
+      color: ${({ theme }) => theme.color.black['200']};
+    }
   }
 
   .contact-cta {

@@ -18,10 +18,10 @@ import { StyledHeader } from './style';
 import { SiteSettingTypes } from '@/types/site-settings.type';
 import { urlFor } from '@/sanity/client';
 import {
+  Activity,
   BookText,
   Contact,
   Home,
-  Map,
   MountainSnow,
   ReceiptText,
   UsersRound,
@@ -64,7 +64,7 @@ const Header = ({ siteSettings }: Props) => {
   const navigation = [
     { link: '/', label: 'Home' },
     { link: '/treks', label: 'Treks' },
-    { link: '/annapurna-circuit', label: 'Annapurna Circuit' },
+    { link: '/other-activities', label: 'Other Activities' },
     { link: '/our-story', label: 'Our Story' },
     { link: '/our-team', label: 'Our Team' },
     { link: '/contact-us', label: 'Contact Us' },
@@ -78,9 +78,9 @@ const Header = ({ siteSettings }: Props) => {
       icon: <MountainSnow size={21} color="#000" />,
     },
     {
-      link: '/annapurna-circuit',
-      label: 'Annapurna Circuit',
-      icon: <Map size={21} color="#000" />,
+      link: '/other-activities',
+      label: 'Other Activities',
+      icon: <Activity size={21} color="#000" />,
     },
     {
       link: '/our-story',

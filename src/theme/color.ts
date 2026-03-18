@@ -12,4 +12,5 @@ export const color = {
   red: {
     100: 'red',
   },
+  primary: '#c8956c',
 };

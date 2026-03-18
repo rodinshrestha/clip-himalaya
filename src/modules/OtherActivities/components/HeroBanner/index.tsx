@@ -5,22 +5,17 @@ import Container from '@/components/Container';
 import ImageWithFallback from '@/components/ImageWithFallBack';
 import Row from '@/components/Row';
 import Typography from '@/components/Typography';
-
-import { StyledDiv } from './style';
-import { TrekPageType } from '../../treks.type';
 import { urlFor } from '@/sanity/client';
 
+import { StyledDiv } from './style';
+
 type Props = {
-  data: TrekPageType;
+  bannerImage?: string;
+  title?: string;
+  helperText?: string;
 };
 
-const TrekLandingPage = ({ data }: Props) => {
-  const {
-    bannerImage = '',
-    title = '',
-    helperText = '',
-  } = data?.pageData || {};
-
+const HeroBanner = ({ bannerImage, title, helperText }: Props) => {
   const bannerUrl = bannerImage
     ? urlFor(bannerImage).width(1920).quality(85).url()
     : '';
@@ -30,7 +25,7 @@ const TrekLandingPage = ({ data }: Props) => {
       <div className="hero-gradient" />
       <ImageWithFallback
         src={bannerUrl}
-        alt="trek-banner"
+        alt="other-activities-banner"
         fill
         priority
       />
@@ -50,4 +45,4 @@ const TrekLandingPage = ({ data }: Props) => {
   );
 };
 
-export default TrekLandingPage;
+export default HeroBanner;

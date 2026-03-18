@@ -56,6 +56,11 @@ const AdventureSpecialist = ({ data }: Props) => {
                         <Typography as="p" className="member-name">
                           {x.memberName}
                         </Typography>
+                        {x.memberDesignation && (
+                          <Typography as="p" className="member-designation">
+                            {x.memberDesignation}
+                          </Typography>
+                        )}
                       </div>
                     );
                   })}

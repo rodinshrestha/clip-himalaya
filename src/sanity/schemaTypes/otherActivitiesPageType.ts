@@ -1,15 +1,15 @@
 import { defineField, defineType } from 'sanity';
-import { UserIcon } from '@sanity/icons';
+import { ActivityIcon } from '@sanity/icons';
 
-export const contactUsPageType = defineType({
-  name: 'contactUsPage',
-  title: 'Contact Us Page',
+export const otherActivitiesPageType = defineType({
+  name: 'otherActivitiesPage',
+  title: 'Other Activities Page',
   type: 'document',
-  icon: UserIcon,
+  icon: ActivityIcon,
   preview: {
     prepare() {
       return {
-        title: 'Contact Us Page',
+        title: 'Other Activities Page',
       };
     },
   },
@@ -24,32 +24,29 @@ export const contactUsPageType = defineType({
       },
     }),
     defineField({
-      name: 'title',
-      title: 'Title',
+      name: 'bannerTitle',
+      title: 'Banner Title',
       type: 'string',
     }),
-
     defineField({
-      name: 'helperText',
-      title: 'Helper Text',
+      name: 'bannerHelperText',
+      title: 'Banner Helper Text',
       type: 'string',
     }),
-
     defineField({
-      name: 'phoneNumber',
-      title: 'Phone Number',
+      name: 'heading',
+      title: 'Heading',
       type: 'string',
     }),
-
     defineField({
-      name: 'mobileNumber',
-      title: 'Mobile Number',
-      type: 'string',
+      name: 'description',
+      title: 'Description',
+      type: 'text',
+      rows: 3,
     }),
-
     defineField({
-      name: 'officeHour',
-      title: 'Office Hour',
+      name: 'sectionTitle',
+      title: 'Section Title',
       type: 'string',
     }),
   ],

@@ -2,9 +2,9 @@ import React from 'react';
 
 import BreadCrumbs from '@/components/BreadCrumbs';
 
-import PopularTrek from './components/PopularTrek';
 import TrekInformation from './components/TrekInformation';
 import TrekLandingPage from './components/TrekLandingPage';
+import TrekkingRegions from './components/TrekkingRegions';
 import { StyledDiv } from './style';
 import { TrekPageType } from './treks.type';
 
@@ -18,7 +18,7 @@ const Treks = ({ data }: Props) => {
       <TrekLandingPage data={data} />
       <BreadCrumbs crumbs={[{ label: 'Treks' }]} />
       <TrekInformation data={data} />
-      <PopularTrek data={data} />
+      <TrekkingRegions regions={data.regionList} />
     </StyledDiv>
   );
 };
