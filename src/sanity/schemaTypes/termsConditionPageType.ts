@@ -20,6 +20,7 @@ export const termConditionPageType = {
       type: 'image',
       options: {
         hotspot: true,
+        accept: 'image/jpeg,image/png,image/webp',
       },
     }),
 

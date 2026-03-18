@@ -8,7 +8,6 @@ export const revalidate = 30;
 
 const TreksPage = async () => {
   const data = await client.fetch(trekPageQuery);
-
   return <Treks data={data} />;
 };
 

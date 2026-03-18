@@ -28,6 +28,35 @@ export const StyledDiv = styled.div`
         font-size: 26px;
       }
     }
+
+    .clear-filter {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 14px;
+      font-family: ${({ theme }) => theme.fonts.poppins};
+      color: ${({ theme }) => theme.color.primary};
+      text-decoration: underline;
+      font-weight: 500;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .no-results {
+    text-align: center;
+    padding: 40px 0;
+
+    .p {
+      font-size: 16px;
+      font-family: ${({ theme }) => theme.fonts.poppins};
+      color: ${({ theme }) => theme.color.black['200']};
+    }
   }
 
   .trek-wrapper {

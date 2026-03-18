@@ -18,10 +18,10 @@ import { StyledHeader } from './style';
 import { SiteSettingTypes } from '@/types/site-settings.type';
 import { urlFor } from '@/sanity/client';
 import {
+  Activity,
   BookText,
   Contact,
   Home,
-  Map,
   MountainSnow,
   ReceiptText,
   UsersRound,
@@ -64,27 +64,43 @@ const Header = ({ siteSettings }: Props) => {
   const navigation = [
     { link: '/', label: 'Home' },
     { link: '/treks', label: 'Treks' },
-    { link: '/annapurna-circuit', label: 'Annapurna Circuit' },
+    { link: '/other-activities', label: 'Other Activities' },
     { link: '/our-story', label: 'Our Story' },
     { link: '/our-team', label: 'Our Team' },
     { link: '/contact-us', label: 'Contact Us' },
   ];
 
   const mobileNavigation = [
-    { link: '/', label: 'Home', icon: <Home size={24} /> },
-    { link: '/treks', label: 'Treks', icon: <MountainSnow size={24} /> },
+    { link: '/', label: 'Home', icon: <Home size={21} color="#000" /> },
     {
-      link: '/annapurna-circuit',
-      label: 'Annapurna Circuit',
-      icon: <Map size={24} />,
+      link: '/treks',
+      label: 'Treks',
+      icon: <MountainSnow size={21} color="#000" />,
     },
-    { link: '/our-story', label: 'Our Story', icon: <BookText size={24} /> },
-    { link: '/our-team', label: 'Our Team', icon: <UsersRound size={24} /> },
-    { link: '/contact-us', label: 'Contact Us', icon: <Contact size={24} /> },
+    {
+      link: '/other-activities',
+      label: 'Other Activities',
+      icon: <Activity size={21} color="#000" />,
+    },
+    {
+      link: '/our-story',
+      label: 'Our Story',
+      icon: <BookText size={21} color="#000" />,
+    },
+    {
+      link: '/our-team',
+      label: 'Our Team',
+      icon: <UsersRound size={21} color="#000" />,
+    },
+    {
+      link: '/contact-us',
+      label: 'Contact Us',
+      icon: <Contact size={21} color="#000" />,
+    },
     {
       link: '/terms-and-conditions',
       label: 'Terms and Conditions',
-      icon: <ReceiptText size={24} />,
+      icon: <ReceiptText size={24} color="#000" />,
     },
   ];
 

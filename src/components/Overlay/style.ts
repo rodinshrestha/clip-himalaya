@@ -2,11 +2,7 @@
 
 import styled from 'styled-components';
 
-type Props = {
-  $overlayValue: number;
-};
-
-export const StyledDiv = styled.div<Props>`
+export const StyledDiv = styled.div`
   &.overlay-wrapper {
     position: absolute;
     top: 0;
@@ -14,6 +10,5 @@ export const StyledDiv = styled.div<Props>`
     height: 100%;
     width: 100%;
     z-index: 1;
-    background-color: rgba(0, 0, 0, ${({ $overlayValue }) => $overlayValue});
   }
 `;

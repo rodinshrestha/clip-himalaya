@@ -96,7 +96,32 @@ export const trekPageQuery = `{
     sectionDescription,
     sectionTitle
   },
-  "trekList": *[_type == "trekDetails"]{
+  "trekList": *[_type == "trekDetails"] | order(region->order asc, title asc) {
+    title,
+    image,
+    slug,
+    rating,
+    difficult,
+    trekDescription,
+    "regionName": region->name,
+    "regionSlug": region->slug.current,
+    "regionOrder": region->order
+  },
+  "regionList": *[_type == "trekkingRegion"] | order(order asc) {
+    name,
+    slug,
+    image,
+    "trekCount": count(*[_type == "trekDetails" && region._ref == ^._id])
+  }
+}`;
+
+export const regionDetailQuery = `{
+  "region": *[_type == "trekkingRegion" && slug.current == $slug][0]{
+    name,
+    slug,
+    image
+  },
+  "trekList": *[_type == "trekDetails" && region->slug.current == $slug] | order(title asc) {
     title,
     image,
     slug,
@@ -104,6 +129,32 @@ export const trekPageQuery = `{
     difficult,
     trekDescription
   }
+}`;
+
+export const otherActivitiesPageQuery = `{
+  "pageData": *[_type == "otherActivitiesPage"][0]{
+    bannerImage,
+    bannerTitle,
+    bannerHelperText,
+    heading,
+    description,
+    sectionTitle,
+  },
+  "activityList": *[_type == "activityDetails"] | order(title asc) {
+    title,
+    slug,
+    image,
+    shortDescription
+  }
+}`;
+
+export const activityDetailsQuery = `*[_type == "activityDetails" && slug.current == $slug][0]{
+  title,
+  slug,
+  image,
+  shortDescription,
+  description,
+  highlights
 }`;
 
 export const trekDetailsQuery = `*[_type == "trekDetails" && slug.current == $slug][0]{

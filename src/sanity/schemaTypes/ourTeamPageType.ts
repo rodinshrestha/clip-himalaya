@@ -20,6 +20,7 @@ export const ourTeamPageType = defineType({
       type: 'image',
       options: {
         hotspot: true,
+        accept: 'image/jpeg,image/png,image/webp',
       },
     }),
     defineField({
@@ -69,6 +70,7 @@ export const ourTeamPageType = defineType({
               type: 'image',
               options: {
                 hotspot: true,
+                accept: 'image/jpeg,image/png,image/webp',
               },
             }),
             defineField({

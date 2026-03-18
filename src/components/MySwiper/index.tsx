@@ -1,6 +1,7 @@
 'use client';
 import { Navigation, Pagination, A11y } from 'swiper/modules';
 import { Swiper } from 'swiper/react';
+import type { SwiperOptions } from 'swiper/types';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -9,26 +10,29 @@ import 'swiper/css/pagination';
 
 type Props = {
   children: React.ReactNode;
-  slidePerView?: number;
+  slidesPerView?: number;
+  breakpoints?: { [width: number]: SwiperOptions };
 };
 
-const MySwiper = ({ children, slidePerView = 4.5 }: Props) => {
-  const getBreakpoints = () => {
-    if (slidePerView <= 3) {
+const MySwiper = ({ children, slidesPerView = 4.5, breakpoints }: Props) => {
+  const getBreakpoints = (): { [width: number]: SwiperOptions } => {
+    if (breakpoints) return breakpoints;
+
+    if (slidesPerView <= 3) {
       return {
         0: { slidesPerView: 1 },
         480: { slidesPerView: 1.5 },
         771: { slidesPerView: 2 },
-        1024: { slidesPerView: slidePerView },
+        1024: { slidesPerView: slidesPerView },
       };
     }
-    if (slidePerView <= 3.5) {
+    if (slidesPerView <= 3.5) {
       return {
         0: { slidesPerView: 1 },
         480: { slidesPerView: 1.5 },
         771: { slidesPerView: 2 },
         1024: { slidesPerView: 3 },
-        1440: { slidesPerView: slidePerView },
+        1440: { slidesPerView: slidesPerView },
       };
     }
     return {
@@ -36,7 +40,7 @@ const MySwiper = ({ children, slidePerView = 4.5 }: Props) => {
       480: { slidesPerView: 1.5 },
       771: { slidesPerView: 2.5 },
       1024: { slidesPerView: 3.5 },
-      1440: { slidesPerView: slidePerView },
+      1440: { slidesPerView: slidesPerView },
     };
   };
 
@@ -44,10 +48,8 @@ const MySwiper = ({ children, slidePerView = 4.5 }: Props) => {
     <Swiper
       modules={[Navigation, Pagination, A11y]}
       spaceBetween={24}
-      slidesPerView={slidePerView}
       navigation
       pagination={{ clickable: true }}
-      scrollbar={{ draggable: true }}
       className="mySwiper"
       breakpoints={getBreakpoints()}
       loop

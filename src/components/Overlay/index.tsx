@@ -11,7 +11,7 @@ const Overlay = ({ className, overlayValue = 0.6 }: Props) => {
   return (
     <StyledDiv
       className={clsx('overlay-wrapper', className)}
-      $overlayValue={overlayValue}
+      style={{ backgroundColor: `rgba(0, 0, 0, ${overlayValue})` }}
     />
   );
 };

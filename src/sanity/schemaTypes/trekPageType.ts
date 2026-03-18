@@ -20,6 +20,7 @@ export const trekPageType = defineType({
       type: 'image',
       options: {
         hotspot: true,
+        accept: 'image/jpeg,image/png,image/webp',
       },
     }),
     defineField({

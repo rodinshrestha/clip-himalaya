@@ -7,6 +7,25 @@ export const trekDetailsType = defineType({
   title: 'Trek List',
   type: 'document',
   icon: UserIcon,
+  preview: {
+    select: {
+      title: 'title',
+      subtitle: 'region.name',
+      media: 'image',
+    },
+  },
+  orderings: [
+    {
+      title: 'Title A-Z',
+      name: 'titleAsc',
+      by: [{ field: 'title', direction: 'asc' }],
+    },
+    {
+      title: 'Region',
+      name: 'regionAsc',
+      by: [{ field: 'region.name', direction: 'asc' }],
+    },
+  ],
   fieldsets: [
     { name: 'basicInformation', title: 'Basic Information' },
     { name: 'keyHighlights', title: 'Key Highlights' },
@@ -21,8 +40,10 @@ export const trekDetailsType = defineType({
       name: 'image',
       title: 'Trek Image',
       type: 'image',
+      description: 'Accepted formats: JPG, PNG, WebP',
       options: {
         hotspot: true,
+        accept: 'image/jpeg,image/png,image/webp',
       },
       fieldset: 'basicInformation',
     }),
@@ -73,6 +94,13 @@ export const trekDetailsType = defineType({
       name: 'difficult',
       title: 'Difficult',
       type: 'string',
+      fieldset: 'basicInformation',
+    }),
+    defineField({
+      name: 'region',
+      title: 'Trekking Region',
+      type: 'reference',
+      to: [{ type: 'trekkingRegion' }],
       fieldset: 'basicInformation',
     }),
     defineField({
@@ -237,6 +265,7 @@ export const trekDetailsType = defineType({
               type: 'image',
               options: {
                 hotspot: true,
+                accept: 'image/jpeg,image/png,image/webp',
               },
             }),
           ],

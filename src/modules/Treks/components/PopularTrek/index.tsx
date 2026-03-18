@@ -12,9 +12,11 @@ import { urlFor } from '@/sanity/client';
 
 type Props = {
   data: TrekPageType;
+  activeRegion?: string;
+  onClearFilter?: () => void;
 };
 
-const PopularTrek = ({ data }: Props) => {
+const PopularTrek = ({ data, activeRegion, onClearFilter }: Props) => {
   const { trekList = [] } = data || {};
   const { sectionTitle = '' } = data?.pageData || {};
 
@@ -25,11 +27,22 @@ const PopularTrek = ({ data }: Props) => {
           <Col>
             <div className="section-header">
               <Typography as="p" className="section-label">
-                Explore Our Treks
+                {activeRegion
+                  ? `Treks in ${activeRegion}`
+                  : 'Explore Our Treks'}
               </Typography>
               <Typography as="h3" className="section-title">
-                {sectionTitle}
+                {activeRegion ? `${activeRegion} Treks` : sectionTitle}
               </Typography>
+              {activeRegion && onClearFilter && (
+                <button
+                  type="button"
+                  className="clear-filter"
+                  onClick={onClearFilter}
+                >
+                  View All Treks
+                </button>
+              )}
             </div>
             <div className="trek-wrapper">
               {trekList.map((x, i) => {
@@ -48,6 +61,13 @@ const PopularTrek = ({ data }: Props) => {
                 );
               })}
             </div>
+            {trekList.length === 0 && activeRegion && (
+              <div className="no-results">
+                <Typography as="p">
+                  No treks found in this region yet. Check back soon!
+                </Typography>
+              </div>
+            )}
           </Col>
         </Row>
       </Container>

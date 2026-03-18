@@ -80,6 +80,7 @@ export const homePageType = defineType({
               type: 'image',
               options: {
                 hotspot: true,
+                accept: 'image/jpeg,image/png,image/webp',
               },
             }),
             defineField({
