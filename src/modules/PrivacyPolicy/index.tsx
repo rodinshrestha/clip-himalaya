@@ -8,24 +8,38 @@ import Row from '@/components/Row';
 import Typography from '@/components/Typography';
 import { urlFor } from '@/sanity/client';
 import { sanitizeBlockData } from '@/utils/sanitize-block-data';
+import { BlockType } from '@/types/block.type';
+import { ImageType } from '@/types/image.type';
 
 import { StyledDiv } from './style';
-import { TermConditionType } from './term-condition.type';
 
-type Props = {
-  data: TermConditionType;
+type LegalSection = {
+  title: string;
+  content: BlockType[];
 };
 
-const TermsAndCondition = ({ data }: Props) => {
+type PrivacyPolicyData = {
+  bannerImage: ImageType;
+  bannerTitle?: string;
+  lastUpdated?: string;
+  sections?: LegalSection[];
+};
+
+type Props = {
+  data: PrivacyPolicyData;
+};
+
+const PrivacyPolicy = ({ data }: Props) => {
   const {
     bannerImage,
-    bannerTitle = 'Terms & Conditions',
+    bannerTitle = 'Privacy Policy',
     lastUpdated,
     sections = [],
-    termConditionList = [],
   } = data || {};
 
-  const bannerUrl = bannerImage ? urlFor(bannerImage).width(1920).quality(85).url() : '';
+  const bannerUrl = bannerImage
+    ? urlFor(bannerImage).width(1920).quality(85).url()
+    : '';
 
   return (
     <StyledDiv>
@@ -51,13 +65,12 @@ const TermsAndCondition = ({ data }: Props) => {
         </div>
       </div>
 
-      <BreadCrumbs crumbs={[{ label: 'Terms & Conditions' }]} />
+      <BreadCrumbs crumbs={[{ label: 'Privacy Policy' }]} />
 
       <Container>
         <Row>
           <Col>
             <div className="content-wrapper">
-              {/* New sections-based content */}
               {sections.length > 0 &&
                 sections.map((section, i) => (
                   <div key={i} className="legal-section">
@@ -77,15 +90,6 @@ const TermsAndCondition = ({ data }: Props) => {
                     )}
                   </div>
                 ))}
-
-              {/* Legacy plain-text list fallback */}
-              {sections.length === 0 && termConditionList.length > 0 && (
-                <ul className="legacy-list">
-                  {termConditionList.map((item, i) => (
-                    <li key={i}>{item}</li>
-                  ))}
-                </ul>
-              )}
             </div>
           </Col>
         </Row>
@@ -94,4 +98,4 @@ const TermsAndCondition = ({ data }: Props) => {
   );
 };
 
-export default TermsAndCondition;
+export default PrivacyPolicy;

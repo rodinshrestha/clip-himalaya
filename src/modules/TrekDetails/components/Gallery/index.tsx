@@ -16,7 +16,7 @@ type Props = {
 };
 
 const Gallery = ({ data }: Props) => {
-  const { imageGallery = [] } = data || {};
+  const imageGallery = data?.imageGallery || [];
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const openLightbox = (index: number) => setLightboxIndex(index);

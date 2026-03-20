@@ -136,7 +136,7 @@ const Footer = ({ siteSettings }: Props) => {
                 <div className="footer-links">
                   <Link href="/contact-us">Contact Us</Link>
                   <Link href="/terms-and-conditions">Terms & Conditions</Link>
-                  <Link href="/terms-and-conditions">Privacy Policy</Link>
+                  <Link href="/privacy-policy">Privacy Policy</Link>
                 </div>
               </div>
 

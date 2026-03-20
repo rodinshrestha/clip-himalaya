@@ -93,7 +93,18 @@ export const ContactUsPageQuery = `{
 
 export const termConditionPageQuery = `*[_type == "termConditionpage"][0]{
     bannerImage,
+    bannerTitle,
+    lastUpdated,
+    sections,
     termConditionList,
+  }
+`;
+
+export const privacyPolicyPageQuery = `*[_type == "privacyPolicyPage"][0]{
+    bannerImage,
+    bannerTitle,
+    lastUpdated,
+    sections,
   }
 `;
 

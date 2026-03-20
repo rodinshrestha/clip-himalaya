@@ -1,15 +1,15 @@
 import { defineArrayMember, defineField } from 'sanity';
 import { UserIcon } from '@sanity/icons';
 
-export const termConditionPageType = {
-  name: 'termConditionpage',
-  title: 'Term and Condition Page',
+export const privacyPolicyPageType = {
+  name: 'privacyPolicyPage',
+  title: 'Privacy Policy Page',
   type: 'document',
   icon: UserIcon,
   preview: {
     prepare() {
       return {
-        title: 'Term and Condition Page',
+        title: 'Privacy Policy Page',
       };
     },
   },
@@ -27,7 +27,7 @@ export const termConditionPageType = {
       name: 'bannerTitle',
       title: 'Banner Title',
       type: 'string',
-      initialValue: 'Terms & Conditions',
+      initialValue: 'Privacy Policy',
     }),
     defineField({
       name: 'lastUpdated',
@@ -69,19 +69,6 @@ export const termConditionPageType = {
               ],
             }),
           ],
-        }),
-      ],
-    }),
-    // Keep legacy field for backward compatibility
-    defineField({
-      name: 'termConditionList',
-      title: 'Term and Condition List (Legacy)',
-      type: 'array',
-      hidden: true,
-      of: [
-        defineArrayMember({
-          name: 'Title',
-          type: 'string',
         }),
       ],
     }),

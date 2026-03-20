@@ -101,17 +101,4 @@ export const StyledDiv = styled.div`
       margin-bottom: 8px;
     }
   }
-
-  /* Legacy list fallback */
-  .legacy-list {
-    padding-left: 20px;
-
-    li {
-      font-family: ${({ theme }) => theme.fonts.poppins};
-      font-size: 15px;
-      line-height: 1.8;
-      padding-bottom: 10px;
-      color: ${({ theme }) => theme.color.black['200']};
-    }
-  }
 `;

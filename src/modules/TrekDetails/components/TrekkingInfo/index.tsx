@@ -19,8 +19,8 @@ const TrekkingInfo = ({ title, description }: Props) => {
       <div className="content-wrapper">
         {title && <Typography as="body1">{title}</Typography>}
         {Array.isArray(description) && description.length ? (
-          description.map((x) => {
-            return <Typography as="body2">{description}</Typography>;
+          description.map((x, i) => {
+            return <Typography as="body2" key={i}>{x}</Typography>;
           })
         ) : (
           <Typography as="body2">{description}</Typography>

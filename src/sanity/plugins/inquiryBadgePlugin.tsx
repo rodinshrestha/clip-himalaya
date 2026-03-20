@@ -77,10 +77,10 @@ export const inquiryBadgePlugin = definePlugin({
   studio: {
     components: {
       layout: (props: any) => {
-        const { renderDefault } = props;
+        const { renderDefault, ...rest } = props;
         return (
           <>
-            {renderDefault(props)}
+            {renderDefault(rest)}
             <InquiryBadgeWidget />
           </>
         );
