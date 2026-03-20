@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 
+import Link from 'next/link';
 import { Rating } from 'react-simple-star-rating';
 
 import Button from '../Button';
@@ -29,40 +30,42 @@ const TrekCard = ({
   difficult = '',
 }: Props) => {
   return (
-    <StyledDiv>
-      <div className="image-wrapper">
-        <ImageWithFallback src={imgUrl} alt="image" fill />
-      </div>
-      <div className="content-wrapper">
-        {title && (
-          <Typography as="body2" className="title">
-            {title}
-          </Typography>
-        )}
-        <div className="rating-wrapper">
-          <Rating initialValue={rating} readonly size={18} fillColor="#000" />
-
-          <Typography as="body2" className="difficult-text">
-            Difficult: {difficult}
-          </Typography>
+    <Link href={`/treks/${slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+      <StyledDiv>
+        <div className="image-wrapper">
+          <ImageWithFallback src={imgUrl} alt="image" fill />
         </div>
-
-        {description.map((x, i) => {
-          const { text = '' } = x?.children?.[0] || {};
-
-          if (!text) return;
-          return (
-            <Typography as="body1" className="trek-description" key={i}>
-              {truncate(text)}
+        <div className="content-wrapper">
+          {title && (
+            <Typography as="body2" className="title">
+              {title}
             </Typography>
-          );
-        })}
+          )}
+          <div className="rating-wrapper">
+            <Rating initialValue={rating} readonly size={18} fillColor="#000" />
 
-        <Button variant="outline" className="trek-btn" href={`/treks/${slug}`}>
-          VIEW DETAILS
-        </Button>
-      </div>
-    </StyledDiv>
+            <Typography as="body2" className="difficult-text">
+              Difficult: {difficult}
+            </Typography>
+          </div>
+
+          {description.map((x, i) => {
+            const { text = '' } = x?.children?.[0] || {};
+
+            if (!text) return null;
+            return (
+              <Typography as="body1" className="trek-description" key={i}>
+                {truncate(text)}
+              </Typography>
+            );
+          })}
+
+          <Button variant="outline" className="trek-btn">
+            VIEW DETAILS
+          </Button>
+        </div>
+      </StyledDiv>
+    </Link>
   );
 };
 
