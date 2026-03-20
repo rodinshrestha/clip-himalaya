@@ -12,7 +12,7 @@ type Props = {
 };
 
 const OurTeamFaq = ({ data }: Props) => {
-  const { faqList } = data || {};
+  const faqList = data?.faqList || [];
 
   const items = faqList.map((x) => ({
     title: x.question,
@@ -24,6 +24,9 @@ const OurTeamFaq = ({ data }: Props) => {
         <Row>
           <Col>
             <div className="our-team-faq-wrapper">
+              <Typography as="p" className="faq-label">
+                FAQ
+              </Typography>
               <Typography as="body2" className="faq-title">
                 Frequently Asked Questions
               </Typography>

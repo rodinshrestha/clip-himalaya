@@ -43,8 +43,15 @@ export const siteSettingType = defineType({
       },
     }),
     defineField({
+      name: 'footerDescription',
+      title: 'Footer Description',
+      type: 'text',
+      rows: 3,
+      description: 'Short description shown below the logo in the footer',
+    }),
+    defineField({
       name: 'address',
-      title: 'address',
+      title: 'Address',
       type: 'string',
     }),
     defineField({
@@ -54,12 +61,38 @@ export const siteSettingType = defineType({
     }),
     defineField({
       name: 'gmail',
-      title: 'Gmail',
+      title: 'Email',
       type: 'string',
     }),
     defineField({
+      name: 'phoneNumber',
+      title: 'Phone Number',
+      type: 'string',
+    }),
+    defineField({
+      name: 'instagramUrl',
+      title: 'Instagram URL',
+      type: 'url',
+    }),
+    defineField({
+      name: 'facebookUrl',
+      title: 'Facebook URL',
+      type: 'url',
+    }),
+    defineField({
+      name: 'tiktokUrl',
+      title: 'TikTok URL',
+      type: 'url',
+    }),
+    defineField({
+      name: 'whatsappNumber',
+      title: 'WhatsApp Number',
+      type: 'string',
+      description: 'Include country code, e.g. +977-9826756544',
+    }),
+    defineField({
       name: 'footerText',
-      title: 'Footer Text',
+      title: 'Footer Copyright Text',
       type: 'string',
     }),
   ],

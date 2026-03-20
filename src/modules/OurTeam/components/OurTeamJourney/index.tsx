@@ -28,8 +28,8 @@ const OurTeamJourney = ({ data }: Props) => {
               <Typography as="p">{sectionTitle}</Typography>
               {sectionDescription.map((x, i) => {
                 const { text = '' } = x?.children?.[0] || {};
-                if (!text) return;
-                return <Typography as="body1">{text}</Typography>;
+                if (!text) return null;
+                return <Typography as="body1" key={i}>{text}</Typography>;
               })}
             </div>
           </Col>

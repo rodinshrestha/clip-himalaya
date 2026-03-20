@@ -3,9 +3,10 @@ import React from 'react';
 
 import Link from 'next/link';
 import { useFormik } from 'formik';
+import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 
 import Button from '@/components/Button';
-
+import BreadCrumbs from '@/components/BreadCrumbs';
 import Col from '@/components/Col';
 import Container from '@/components/Container';
 import ImageWithFallback from '@/components/ImageWithFallBack';
@@ -15,12 +16,10 @@ import TextArea from '@/components/TextArea';
 import Typography from '@/components/Typography';
 
 import { StyledDiv } from './style';
-import Overlay from '@/components/Overlay';
 import { ContactUsType } from './contact-us.type';
-import { client, urlFor } from '@/sanity/client';
+import { urlFor } from '@/sanity/client';
 import { contactUsSchema } from './contact-us.schema';
 import { toast } from 'react-toastify';
-import { theme } from '@/theme';
 
 type Props = {
   data: ContactUsType;
@@ -40,6 +39,8 @@ const ContactUs = ({ data }: Props) => {
 
   const { address = '', city = '', gmail = '' } = data?.address || {};
 
+  const bannerUrl = bannerImage ? urlFor(bannerImage).width(1920).quality(85).url() : '';
+
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -51,20 +52,20 @@ const ContactUs = ({ data }: Props) => {
     onSubmit: async (values, { resetForm }) => {
       try {
         setIsSubmitting(true);
-        await client.create({
-          _type: 'contactSubmission',
-          name: values.name,
-          email: values.email,
-          message: values.message,
-          phone: values.phone,
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(values),
         });
 
+        if (!res.ok) throw new Error('Failed to submit');
+
         toast.success(
-          'Thanks for your inquery. Our team will get back you as soon as possible'
+          'Thanks for your inquiry. Our team will get back to you as soon as possible.'
         );
         resetForm();
       } catch (error) {
-        toast.error('Something went wrong. Please try again later');
+        toast.error('Something went wrong. Please try again later.');
       } finally {
         setIsSubmitting(false);
       }
@@ -72,109 +73,123 @@ const ContactUs = ({ data }: Props) => {
   });
 
   return (
-    <>
-      <style>
-        {`
-          .logo-content .title-content .h1 {
-            color: ${theme.color.black['100']} !important;
-            font-size: 20px !important;
-          }
-          .logo-content .title-content .body1 {
-            color: ${theme.color.black['200']} !important;
-            font-size: 12px !important;
-          }
-          .header-navigation-wrapper {
-            .navigation-link {
-              color: ${theme.color.black['100']} !important;
-              font-size: 15px;
+    <StyledDiv>
+      {/* Hero Banner */}
+      <div className="hero-section">
+        <div className="hero-gradient" />
+        <ImageWithFallback
+          src={bannerUrl}
+          alt="contact-us-banner"
+          fill
+          priority
+        />
+        <div className="hero-text">
+          <Container>
+            <Row>
+              <Col>
+                <div className="hero-inner">
+                  {helperText && <Typography as="h1">{helperText}</Typography>}
+                  {title && <Typography as="p">{title}</Typography>}
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </div>
+      </div>
 
-              &::after {
-                background-color: ${theme.color.black['100']} !important;
-              }
-          }
-          
-        `}
-      </style>
-      <StyledDiv>
+      <BreadCrumbs crumbs={[{ label: 'Contact Us' }]} />
+
+      {/* Contact Info Cards */}
+      <div className="info-section">
         <Container>
           <Row>
             <Col>
-              <div className="contact-wrapper">
-                <div className="image-wrapper">
-                  <Overlay />
-                  <ImageWithFallback
-                    src={urlFor(bannerImage).url()}
-                    alt="contact-us-bg-image"
-                    fill
-                  />
-                  <div className="contact-us-info-wrapper">
-                    <div className="location-info">
-                      <div className="icon-wrapper">
-                        <ImageWithFallback
-                          src="/images/location.png"
-                          alt="location-iamge"
-                          fill
-                        />
-                      </div>
-                      <Typography as="p">{title}</Typography>
-                    </div>
-                    <Typography as="p" className="plan-text">
-                      {helperText}
-                    </Typography>
-
-                    <div className="contact-info-wrapper">
-                      <div className="contact-info-left">
-                        <Typography as="p">Address</Typography>
-                        <Typography as="body2">{address}</Typography>
-                        <Typography as="body2">{city}</Typography>
-                      </div>
-                      <div className="contact-info-right">
-                        <Typography as="p">Contact</Typography>
-                        <Typography as="body2">
-                          Phone:{' '}
-                          <Link href={`tel:${phoneNumber}`}>{phoneNumber}</Link>
-                        </Typography>
-                        <Typography as="body2">
-                          Mobile:{' '}
-                          <Link href={`tel:${mobileNumber}`}>
-                            {mobileNumber}
-                          </Link>
-                        </Typography>
-                        <Typography as="body2">
-                          Email:
-                          <Link href={`mail:${gmail}`}>{gmail}</Link>
-                        </Typography>
-                      </div>
-                    </div>
-
-                    <div className="office-hour-wrapper">
-                      <Typography as="p"> Office Hours</Typography>
-                      <Typography as="body2">{officeHour}</Typography>
-                    </div>
+              <div className="info-grid">
+                <div className="info-card">
+                  <div className="info-icon">
+                    <MapPin size={24} />
                   </div>
+                  <Typography as="h4">Our Location</Typography>
+                  <Typography as="p">{address}</Typography>
+                  <Typography as="p">{city}</Typography>
                 </div>
-                <div className="contact-us-form">
-                  <InputField
-                    name="name"
-                    label="Full Name"
-                    placeholder="Your Full Name"
-                    value={formik.values.name}
-                    onChange={formik.handleChange}
-                    touched={formik.touched.name}
-                    error={formik.errors.name}
-                    onBlur={formik.handleBlur}
-                    requiredField
-                  />
-                  <InputField
-                    name="email"
-                    label="Email"
-                    placeholder="Email"
-                    value={formik.values.email}
-                    onChange={formik.handleChange}
-                    touched={formik.touched.email}
-                    error={formik.errors.email}
-                    onBlur={formik.handleBlur}
-                  />
+                <div className="info-card">
+                  <div className="info-icon">
+                    <Phone size={24} />
+                  </div>
+                  <Typography as="h4">Call Us</Typography>
+                  <Typography as="p">
+                    <Link href={`tel:${phoneNumber}`}>{phoneNumber}</Link>
+                  </Typography>
+                  <Typography as="p">
+                    <Link href={`tel:${mobileNumber}`}>{mobileNumber}</Link>
+                  </Typography>
+                </div>
+                <div className="info-card">
+                  <div className="info-icon">
+                    <Mail size={24} />
+                  </div>
+                  <Typography as="h4">Email Us</Typography>
+                  <Typography as="p">
+                    <Link href={`mailto:${gmail}`}>{gmail}</Link>
+                  </Typography>
+                </div>
+                <div className="info-card">
+                  <div className="info-icon">
+                    <Clock size={24} />
+                  </div>
+                  <Typography as="h4">Office Hours</Typography>
+                  <Typography as="p">{officeHour}</Typography>
+                </div>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+
+      {/* Contact Form */}
+      <div className="form-section">
+        <Container>
+          <Row>
+            <Col>
+              <div className="form-wrapper">
+                <div className="form-header">
+                  <Typography as="p" className="form-label">
+                    Get In Touch
+                  </Typography>
+                  <Typography as="h3" className="form-heading">
+                    Send Us a Message
+                  </Typography>
+                  <Typography as="p" className="form-description">
+                    Have a question about a trek, need help planning your
+                    adventure, or just want to say hello? Fill out the form
+                    below and our team will get back to you shortly.
+                  </Typography>
+                </div>
+                <div className="form-fields">
+                  <div className="form-row">
+                    <InputField
+                      name="name"
+                      label="Full Name"
+                      placeholder="Your Full Name"
+                      value={formik.values.name}
+                      onChange={formik.handleChange}
+                      touched={formik.touched.name}
+                      error={formik.errors.name}
+                      onBlur={formik.handleBlur}
+                      requiredField
+                    />
+                    <InputField
+                      name="email"
+                      label="Email"
+                      placeholder="Email"
+                      value={formik.values.email}
+                      onChange={formik.handleChange}
+                      touched={formik.touched.email}
+                      error={formik.errors.email}
+                      onBlur={formik.handleBlur}
+                    />
+                  </div>
                   <InputField
                     name="phone"
                     label="Phone Number"
@@ -199,21 +214,21 @@ const ContactUs = ({ data }: Props) => {
                     requiredField
                   />
                   <Button
-                    variant="outline"
+                    variant="black"
                     size="full-width"
                     disabled={!formik.isValid || isSubmitting}
                     loading={isSubmitting}
                     onClick={() => formik.handleSubmit()}
                   >
-                    SUBMIT
+                    Send Message
                   </Button>
                 </div>
               </div>
             </Col>
           </Row>
         </Container>
-      </StyledDiv>
-    </>
+      </div>
+    </StyledDiv>
   );
 };
 

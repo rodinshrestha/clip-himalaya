@@ -12,6 +12,8 @@ import {structureTool} from 'sanity/structure'
 import {apiVersion, dataset, projectId} from './src/sanity/env'
 import {schema} from './src/sanity/schemaTypes'
 import {structure} from './src/sanity/structure'
+import {AutoMarkAsReadAction} from './src/sanity/actions/markAsReadAction'
+import {inquiryBadgePlugin} from './src/sanity/plugins/inquiryBadgePlugin'
 
 export default defineConfig({
   basePath: '/admin',
@@ -24,5 +26,14 @@ export default defineConfig({
     // Vision is for querying with GROQ from inside the Studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({defaultApiVersion: apiVersion}),
+    inquiryBadgePlugin(),
   ],
+  document: {
+    actions: (prev, context) => {
+      if (context.schemaType === 'contactSubmission') {
+        return [AutoMarkAsReadAction, ...prev];
+      }
+      return prev;
+    },
+  },
 })

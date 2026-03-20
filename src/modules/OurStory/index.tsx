@@ -1,48 +1,125 @@
+'use client';
 import React from 'react';
 
 import BreadCrumbs from '@/components/BreadCrumbs';
+import Col from '@/components/Col';
+import Container from '@/components/Container';
+import ImageWithFallback from '@/components/ImageWithFallBack';
+import Row from '@/components/Row';
+import Typography from '@/components/Typography';
 
-import OurStoryImageBanner from './components/OurStoryImageBanner';
-import StoryDescription from './components/StoryDescription';
 import { StyledDiv } from './style';
 import { OurStoryType } from './our-story.type';
-import { theme } from '@/theme';
+import { urlFor } from '@/sanity/client';
 
 type Props = {
   data: OurStoryType;
 };
 
 const OurStory = ({ data }: Props) => {
+  const {
+    bannerImage,
+    bannerTitle = 'Our Story',
+    bannerHelperText = '',
+    ourStoryDescription = [],
+    galleryImages = [],
+  } = data || {};
+
+  const bannerUrl = bannerImage
+    ? urlFor(bannerImage).width(1920).quality(85).url()
+    : '';
+
   return (
-    <>
-      <style>
-        {`
-              .logo-content .title-content .h1 {
-                color: ${theme.color.black['100']} !important;
-                font-size: 20px !important;
-              }
-              .logo-content .title-content .body1 {
-                color: ${theme.color.black['200']} !important;
-                font-size: 12px !important;
-              }
-              .header-navigation-wrapper {
-                .navigation-link {
-                  color: ${theme.color.black['100']} !important;
-                  font-size: 15px;
-    
-                  &::after {
-                    background-color: ${theme.color.black['100']} !important;
-                  }
-              }
-              
-            `}
-      </style>
-      <StyledDiv>
-        <OurStoryImageBanner data={data} />
-        <BreadCrumbs crumbs={[{ label: 'Our Story' }]} />
-        <StoryDescription data={data} />
-      </StyledDiv>
-    </>
+    <StyledDiv>
+      {/* Hero Banner */}
+      <div className="hero-section">
+        <div className="hero-gradient" />
+        {bannerUrl && (
+          <ImageWithFallback
+            src={bannerUrl}
+            alt="our-story-banner"
+            fill
+            priority
+          />
+        )}
+        <div className="hero-text">
+          <Container>
+            <Row>
+              <Col>
+                <div className="hero-inner">
+                  {bannerTitle && (
+                    <Typography as="h1">{bannerTitle}</Typography>
+                  )}
+                  {bannerHelperText && (
+                    <Typography as="p">{bannerHelperText}</Typography>
+                  )}
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </div>
+      </div>
+
+      <BreadCrumbs crumbs={[{ label: 'Our Story' }]} />
+
+      {/* Story Content */}
+      <div className="story-section">
+        <Container>
+          <Row>
+            <Col>
+              <div className="story-content">
+                <Typography as="p" className="section-label">
+                  Who We Are
+                </Typography>
+                <Typography as="h3" className="section-heading">
+                  Our Journey
+                </Typography>
+                <div className="story-text">
+                  {ourStoryDescription.map((x, i) => {
+                    const { text = '' } = x?.children?.[0] || {};
+                    if (!text) return null;
+                    return (
+                      <Typography as="p" key={i}>
+                        {text}
+                      </Typography>
+                    );
+                  })}
+                </div>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+
+      {/* Photo Gallery */}
+      {galleryImages.length > 0 && (
+        <div className="gallery-section">
+          <Container>
+            <Row>
+              <Col>
+                <Typography as="p" className="section-label">
+                  Gallery
+                </Typography>
+                <Typography as="h3" className="gallery-heading">
+                  Moments From Our Adventures
+                </Typography>
+                <div className="gallery-grid">
+                  {galleryImages.map((img, i) => (
+                    <div className="gallery-item" key={i}>
+                      <ImageWithFallback
+                        src={urlFor(img).width(600).quality(80).url()}
+                        alt={`gallery-image-${i + 1}`}
+                        fill
+                      />
+                    </div>
+                  ))}
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </div>
+      )}
+    </StyledDiv>
   );
 };
 

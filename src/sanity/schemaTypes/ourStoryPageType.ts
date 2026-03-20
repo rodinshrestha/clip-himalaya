@@ -15,23 +15,26 @@ export const ourStoryPageType = defineType({
   },
   fields: [
     defineField({
-      name: 'galleryImages',
-      title: 'Gallery Images',
-      type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'image',
-          options: {
-            hotspot: true,
-            accept: 'image/jpeg,image/png,image/webp',
-          },
-        }),
-      ],
-      validation: (Rule) =>
-        Rule.required()
-          .min(10)
-          .max(10)
-          .error('You must upload at least 10 images'),
+      name: 'bannerImage',
+      title: 'Banner Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+        accept: 'image/jpeg,image/png,image/webp',
+      },
+      description: 'Hero banner image displayed at the top of the page',
+    }),
+    defineField({
+      name: 'bannerTitle',
+      title: 'Banner Title',
+      type: 'string',
+      initialValue: 'Our Story',
+    }),
+    defineField({
+      name: 'bannerHelperText',
+      title: 'Banner Helper Text',
+      type: 'string',
+      initialValue: 'Learn about our journey and passion for the Himalayas',
     }),
     defineField({
       name: 'ourStoryDescription',
@@ -44,6 +47,22 @@ export const ourStoryPageType = defineType({
           lists: [],
         }),
       ],
+    }),
+    defineField({
+      name: 'galleryImages',
+      title: 'Gallery Images',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'image',
+          options: {
+            hotspot: true,
+            accept: 'image/jpeg,image/png,image/webp',
+          },
+        }),
+      ],
+      description: 'Photo gallery displayed below the story content',
+      validation: (Rule) => Rule.min(1).error('Add at least 1 gallery image'),
     }),
   ],
 });

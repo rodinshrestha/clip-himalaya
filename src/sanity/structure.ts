@@ -197,6 +197,51 @@ export const structure: StructureResolver = (S) =>
         ),
 
       S.divider(),
+
+      // User Inquiry — with unread/read separation
+      S.listItem()
+        .id('contactSubmission')
+        .title('User Inquiry')
+        .child(
+          S.list()
+            .title('User Inquiry')
+            .items([
+              S.listItem()
+                .id('unread-inquiries')
+                .title('Unread Inquiries')
+                .icon(() => '🔴')
+                .child(
+                  S.documentList()
+                    .title('Unread Inquiries')
+                    .schemaType('contactSubmission')
+                    .filter('_type == "contactSubmission" && (isRead != true)')
+                    .defaultOrdering([{ field: '_createdAt', direction: 'desc' }])
+                ),
+              S.listItem()
+                .id('read-inquiries')
+                .title('Read Inquiries')
+                .icon(() => '✅')
+                .child(
+                  S.documentList()
+                    .title('Read Inquiries')
+                    .schemaType('contactSubmission')
+                    .filter('_type == "contactSubmission" && isRead == true')
+                    .defaultOrdering([{ field: '_createdAt', direction: 'desc' }])
+                ),
+              S.divider(),
+              S.listItem()
+                .id('all-inquiries')
+                .title('All Inquiries')
+                .child(
+                  S.documentList()
+                    .title('All Inquiries')
+                    .schemaType('contactSubmission')
+                    .filter('_type == "contactSubmission"')
+                    .defaultOrdering([{ field: '_createdAt', direction: 'desc' }])
+                ),
+            ])
+        ),
+
       ...S.documentTypeListItems().filter(
         (item) =>
           item.getId() &&
@@ -213,6 +258,7 @@ export const structure: StructureResolver = (S) =>
             'trekkingRegion',
             'otherActivitiesPage',
             'activityDetails',
+            'contactSubmission',
           ].includes(item.getId()!)
       ),
     ]);

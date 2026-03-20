@@ -22,6 +22,7 @@
     "motion": "^12.34.2",
     "next": "^16.0.0",
     "next-sanity": "11.6.12",
+    "nodemailer": "^8.0.3",
     "prettier": "^3.8.1",
     "react": "^19",
     "react-dom": "^19",
@@ -36,6 +37,7 @@
   "devDependencies": {
     "@rodinshrestha/prettier-config": "^1.0.0",
     "@types/node": "^20",
+    "@types/nodemailer": "^7.0.11",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",

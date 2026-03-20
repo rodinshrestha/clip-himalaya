@@ -1,6 +1,9 @@
 import React from 'react';
 
+import Col from '@/components/Col';
+import Container from '@/components/Container';
 import ImageWithFallback from '@/components/ImageWithFallBack';
+import Row from '@/components/Row';
 import Typography from '@/components/Typography';
 
 import { StyledDiv } from './style';
@@ -13,23 +16,30 @@ type Props = {
 
 const OurTeamLandingPage = ({ data }: Props) => {
   const { bannerImage = '', bannerText = [] } = data || {};
+
+  const bannerUrl = bannerImage
+    ? urlFor(bannerImage).width(1920).quality(85).url()
+    : '';
+
+  const titleText = bannerText
+    .map((x) => x?.children?.[0]?.text || '')
+    .filter(Boolean)
+    .join(' ');
+
   return (
     <StyledDiv>
-      <ImageWithFallback
-        src={urlFor(bannerImage).url()}
-        alt="our team image"
-        fill
-      />
+      <div className="hero-gradient" />
+      <ImageWithFallback src={bannerUrl} alt="our-team-banner" fill priority />
       <div className="text-content">
-        {bannerText.map((x, i) => {
-          const { text = '' } = x?.children?.[0] || {};
-          if (!text) return;
-          return (
-            <Typography as="h1" key={i}>
-              {text}
-            </Typography>
-          );
-        })}
+        <Container>
+          <Row>
+            <Col>
+              <div className="text-inner-content">
+                {titleText && <Typography as="h1">{titleText}</Typography>}
+              </div>
+            </Col>
+          </Row>
+        </Container>
       </div>
     </StyledDiv>
   );

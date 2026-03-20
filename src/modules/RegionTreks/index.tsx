@@ -3,6 +3,7 @@ import React from 'react';
 import BreadCrumbs from '@/components/BreadCrumbs';
 import Col from '@/components/Col';
 import Container from '@/components/Container';
+import ImageWithFallback from '@/components/ImageWithFallBack';
 import Row from '@/components/Row';
 import TrekCard from '@/components/TrekCard';
 import Typography from '@/components/Typography';
@@ -27,20 +28,51 @@ type Props = {
 
 const RegionTreks = ({ data }: Props) => {
   const { region, trekList = [] } = data;
+  const bannerUrl = region.image
+    ? urlFor(region.image).width(1920).quality(85).url()
+    : '';
 
   return (
     <StyledDiv>
+      {/* Hero Banner */}
+      <div className="hero-section">
+        <div className="hero-gradient" />
+        {bannerUrl && (
+          <ImageWithFallback
+            src={bannerUrl}
+            alt={`${region.name} banner`}
+            fill
+            priority
+          />
+        )}
+        <div className="hero-text">
+          <Container>
+            <Row>
+              <Col>
+                <div className="hero-inner">
+                  <Typography as="h1">{region.name}</Typography>
+                  <Typography as="p">
+                    Explore trekking packages in the {region.name}
+                  </Typography>
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </div>
+      </div>
+
       <BreadCrumbs
         crumbs={[
           { label: 'Treks', href: '/treks' },
           { label: region.name },
         ]}
       />
+
       <Container>
         <Row>
           <Col>
             <div className="region-header">
-              <Typography as="h1" className="region-title">
+              <Typography as="h2" className="region-title">
                 {region.name} Packages
               </Typography>
             </div>

@@ -3,10 +3,16 @@ export const siteSettingQuery = `*[_type == "siteSettings"][0]{
     logoImage,
     siteHelperText,
     footerLogoImage,
+    footerDescription,
     address,
     city,
     gmail,
-    footerText
+    phoneNumber,
+    footerText,
+    instagramUrl,
+    facebookUrl,
+    tiktokUrl,
+    whatsappNumber
   }
 `;
 
@@ -51,8 +57,11 @@ export const annapurnaPageQuery = `*[_type == "annapurnaCircuitPage"][0]{
 `;
 
 export const ourStoryQuery = `*[_type == "ourStoryPage"][0]{
-    galleryImages,
+    bannerImage,
+    bannerTitle,
+    bannerHelperText,
     ourStoryDescription,
+    galleryImages,
   }
 `;
 
