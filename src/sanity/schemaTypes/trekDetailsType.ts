@@ -127,7 +127,10 @@ export const trekDetailsType = defineType({
         defineArrayMember({
           type: 'object',
           name: 'keyHighlightList',
-          title: 'Key Hightlight List',
+          title: 'Key Highlight List',
+          preview: {
+            select: { title: 'title' },
+          },
           fields: [
             defineField({
               name: 'title',
@@ -161,7 +164,10 @@ export const trekDetailsType = defineType({
         defineArrayMember({
           type: 'object',
           name: 'itineraryDetailsList',
-          title: 'Key Hightlight List',
+          title: 'Itinerary Day',
+          preview: {
+            select: { title: 'itineraryTitle' },
+          },
           fields: [
             defineField({
               name: 'itineraryTitle',
@@ -224,6 +230,9 @@ export const trekDetailsType = defineType({
           type: 'object',
           name: 'essentialTipsList',
           title: 'Essential Tips List',
+          preview: {
+            select: { title: 'title' },
+          },
           fields: [
             defineField({
               name: 'title',
@@ -253,11 +262,25 @@ export const trekDetailsType = defineType({
       title: 'Image Gallery',
       type: 'array',
       fieldset: 'imageGallery',
+      options: {
+        layout: 'grid',
+      },
       of: [
         defineArrayMember({
           type: 'object',
           name: 'imageGalleryList',
           title: 'Image Gallery List',
+          preview: {
+            select: {
+              media: 'image',
+            },
+            prepare({ media }) {
+              return {
+                title: 'Gallery Image',
+                media,
+              };
+            },
+          },
           fields: [
             defineField({
               name: 'image',

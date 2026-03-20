@@ -18,11 +18,9 @@ const TrekDetails = ({ data }: Props) => {
   const [stickyBtn, setStickyBtn] = React.useState(false);
 
   const crumbs = [
-    { label: 'Trek', href: '/treks' },
-    { label: 'Everest Base Camp' },
+    { label: 'Treks', href: '/treks' },
+    { label: data.title },
   ];
-
-  console.log({ data });
 
   return (
     <StyledDiv>
