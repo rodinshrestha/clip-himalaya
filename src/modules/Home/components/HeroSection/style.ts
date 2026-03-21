@@ -30,6 +30,8 @@ export const StyledDiv = styled.div`
       @media (max-width: ${({ theme }) => theme.breakPoints.mobile}) {
         padding-left: 16px;
         padding-right: 16px;
+        box-sizing: border-box;
+        width: 100%;
       }
 
       .h1 {

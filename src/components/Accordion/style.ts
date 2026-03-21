@@ -75,7 +75,7 @@ export const Title = styled.span<{ $isOpen: boolean }>`
   color: ${({ $isOpen, theme }) =>
     $isOpen ? theme.color.black['100'] : theme.color.black['200']};
   transition: color 0.2s ease;
-  height: 22px;
+  /* height: 22px; */
   font-family: ${({ theme }) => theme.fonts.magra};
 `;
 
