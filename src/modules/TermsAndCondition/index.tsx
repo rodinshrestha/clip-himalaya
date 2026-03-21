@@ -25,7 +25,9 @@ const TermsAndCondition = ({ data }: Props) => {
     termConditionList = [],
   } = data || {};
 
-  const bannerUrl = bannerImage ? urlFor(bannerImage).width(1920).quality(85).url() : '';
+  const bannerUrl = bannerImage
+    ? urlFor(bannerImage).width(1920).quality(85).url()
+    : '';
 
   return (
     <StyledDiv>
@@ -68,11 +70,13 @@ const TermsAndCondition = ({ data }: Props) => {
                     )}
                     {section.content && (
                       <div className="section-content">
-                        {sanitizeBlockData(section.content)?.map((text, j) => (
-                          <Typography as="p" key={j}>
-                            {text}
-                          </Typography>
-                        ))}
+                        {sanitizeBlockData(section.content)?.map(
+                          (text: string, j: number) => (
+                            <Typography as="p" key={j}>
+                              {text}
+                            </Typography>
+                          )
+                        )}
                       </div>
                     )}
                   </div>

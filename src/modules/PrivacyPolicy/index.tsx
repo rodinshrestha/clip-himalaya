@@ -1,5 +1,3 @@
-import React from 'react';
-
 import BreadCrumbs from '@/components/BreadCrumbs';
 import Col from '@/components/Col';
 import Container from '@/components/Container';
@@ -47,7 +45,7 @@ const PrivacyPolicy = ({ data }: Props) => {
       <div className="hero-section">
         <div className="hero-gradient" />
         {bannerUrl && (
-          <ImageWithFallback src={bannerUrl} alt={bannerTitle} fill priority />
+          <ImageWithFallback src={bannerUrl} alt={bannerTitle} fill />
         )}
         <div className="hero-text">
           <Container>
@@ -81,11 +79,13 @@ const PrivacyPolicy = ({ data }: Props) => {
                     )}
                     {section.content && (
                       <div className="section-content">
-                        {sanitizeBlockData(section.content)?.map((text, j) => (
-                          <Typography as="p" key={j}>
-                            {text}
-                          </Typography>
-                        ))}
+                        {sanitizeBlockData(section.content)?.map(
+                          (text: string, j: number) => (
+                            <Typography as="p" key={j}>
+                              {text}
+                            </Typography>
+                          )
+                        )}
                       </div>
                     )}
                   </div>
