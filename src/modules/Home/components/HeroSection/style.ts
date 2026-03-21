@@ -36,7 +36,15 @@ export const StyledDiv = styled.div`
         font-size: 56px;
         color: ${({ theme }) => theme.color.white['100']};
         line-height: 1.1;
-        letter-spacing: -0.5px;
+        min-height: 62px;
+
+        @media (max-width: ${({ theme }) => theme.breakPoints.smallScreen}) {
+          min-height: 46px;
+        }
+
+        @media (max-width: ${({ theme }) => theme.breakPoints.mobile}) {
+          min-height: 35px;
+        }
 
         .auto-text {
           color: ${({ theme }) => theme.color.grey['100']} !important;

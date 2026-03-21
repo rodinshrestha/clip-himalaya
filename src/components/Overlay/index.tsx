@@ -7,7 +7,7 @@ type Props = {
   overlayValue?: number;
 };
 
-const Overlay = ({ className, overlayValue = 0.6 }: Props) => {
+const Overlay = ({ className, overlayValue = 0.5 }: Props) => {
   return (
     <StyledDiv
       className={clsx('overlay-wrapper', className)}

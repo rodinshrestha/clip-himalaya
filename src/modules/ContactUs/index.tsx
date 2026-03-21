@@ -20,6 +20,7 @@ import { ContactUsType } from './contact-us.type';
 import { urlFor } from '@/sanity/client';
 import { contactUsSchema } from './contact-us.schema';
 import { toast } from 'react-toastify';
+import Overlay from '@/components/Overlay';
 
 type Props = {
   data: ContactUsType;
@@ -39,7 +40,9 @@ const ContactUs = ({ data }: Props) => {
 
   const { address = '', city = '', gmail = '' } = data?.address || {};
 
-  const bannerUrl = bannerImage ? urlFor(bannerImage).width(1920).quality(85).url() : '';
+  const bannerUrl = bannerImage
+    ? urlFor(bannerImage).width(1920).quality(85).url()
+    : '';
 
   const formik = useFormik({
     initialValues: {
@@ -77,12 +80,8 @@ const ContactUs = ({ data }: Props) => {
       {/* Hero Banner */}
       <div className="hero-section">
         <div className="hero-gradient" />
-        <ImageWithFallback
-          src={bannerUrl}
-          alt="contact-us-banner"
-          fill
-          priority
-        />
+        <ImageWithFallback src={bannerUrl} alt="contact-us-banner" fill />
+        <Overlay />
         <div className="hero-text">
           <Container>
             <Row>

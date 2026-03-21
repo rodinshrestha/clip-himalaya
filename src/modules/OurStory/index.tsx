@@ -11,6 +11,8 @@ import Typography from '@/components/Typography';
 import { StyledDiv } from './style';
 import { OurStoryType } from './our-story.type';
 import { urlFor } from '@/sanity/client';
+import Overlay from '@/components/Overlay';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 type Props = {
   data: OurStoryType;
@@ -35,13 +37,10 @@ const OurStory = ({ data }: Props) => {
       <div className="hero-section">
         <div className="hero-gradient" />
         {bannerUrl && (
-          <ImageWithFallback
-            src={bannerUrl}
-            alt="our-story-banner"
-            fill
-            priority
-          />
+          <ImageWithFallback src={bannerUrl} alt="our-story-banner" fill />
         )}
+        <Overlay />
+
         <div className="hero-text">
           <Container>
             <Row>
@@ -103,17 +102,24 @@ const OurStory = ({ data }: Props) => {
                 <Typography as="h3" className="gallery-heading">
                   Moments From Our Adventures
                 </Typography>
-                <div className="gallery-grid">
-                  {galleryImages.map((img, i) => (
-                    <div className="gallery-item" key={i}>
-                      <ImageWithFallback
-                        src={urlFor(img).width(600).quality(80).url()}
-                        alt={`gallery-image-${i + 1}`}
-                        fill
-                      />
-                    </div>
-                  ))}
-                </div>
+                <PhotoProvider>
+                  <div className="gallery-grid">
+                    {galleryImages.map((img, i) => {
+                      const imageUrl = urlFor(img).width(600).quality(80).url();
+                      return (
+                        <PhotoView key={i} src={imageUrl}>
+                          <div className="gallery-item" key={i}>
+                            <ImageWithFallback
+                              src={imageUrl}
+                              alt={`gallery-image-${i + 1}`}
+                              fill
+                            />
+                          </div>
+                        </PhotoView>
+                      );
+                    })}
+                  </div>
+                </PhotoProvider>
               </Col>
             </Row>
           </Container>

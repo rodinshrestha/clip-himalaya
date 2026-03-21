@@ -9,6 +9,7 @@ import Typography from '@/components/Typography';
 import { StyledDiv } from './style';
 import { OurTeamType } from '../../our-team.type';
 import { urlFor } from '@/sanity/client';
+import Overlay from '@/components/Overlay';
 
 type Props = {
   data: OurTeamType;
@@ -29,7 +30,9 @@ const OurTeamLandingPage = ({ data }: Props) => {
   return (
     <StyledDiv>
       <div className="hero-gradient" />
-      <ImageWithFallback src={bannerUrl} alt="our-team-banner" fill priority />
+      <ImageWithFallback src={bannerUrl} alt="our-team-banner" fill />
+      <Overlay />
+
       <div className="text-content">
         <Container>
           <Row>

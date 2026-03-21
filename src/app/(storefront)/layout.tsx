@@ -5,6 +5,7 @@ import BaseLayout from '@/layout/BaseLayout';
 import StyledComponentsRegistry from '@/lib/registry';
 import ProgressBarProvider from '@/providers/ProgressBarProvider';
 import StyledProviders from '@/providers/StyledProviders';
+import 'react-photo-view/dist/react-photo-view.css';
 
 export const metadata: Metadata = {
   title: 'Clip Himalaya',

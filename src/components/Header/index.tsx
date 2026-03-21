@@ -107,9 +107,7 @@ const Header = ({ siteSettings }: Props) => {
   return (
     <StyledHeader
       className={clsx({
-        // active: isScrolled && !trekStickyHeader,
         active: isScrolled,
-        // hide: trekStickyHeader,
       })}
     >
       <Container>

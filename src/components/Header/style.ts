@@ -76,9 +76,13 @@ export const StyledHeader = styled.header`
         background-color: ${({ theme }) => theme.color.black['100']} !important;
       }
     }
-
-    .hamburger-menu-wrapper svg {
-      color: ${({ theme }) => theme.color.black['100']};
+    .hamburger-menu-wrapper {
+      .hamburgerMenu {
+        span {
+          background-color: ${({ theme }) =>
+            theme.color.black['100']} !important;
+        }
+      }
     }
   }
 

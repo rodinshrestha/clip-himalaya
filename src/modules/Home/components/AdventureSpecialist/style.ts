@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 export const StyledDiv = styled.div`
-  padding: 40px 0 0;
+  padding: 40px 0;
 
   .specialist-section {
     padding: 40px 0;
