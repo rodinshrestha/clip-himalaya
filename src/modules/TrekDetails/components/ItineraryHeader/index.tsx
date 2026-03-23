@@ -22,33 +22,28 @@ const headerList = [
     label: 'KEY HIGHLIGHTS',
     icon: <Sun />,
     sectionId: 'key-highlights',
-    side: 'left',
   },
   {
     label: 'ITINERARY',
     icon: <Waypoints />,
     sectionId: 'itinerary',
-    side: 'right',
   },
   {
     label: 'COSTS INCLUDE',
     icon: <CheckCheck />,
     sectionId: 'costs-include',
-    side: 'left',
   },
   {
     label: 'COST EXCLUDE',
     icon: <CircleX />,
     sectionId: 'costs-include',
-    side: 'right',
   },
   {
     label: 'ESSENTIAL TIPS',
     icon: <Info />,
     sectionId: 'essential-tips',
-    side: 'left',
   },
-  { label: 'GALLERY', icon: <Images />, sectionId: 'gallery', side: 'right' },
+  { label: 'GALLERY', icon: <Images />, sectionId: 'gallery' },
 ];
 
 const ItineraryHeader = () => {
@@ -60,9 +55,9 @@ const ItineraryHeader = () => {
     <StyledDiv ref={trekHeaderRef}>
       <div className="vertical-line" />
       <div className={clsx('header-wrapper', { show: trekStickyHeader })}>
-        {headerList.map(({ label, icon, sectionId, side }, i) => {
+        {headerList.map(({ label, icon, sectionId }, i) => {
           return (
-            <div className={clsx('itinerary-header-item', side)} key={i}>
+            <div className="itinerary-header-item" key={i}>
               {icon}
               <Typography
                 as="body1"
