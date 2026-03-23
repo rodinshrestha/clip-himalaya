@@ -64,10 +64,14 @@ export const StyledDiv = styled.div`
           @media (max-width: ${({ theme }) => theme.breakPoints.smallMobile}) {
             width: 140px;
           }
-          @media (max-width: 430px) {
-            width: 157px;
+          @media (min-width: 409px) and (max-width: 445px) {
+            width: 156px;
           }
-          @media (max-width: 393px) {
+
+          @media (min-width: 395px) and (max-width: 408px) {
+            width: 142px;
+          }
+          @media (max-width: 394px) {
             width: 138px;
           }
         }

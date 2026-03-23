@@ -1,4 +1,5 @@
 export const breakPoints = {
+  xsMobile: '394px',
   smallMobile: '431px', // Small phone
   mobile: '480px', //  Phones and up
   tablet: '772px',
