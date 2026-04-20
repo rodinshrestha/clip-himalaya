@@ -104,24 +104,6 @@ export const structure: StructureResolver = (S) =>
                     .schemaType('trekDetails')
                     .filter('_type == "trekDetails" && region._ref == "region-manaslu"')
                 ),
-              S.listItem()
-                .id('treks-dhaulagiri')
-                .title('Dhaulagiri Region')
-                .child(
-                  S.documentList()
-                    .title('Dhaulagiri Region Treks')
-                    .schemaType('trekDetails')
-                    .filter('_type == "trekDetails" && region._ref == "region-dhaulagiri"')
-                ),
-              S.listItem()
-                .id('treks-other')
-                .title('Other Region')
-                .child(
-                  S.documentList()
-                    .title('Other Region Treks')
-                    .schemaType('trekDetails')
-                    .filter('_type == "trekDetails" && region._ref == "region-other"')
-                ),
               S.divider(),
               S.listItem()
                 .id('treks-unassigned')
