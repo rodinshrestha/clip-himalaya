@@ -100,7 +100,9 @@ const TrekExtras = ({ data }: Props) => {
         <div className="cta-section">
           <Typography as="h3" className="cta-title">Ready to trek?</Typography>
           <Typography as="p" className="cta-subtitle">
-            Tell us your dates and group size. We'll handle the rest.
+            Tell us your dates and group size. After advance payment, we send you guided
+            breathing techniques for altitude and backpacking skills for the trail.
+            Want professional photos, video, or drone shots of your trek? Just ask.
           </Typography>
           <div className="cta-buttons">
             <Button variant="contained" href="/contact-us">Inquire About This Trek</Button>
@@ -160,7 +162,9 @@ const TrekExtras = ({ data }: Props) => {
       <div className="cta-section">
         <Typography as="h3" className="cta-title">Ready to trek?</Typography>
         <Typography as="p" className="cta-subtitle">
-          Tell us your dates and group size. We'll handle the rest.
+          Tell us your dates and group size. After advance payment, we send you guided
+            breathing techniques for altitude and backpacking skills for the trail.
+            Want professional photos, video, or drone shots of your trek? Just ask.
         </Typography>
         <div className="cta-buttons">
           <Button variant="outline" href="/contact-us">Inquire About This Trek</Button>

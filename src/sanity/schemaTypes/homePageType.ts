@@ -144,7 +144,7 @@ export const homePageType = defineType({
               title: 'Icon Name',
               type: 'string',
               description:
-                'Icon identifier: mountain, shield, users, map-pinned',
+                'Icon identifier: mountain, shield, users, map-pinned, wind, camera',
             }),
             defineField({
               name: 'title',
