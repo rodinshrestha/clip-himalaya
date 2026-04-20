@@ -61,6 +61,12 @@ export const StyledDiv = styled.div`
     padding: 32px 20px;
     border-radius: 12px;
     transition: all 0.3s ease;
+    animation: fadeInUp 0.5s ease both;
+
+    &:nth-child(1) { animation-delay: 0s; }
+    &:nth-child(2) { animation-delay: 0.1s; }
+    &:nth-child(3) { animation-delay: 0.2s; }
+    &:nth-child(4) { animation-delay: 0.3s; }
 
     &:hover {
       background-color: ${({ theme }) => theme.color.grey['100']};
