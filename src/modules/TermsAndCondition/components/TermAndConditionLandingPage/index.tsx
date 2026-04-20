@@ -14,8 +14,9 @@ const TermsAndConditionLandingPage = ({ data }: Props) => {
   return (
     <StyledDiv>
       <ImageWithFallback
-        src={urlFor(bannerImage).url()}
-        alt="term and condition landing page"
+        src={urlFor(bannerImage).width(1920).quality(85).url()}
+        alt="Terms and conditions"
+        priority
         fill
       />
     </StyledDiv>

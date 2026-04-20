@@ -30,7 +30,7 @@ const OurTeamLandingPage = ({ data }: Props) => {
   return (
     <StyledDiv>
       <div className="hero-gradient" />
-      <ImageWithFallback src={bannerUrl} alt="our-team-banner" fill />
+      <ImageWithFallback src={bannerUrl} alt="Clip Himalaya expert trekking guides and team" fill />
       <Overlay />
 
       <div className="text-content">

@@ -29,7 +29,7 @@ const OurExpertList = ({ data }: Props) => {
             </Typography>
             <div className="expert-list-wrapper">
               {memberList.map((x, i) => {
-                const imageUrl = urlFor(x.memberImage).url();
+                const imageUrl = urlFor(x.memberImage).width(300).quality(80).url();
                 return (
                   <ExpertCard
                     key={i}

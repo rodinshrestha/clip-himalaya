@@ -8,13 +8,14 @@ import { StyledDiv } from './style';
 type Props = {
   imageUrl: string;
   textInfo: string[];
+  alt?: string;
 };
 
-const Card = ({ imageUrl = '', textInfo = [] }: Props) => {
+const Card = ({ imageUrl = '', textInfo = [], alt }: Props) => {
   return (
     <StyledDiv>
       <div className="image-wrapper">
-        <ImageWithFallback fill alt="trek-image" src={imageUrl} />
+        <ImageWithFallback fill alt={alt || textInfo[0] || 'Trek'} src={imageUrl} />
       </div>
 
       <ul className="card-information-list">

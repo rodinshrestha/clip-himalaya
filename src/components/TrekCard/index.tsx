@@ -33,7 +33,7 @@ const TrekCard = ({
     <Link href={`/treks/${slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
       <StyledDiv>
         <div className="image-wrapper">
-          <ImageWithFallback src={imgUrl} alt="image" fill />
+          <ImageWithFallback src={imgUrl} alt={title || 'Trek'} fill />
         </div>
         <div className="content-wrapper">
           {title && (

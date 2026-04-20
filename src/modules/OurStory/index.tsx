@@ -19,13 +19,13 @@ type Props = {
 };
 
 const OurStory = ({ data }: Props) => {
-  const {
-    bannerImage,
-    bannerTitle = 'Our Story',
-    bannerHelperText = '',
-    ourStoryDescription = [],
-    galleryImages = [],
-  } = data || {};
+  const bannerImage = data?.bannerImage;
+  const bannerTitle = data?.bannerTitle || 'Our Story';
+  const bannerHelperText = data?.bannerHelperText || '';
+  const ourStoryDescription = data?.ourStoryDescription || [];
+  const valuesList = data?.valuesList || [];
+  const sustainabilityStatement = data?.sustainabilityStatement || [];
+  const galleryImages = data?.galleryImages || [];
 
   const bannerUrl = bannerImage
     ? urlFor(bannerImage).width(1920).quality(85).url()
@@ -37,7 +37,7 @@ const OurStory = ({ data }: Props) => {
       <div className="hero-section">
         <div className="hero-gradient" />
         {bannerUrl && (
-          <ImageWithFallback src={bannerUrl} alt="our-story-banner" fill />
+          <ImageWithFallback src={bannerUrl} alt="Clip Himalaya team on a Himalayan trail" fill />
         )}
         <Overlay />
 
@@ -89,6 +89,61 @@ const OurStory = ({ data }: Props) => {
           </Row>
         </Container>
       </div>
+
+      {/* Values */}
+      {valuesList.length > 0 && (
+        <div className="values-section">
+          <Container>
+            <Row>
+              <Col>
+                <Typography as="p" className="section-label">
+                  What We Stand For
+                </Typography>
+                <Typography as="h3" className="section-heading">
+                  Our Values
+                </Typography>
+                <div className="values-grid">
+                  {valuesList.map((v, i) => (
+                    <div className="value-card" key={i}>
+                      <Typography as="h4" className="value-title">{v.title}</Typography>
+                      <Typography as="p" className="value-desc">{v.description}</Typography>
+                    </div>
+                  ))}
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </div>
+      )}
+
+      {/* Sustainability */}
+      {sustainabilityStatement.length > 0 && (
+        <div className="sustainability-section">
+          <Container>
+            <Row>
+              <Col>
+                <Typography as="p" className="section-label">
+                  Our Commitment
+                </Typography>
+                <Typography as="h3" className="section-heading">
+                  Sustainability & Fair Wages
+                </Typography>
+                <div className="story-text">
+                  {sustainabilityStatement.map((x, i) => {
+                    const { text = '' } = x?.children?.[0] || {};
+                    if (!text) return null;
+                    return (
+                      <Typography as="p" key={i}>
+                        {text}
+                      </Typography>
+                    );
+                  })}
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </div>
+      )}
 
       {/* Photo Gallery */}
       {galleryImages.length > 0 && (

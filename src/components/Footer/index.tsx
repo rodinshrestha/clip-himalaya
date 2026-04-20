@@ -43,7 +43,7 @@ const Footer = ({ siteSettings }: Props) => {
                 <div className="footer-logo-wrapper">
                   <ImageWithFallback
                     src={urlFor(footerLogoImage).url()}
-                    alt="footer-logo"
+                    alt="Clip Himalaya logo"
                     fill
                   />
                 </div>

@@ -25,7 +25,7 @@ const HeroBanner = ({ bannerImage, title, helperText }: Props) => {
       <div className="hero-gradient" />
       <ImageWithFallback
         src={bannerUrl}
-        alt="other-activities-banner"
+        alt="Adventure activities and custom treks in Nepal"
         fill
         priority
       />

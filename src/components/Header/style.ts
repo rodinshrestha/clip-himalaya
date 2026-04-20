@@ -19,7 +19,7 @@ export const StyledHeader = styled.header`
   }
 
   /* Default state: transparent header over hero */
-  .logo-content .title-content .h1,
+  .logo-content .title-content .site-title,
   .logo-content .title-content .body1 {
     color: ${({ theme }) => theme.color.white['100']};
     transition: color 0.3s ease;
@@ -59,7 +59,7 @@ export const StyledHeader = styled.header`
       }
     }
 
-    .logo-content .title-content .h1 {
+    .logo-content .title-content .site-title {
       color: ${({ theme }) => theme.color.black['100']} !important;
       font-size: 20px !important;
     }
@@ -122,7 +122,7 @@ export const StyledHeader = styled.header`
         @media (max-width: ${({ theme }) => theme.breakPoints.mobile}) {
           margin-left: 10px;
         }
-        .h1 {
+        .site-title {
           font-family: ${({ theme }) => theme.fonts.magra};
           font-weight: 600;
           font-size: 22px !important;

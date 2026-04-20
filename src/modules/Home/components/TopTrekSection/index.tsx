@@ -42,7 +42,7 @@ const TopTrekSection = ({ data }: Props) => {
               <div className="top-trek-card-wrapper">
                 <MySwiper slidesPerView={3}>
                   {popularTreks.map((x, i) => {
-                    const imageUrl = urlFor(x.image).url();
+                    const imageUrl = urlFor(x.image).width(600).quality(80).url();
 
                     return (
                       <SwiperSlide key={i}>

@@ -43,7 +43,7 @@ const AdventureSpecialist = ({ data }: Props) => {
               <div className="specialist-content">
                 <div className="member-list">
                   {displayMembers.map((x, i) => {
-                    const imageUrl = urlFor(x.memberImage).url();
+                    const imageUrl = urlFor(x.memberImage).width(200).quality(80).url();
                     return (
                       <div className="member-item" key={i}>
                         <div className="member-image">
