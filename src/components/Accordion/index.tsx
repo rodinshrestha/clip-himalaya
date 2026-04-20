@@ -17,6 +17,7 @@ import {
 
 interface AccordionItem {
   title: string;
+  subtitle?: string;
   description?: string;
   children?: string[];
 }
@@ -58,7 +59,14 @@ const Accordion = ({ items, allowMultiple = false }: AccordionProps) => {
             >
               <DotTitleRow>
                 <Dot $isOpen={isOpen} />
-                <Title $isOpen={isOpen}>{item.title}</Title>
+                <div>
+                  <Title $isOpen={isOpen}>{item.title}</Title>
+                  {item.subtitle && (
+                    <span style={{ fontSize: '12px', color: '#666', fontFamily: 'var(--font-poppins)', marginLeft: '4px' }}>
+                      {item.subtitle}
+                    </span>
+                  )}
+                </div>
               </DotTitleRow>
               <ChevronIcon $isOpen={isOpen}>
                 <svg

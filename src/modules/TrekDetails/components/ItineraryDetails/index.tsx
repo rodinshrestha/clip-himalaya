@@ -17,17 +17,21 @@ type Props = {
 const ItineraryDetails = ({ data }: Props) => {
   const { itineraryDetails = [] } = data || {};
 
-  const items = itineraryDetails?.map((x) => ({
-    title: x.itineraryTitle,
-    children: sanitizeBlockData(x.itineraryDescription),
-  }));
+  const items = itineraryDetails?.map((x) => {
+    const meta = [x.elevation, x.walkingHours].filter(Boolean).join(' · ');
+    return {
+      title: x.itineraryTitle,
+      subtitle: meta || undefined,
+      children: sanitizeBlockData(x.itineraryDescription),
+    };
+  });
 
   return (
     <StyledDiv className="itinerary-details-wrapper" id="itinerary">
       <TrekkingTitleSection icon={Waypoints} title="ITINERARY DETAILS" />
 
       <div className="ininerary-list-wrapper">
-        <Accordion items={items} allowMultiple />;
+        <Accordion items={items} allowMultiple />
       </div>
     </StyledDiv>
   );
