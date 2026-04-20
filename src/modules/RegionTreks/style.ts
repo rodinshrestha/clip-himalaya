@@ -63,15 +63,91 @@ export const StyledDiv = styled.div`
           font-family: ${({ theme }) => theme.fonts.poppins};
           font-weight: 400;
           text-align: center;
-          max-width: 500px;
+          max-width: 600px;
           text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .elevation-badge {
+          font-size: 14px;
+          opacity: 0.8;
+          letter-spacing: 1px;
+        }
+      }
+    }
+  }
+
+  /* Region Content */
+  .region-content {
+    padding: 50px 0 20px;
+
+    .region-description {
+      max-width: 800px;
+      margin-bottom: 40px;
+
+      p {
+        font-family: ${({ theme }) => theme.fonts.poppins};
+        font-size: 16px;
+        line-height: 1.8;
+        color: ${({ theme }) => theme.color.black['200']};
+        margin-bottom: 16px;
+      }
+
+      h3 {
+        font-size: 22px;
+        font-weight: 600;
+        margin: 28px 0 12px;
+      }
+    }
+
+    .region-info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 20px;
+
+      @media (max-width: ${({ theme }) => theme.breakPoints.tablet}) {
+        grid-template-columns: 1fr;
+      }
+
+      .info-card {
+        background: ${({ theme }) => theme.color.white['100']};
+        padding: 28px;
+        border-radius: 4px;
+        border: 1px solid ${({ theme }) => theme.color.grey['100']};
+        animation: fadeInUp 0.5s ease both;
+        transition: box-shadow 0.3s ease;
+
+        &:nth-child(1) { animation-delay: 0s; }
+        &:nth-child(2) { animation-delay: 0.1s; }
+        &:nth-child(3) { animation-delay: 0.2s; }
+
+        &:hover {
+          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .h3 {
+          font-size: 16px;
+          font-weight: 600;
+          letter-spacing: 0.5px;
+          text-transform: uppercase;
+          margin-bottom: 12px;
+        }
+
+        .p {
+          font-family: ${({ theme }) => theme.fonts.poppins};
+          font-size: 14px;
+          line-height: 1.7;
+          color: ${({ theme }) => theme.color.black['200']};
         }
       }
     }
   }
 
   .region-header {
-    padding: 40px 0;
+    padding: 40px 0 24px;
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
 
     .region-title {
       font-size: 28px;
@@ -81,6 +157,13 @@ export const StyledDiv = styled.div`
       @media (max-width: ${({ theme }) => theme.breakPoints.mobile}) {
         font-size: 22px;
       }
+    }
+
+    .trek-count {
+      font-family: ${({ theme }) => theme.fonts.poppins};
+      font-size: 14px;
+      color: ${({ theme }) => theme.color.black['200']};
+      opacity: 0.7;
     }
   }
 
