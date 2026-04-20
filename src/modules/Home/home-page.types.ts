@@ -19,6 +19,15 @@ export type TestimonialItem = {
   review: string;
 };
 
+export type RegionItem = {
+  name: string;
+  slug: { current: string };
+  image: ImageType;
+  tagline?: string;
+  elevation?: string;
+  trekCount: number;
+};
+
 type HomeData = {
   title: string;
   animatedTextList: string[];
@@ -42,4 +51,5 @@ export type HomePageType = {
   memberList: {
     memberList: MemberType[];
   };
+  regionList: RegionItem[];
 };
