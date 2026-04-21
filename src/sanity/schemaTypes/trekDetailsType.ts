@@ -46,7 +46,7 @@ export const trekDetailsType = defineType({
       name: 'image',
       title: 'Trek Image',
       type: 'image',
-      description: 'Accepted formats: JPG, PNG, WebP',
+      description: 'Landscape orientation, minimum 1920x1080px. Used as hero banner and card thumbnail. Set the hotspot on the focal point. Accepted formats: JPG, PNG, WebP',
       options: { hotspot: true, accept: 'image/jpeg,image/png,image/webp' },
       fieldset: 'basicInformation',
     }),

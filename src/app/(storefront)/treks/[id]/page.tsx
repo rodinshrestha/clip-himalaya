@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: PagePropsType): Promise<Metad
   const regionData = await client.fetch(regionDetailQuery, { slug });
   if (regionData?.region) {
     const region = regionData.region;
-    const ogImage = region.image ? urlFor(region.image).width(1200).height(630).url() : undefined;
+    const ogImage = region.image ? urlFor(region.image).width(1200).height(630).fit('crop').crop('entropy').url() : undefined;
     return {
       title: `${region.name} Treks`,
       description: `Explore trekking adventures in the ${region.name} of Nepal. Find guided treks, itineraries, and travel information.`,
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: PagePropsType): Promise<Metad
   if (!trekData) return {};
 
   const ogImageSource = trekData.ogImage || trekData.image;
-  const ogImage = ogImageSource ? urlFor(ogImageSource).width(1200).height(630).url() : undefined;
+  const ogImage = ogImageSource ? urlFor(ogImageSource).width(1200).height(630).fit('crop').crop('entropy').url() : undefined;
   const title = trekData.seoTitle || trekData.title;
   const description = trekData.seoDescription || `${trekData.title} — ${trekData.difficult || 'Guided'} trek in Nepal. Book with expert local guides at Clip Himalaya.`;
   return {
@@ -68,7 +68,7 @@ function buildTrekJsonLd(trek: { title: string; slug: { current: string }; ratin
   };
 
   if (trek.image) {
-    jsonLd.image = urlFor(trek.image).width(1200).height(630).url();
+    jsonLd.image = urlFor(trek.image).width(1200).height(630).fit('crop').crop('entropy').url();
   }
 
   if (trek.rating) {

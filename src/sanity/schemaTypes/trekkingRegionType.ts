@@ -39,7 +39,7 @@ export const trekkingRegionType = defineType({
       title: 'Region Image',
       type: 'image',
       fieldset: 'basic',
-      description: 'Accepted formats: JPG, PNG, WebP (max 5MB)',
+      description: 'Landscape orientation, minimum 1920x1080px. Used as hero banner and card thumbnail. Set the hotspot on the focal point. Accepted formats: JPG, PNG, WebP (max 5MB)',
       options: {
         hotspot: true,
         accept: 'image/jpeg,image/png,image/webp',

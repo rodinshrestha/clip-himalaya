@@ -38,7 +38,7 @@ const FlagshipRegions = ({ data }: Props) => {
             <div className="regions-grid">
               {regions.map((region: RegionItem) => {
                 const imageUrl = region.image
-                  ? urlFor(region.image).width(600).height(450).url()
+                  ? urlFor(region.image).width(600).height(450).fit('crop').crop('entropy').url()
                   : '';
                 return (
                   <Link

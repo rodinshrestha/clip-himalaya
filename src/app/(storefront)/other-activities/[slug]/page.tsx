@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: PagePropsType): Promise<Metad
   if (!data) return {};
 
   const ogImageSource = data.ogImage || data.image;
-  const ogImage = ogImageSource ? urlFor(ogImageSource).width(1200).height(630).url() : undefined;
+  const ogImage = ogImageSource ? urlFor(ogImageSource).width(1200).height(630).fit('crop').crop('entropy').url() : undefined;
   const title = data.seoTitle || data.title;
   const description = data.seoDescription || data.shortDescription || `${data.title} — adventure activity in Nepal with Clip Himalaya.`;
   return {
