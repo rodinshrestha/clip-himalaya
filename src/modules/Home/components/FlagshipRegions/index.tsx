@@ -19,6 +19,8 @@ type Props = {
 
 const FlagshipRegions = ({ data }: Props) => {
   const regions = data?.regionList || [];
+  const label = data?.homeData?.regionsLabel || 'Where We Trek';
+  const heading = data?.homeData?.regionsHeading || 'Three Regions, Decades of Trail Knowledge';
 
   if (regions.length === 0) return null;
 
@@ -29,10 +31,10 @@ const FlagshipRegions = ({ data }: Props) => {
           <Col>
             <div className="regions-header">
               <Typography as="p" className="section-label">
-                Where We Trek
+                {label}
               </Typography>
               <Typography as="h2" className="section-heading">
-                Three Regions, Decades of Trail Knowledge
+                {heading}
               </Typography>
             </div>
             <div className="regions-grid">
