@@ -109,12 +109,15 @@ export const StyledHeader = styled.header`
         flex-shrink: 0;
         transition: all 0.3s ease;
         opacity: 1;
+        border-radius: 50%;
+        overflow: hidden;
         @media (max-width: ${({ theme }) => theme.breakPoints.mobile}) {
           height: 42px;
           width: 42px;
         }
         img {
           object-fit: contain;
+          mix-blend-mode: multiply;
         }
       }
       .title-content {
