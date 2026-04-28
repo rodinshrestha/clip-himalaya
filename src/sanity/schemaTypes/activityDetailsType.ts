@@ -1,6 +1,7 @@
 import { defineArrayMember, defineField, defineType } from 'sanity';
 import { ActivityIcon } from '@sanity/icons';
 import { AutoSlugInput } from '@/components/AutoSlugInputSanity';
+import { seoFields, seoFieldset } from './objects/seoFields';
 
 export const activityDetailsType = defineType({
   name: 'activityDetails',
@@ -13,6 +14,7 @@ export const activityDetailsType = defineType({
       media: 'image',
     },
   },
+  fieldsets: [seoFieldset],
   fields: [
     defineField({
       name: 'title',
@@ -91,5 +93,7 @@ export const activityDetailsType = defineType({
         }),
       ],
     }),
+
+    ...seoFields,
   ],
 });

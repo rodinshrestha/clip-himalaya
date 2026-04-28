@@ -30,8 +30,12 @@ export const StyledDiv = styled.div`
       @media (max-width: ${({ theme }) => theme.breakPoints.mobile}) {
         padding-left: 16px;
         padding-right: 16px;
+        padding-bottom: 80px;
         box-sizing: border-box;
         width: 100%;
+        top: auto !important;
+        bottom: 0;
+        transform: none !important;
       }
 
       .h1 {
@@ -70,7 +74,8 @@ export const StyledDiv = styled.div`
         max-width: 550px;
 
         @media (max-width: ${({ theme }) => theme.breakPoints.mobile}) {
-          font-size: 16px;
+          font-size: 14px;
+          display: none;
         }
       }
 
@@ -110,6 +115,8 @@ export const StyledDiv = styled.div`
         @media (max-width: ${({ theme }) => theme.breakPoints.mobile}) {
           flex-direction: column;
           width: 100%;
+          gap: 12px;
+          margin-top: 8px;
         }
       }
     }
@@ -122,6 +129,10 @@ export const StyledDiv = styled.div`
       width: 60px;
       height: 40px;
       z-index: 10;
+
+      @media (max-width: ${({ theme }) => theme.breakPoints.mobile}) {
+        display: none;
+      }
       animation:
         dropDown 1.2s ease-out forwards,
         bounce 1.8s 1.2s infinite;

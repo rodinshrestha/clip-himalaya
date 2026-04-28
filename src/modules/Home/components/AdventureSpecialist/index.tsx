@@ -26,7 +26,7 @@ const AdventureSpecialist = ({ data }: Props) => {
     contactUsNumber = '',
   } = data?.homeData || {};
   const { memberList = [] } = data?.memberList || [];
-  const displayMembers = memberList.slice(0, 3);
+  const displayMembers = memberList.filter((m) => m.showOnHomepage);
 
   return (
     <StyledDiv>
@@ -43,7 +43,7 @@ const AdventureSpecialist = ({ data }: Props) => {
               <div className="specialist-content">
                 <div className="member-list">
                   {displayMembers.map((x, i) => {
-                    const imageUrl = urlFor(x.memberImage).url();
+                    const imageUrl = urlFor(x.memberImage).width(200).quality(80).url();
                     return (
                       <div className="member-item" key={i}>
                         <div className="member-image">

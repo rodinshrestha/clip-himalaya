@@ -63,10 +63,15 @@ export const StyledDiv = styled.div`
 
     &:hover {
       transform: translateY(-4px);
+
+      img {
+        transform: scale(1.06);
+      }
     }
 
     img {
       object-fit: cover;
+      transition: transform 0.5s ease;
     }
 
     .card-overlay {

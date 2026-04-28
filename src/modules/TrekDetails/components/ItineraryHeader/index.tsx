@@ -9,6 +9,7 @@ import {
   Info,
   Sun,
   Waypoints,
+  HelpCircle,
 } from 'lucide-react';
 
 import Typography from '@/components/Typography';
@@ -44,6 +45,7 @@ const headerList = [
     sectionId: 'essential-tips',
   },
   { label: 'GALLERY', icon: <Images />, sectionId: 'gallery' },
+  { label: 'FAQ', icon: <HelpCircle />, sectionId: 'faq' },
 ];
 
 const ItineraryHeader = () => {

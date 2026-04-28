@@ -1,7 +1,7 @@
 'use client'
 
 /**
- * This configuration is used to for the Sanity Studio that’s mounted on the `/app/admin/[[...tool]]/page.tsx` route
+ * This configuration is used to for the Sanity Studio that's mounted on the `/app/admin/[[...tool]]/page.tsx` route
  */
 
 import {visionTool} from '@sanity/vision'
@@ -13,8 +13,8 @@ import {apiVersion, dataset, projectId} from './src/sanity/env'
 import {schema} from './src/sanity/schemaTypes'
 import {structure} from './src/sanity/structure'
 import {AutoMarkAsReadAction} from './src/sanity/actions/markAsReadAction'
+import {ForceDeleteAction} from './src/sanity/actions/deleteAction'
 import {inquiryBadgePlugin} from './src/sanity/plugins/inquiryBadgePlugin'
-
 export default defineConfig({
   basePath: '/admin',
   projectId,
@@ -33,7 +33,9 @@ export default defineConfig({
       if (context.schemaType === 'contactSubmission') {
         return [AutoMarkAsReadAction, ...prev];
       }
-      return prev;
+
+      // Add Force Delete alongside the regular Delete for all document types
+      return [ForceDeleteAction, ...prev];
     },
   },
 })

@@ -104,5 +104,23 @@ a{
         background: ${({ theme }) => theme.color.black['100']};
     }
   }
- }   
+ }
+
+  /* Subtle fade-in-up for sections */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Smooth image loading transition */
+  img {
+    transition: opacity 0.3s ease;
+  }
+ }
 `;

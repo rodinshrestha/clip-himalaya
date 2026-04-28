@@ -6,6 +6,8 @@ import {
   Shield,
   Users,
   MapPinned,
+  Wind,
+  Camera,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -22,6 +24,8 @@ const iconMap: Record<string, LucideIcon> = {
   shield: Shield,
   users: Users,
   'map-pinned': MapPinned,
+  wind: Wind,
+  camera: Camera,
 };
 
 const defaultFeatures: FeatureItem[] = [
@@ -30,6 +34,18 @@ const defaultFeatures: FeatureItem[] = [
     title: 'Local Expertise',
     description:
       'Born and raised in the Himalayas, our guides know every trail, teahouse, and hidden viewpoint.',
+  },
+  {
+    icon: 'wind',
+    title: 'Trek-Ready Training',
+    description:
+      'After booking, we send you guided breathing techniques for altitude and backpacking skills for the trail — so you arrive prepared, not guessing.',
+  },
+  {
+    icon: 'camera',
+    title: 'Photos, Video & Drone Shots',
+    description:
+      'Want professional trail footage? We offer on-demand photography, video, and drone coverage of your trek. Come home with more than phone photos.',
   },
   {
     icon: 'shield',

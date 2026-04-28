@@ -63,6 +63,21 @@ export const ourTeamPageType = defineType({
           type: 'object',
           name: 'memberList',
           title: 'Member List',
+          preview: {
+            select: {
+              title: 'memberName',
+              subtitle: 'memberDesignation',
+              media: 'memberImage',
+              showOnHomepage: 'showOnHomepage',
+            },
+            prepare({ title, subtitle, media, showOnHomepage }) {
+              return {
+                title: title || 'Unnamed Member',
+                subtitle: `${subtitle || ''}${showOnHomepage ? ' · Homepage' : ''}`,
+                media,
+              };
+            },
+          },
           fields: [
             defineField({
               name: 'memberImage',
@@ -80,8 +95,15 @@ export const ourTeamPageType = defineType({
             }),
             defineField({
               name: 'memberDesignation',
-              title: 'Member Desigantion',
+              title: 'Member Designation',
               type: 'string',
+            }),
+            defineField({
+              name: 'showOnHomepage',
+              title: 'Show on Homepage',
+              type: 'boolean',
+              description: 'Display this member in the "Plan your trek with our expert" section on the homepage',
+              initialValue: false,
             }),
           ],
         }),

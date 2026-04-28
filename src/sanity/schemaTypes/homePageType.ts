@@ -15,22 +15,23 @@ export const homePageType = defineType({
   },
   fieldsets: [
     { name: 'heroSection', title: 'Hero Section' },
+    { name: 'regionsSection', title: 'Flagship Regions Section' },
     { name: 'whyChooseUs', title: 'Why Choose Us Section' },
-    { name: 'popularTrek', title: 'Popular Trek' },
-    { name: 'contactUs', title: 'Contact Us' },
+    { name: 'contactUs', title: 'Contact Us / Adventure Specialist' },
     { name: 'testimonials', title: 'Testimonials Section' },
   ],
 
   fields: [
+    // ── Hero Section ──
     defineField({
       name: 'video',
-      title: 'Video',
+      title: 'Hero Background Video',
       type: 'file',
+      fieldset: 'heroSection',
       options: {
-        accept: 'video/*', // 👈 only allows video files
+        accept: 'video/*',
       },
     }),
-
     defineField({
       name: 'title',
       title: 'Title',
@@ -42,7 +43,6 @@ export const homePageType = defineType({
       title: 'Animated Text List',
       type: 'array',
       fieldset: 'heroSection',
-
       of: [
         defineArrayMember({
           name: 'Title',
@@ -56,44 +56,24 @@ export const homePageType = defineType({
       type: 'string',
       fieldset: 'heroSection',
     }),
-    // Second Section
+
+    // ── Flagship Regions Section ──
     defineField({
-      name: 'sectionTitle',
-      title: 'Popular Trek Section Title',
+      name: 'regionsLabel',
+      title: 'Section Label',
       type: 'string',
-      fieldset: 'popularTrek',
+      fieldset: 'regionsSection',
+      initialValue: 'Where We Trek',
     }),
     defineField({
-      name: 'popularTreks',
-      title: 'Popular Trek List',
-      type: 'array',
-      fieldset: 'popularTrek',
-      of: [
-        defineArrayMember({
-          type: 'object',
-          name: 'trekItem',
-          title: 'Trek Item',
-          fields: [
-            defineField({
-              name: 'image',
-              title: 'Trek Image',
-              type: 'image',
-              options: {
-                hotspot: true,
-                accept: 'image/jpeg,image/png,image/webp',
-              },
-            }),
-            defineField({
-              name: 'titles',
-              title: 'Trek Names',
-              type: 'array',
-              of: [{ type: 'string' }],
-            }),
-          ],
-        }),
-      ],
+      name: 'regionsHeading',
+      title: 'Section Heading',
+      type: 'string',
+      fieldset: 'regionsSection',
+      initialValue: 'Three Regions, Decades of Trail Knowledge',
     }),
-    // Contact US Section
+
+    // ── Contact Us / Adventure Specialist ──
     defineField({
       name: 'contactUsTitle',
       title: 'Contact Us Section Title',
@@ -113,7 +93,7 @@ export const homePageType = defineType({
       fieldset: 'contactUs',
     }),
 
-    // Why Choose Us Section
+    // ── Why Choose Us Section ──
     defineField({
       name: 'whyChooseUsLabel',
       title: 'Section Label',
@@ -133,6 +113,7 @@ export const homePageType = defineType({
       title: 'Features',
       type: 'array',
       fieldset: 'whyChooseUs',
+      description: 'Leave empty to use defaults. Available icons: mountain, shield, users, map-pinned, wind, camera',
       of: [
         defineArrayMember({
           type: 'object',
@@ -144,7 +125,7 @@ export const homePageType = defineType({
               title: 'Icon Name',
               type: 'string',
               description:
-                'Icon identifier: mountain, shield, users, map-pinned',
+                'mountain, shield, users, map-pinned, wind, camera',
             }),
             defineField({
               name: 'title',
@@ -162,7 +143,7 @@ export const homePageType = defineType({
       ],
     }),
 
-    // Testimonials Section
+    // ── Testimonials Section ──
     defineField({
       name: 'testimonialLabel',
       title: 'Section Label',

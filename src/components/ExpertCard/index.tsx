@@ -14,7 +14,7 @@ const ExpertCard = ({ imageUrl = '', name = '', designation = '' }: Props) => {
     <StyledDiv className="expert-card-wrapper">
       {imageUrl && (
         <div className="image-wrapper">
-          <ImageWithFallback src={imageUrl} alt="expert-card" fill />
+          <ImageWithFallback src={imageUrl} alt={name || 'Team member'} fill />
         </div>
       )}
       {name && (

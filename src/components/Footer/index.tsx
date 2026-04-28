@@ -40,13 +40,15 @@ const Footer = ({ siteSettings }: Props) => {
             <div className="footer-top">
               {/* Brand Column */}
               <div className="footer-brand">
-                <div className="footer-logo-wrapper">
-                  <ImageWithFallback
-                    src={urlFor(footerLogoImage).url()}
-                    alt="footer-logo"
-                    fill
-                  />
-                </div>
+                {footerLogoImage && (
+                  <div className="footer-logo-wrapper">
+                    <ImageWithFallback
+                      src={urlFor(footerLogoImage).url()}
+                      alt="Clip Himalaya logo"
+                      fill
+                    />
+                  </div>
+                )}
                 {footerDescription && (
                   <Typography as="p" className="footer-description">
                     {footerDescription}

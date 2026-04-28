@@ -34,11 +34,14 @@ const TrekDetailslandingPage = ({ setStickyBtn, data }: Props) => {
   }, [setStickyBtn]);
   return (
     <StyledDiv ref={ref}>
-      <ImageWithFallback
-        src={urlFor(image).url()}
-        fill
-        alt="background image"
-      />
+      {image && (
+        <ImageWithFallback
+          src={urlFor(image).width(1920).quality(85).url()}
+          fill
+          alt={title || 'Trek banner'}
+          priority
+        />
+      )}
       <Overlay />
 
       <div className="information-content">
