@@ -10,7 +10,6 @@ import Typography from '../Typography';
 
 import { StyledDiv } from './style';
 import { BlockType } from '@/types/block.type';
-import { truncate } from '@/utils/string-turncate';
 
 type Props = {
   title: string;
@@ -49,16 +48,18 @@ const TrekCard = ({
             </Typography>
           </div>
 
-          {description.map((x, i) => {
-            const { text = '' } = x?.children?.[0] || {};
-
+          {(() => {
+            const firstBlock = description.find(
+              (x) => x?.children?.[0]?.text,
+            );
+            const text = firstBlock?.children?.[0]?.text || '';
             if (!text) return null;
             return (
-              <Typography as="body1" className="trek-description" key={i}>
-                {truncate(text)}
+              <Typography as="body1" className="trek-description">
+                {text}
               </Typography>
             );
-          })}
+          })()}
 
           <Button variant="outline" className="trek-btn">
             VIEW DETAILS

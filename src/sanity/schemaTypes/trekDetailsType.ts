@@ -340,6 +340,8 @@ export const trekDetailsType = defineType({
       title: 'Image Gallery',
       type: 'array',
       fieldset: 'imageGallery',
+      description:
+        'Images display in a 3-column grid with 3:2 landscape crop. Use landscape-oriented photos for best results. Visitors can click any image to open a full-size preview.',
       options: { layout: 'grid' },
       of: [
         defineArrayMember({
@@ -349,7 +351,7 @@ export const trekDetailsType = defineType({
           preview: {
             select: { media: 'image' },
             prepare({ media }) {
-              return { title: 'Gallery Image', media };
+              return { title: 'Gallery Image', subtitle: '3:2 landscape crop · click-to-preview on site', media };
             },
           },
           fields: [
@@ -357,6 +359,7 @@ export const trekDetailsType = defineType({
               name: 'image',
               title: 'Image',
               type: 'image',
+              description: 'Landscape orientation recommended (3:2 ratio). Min 900px wide. Set hotspot on the focal point to control cropping.',
               options: { hotspot: true, accept: 'image/jpeg,image/png,image/webp' },
             }),
           ],

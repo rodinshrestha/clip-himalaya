@@ -26,7 +26,7 @@ const AdventureSpecialist = ({ data }: Props) => {
     contactUsNumber = '',
   } = data?.homeData || {};
   const { memberList = [] } = data?.memberList || [];
-  const displayMembers = memberList.slice(0, 3);
+  const displayMembers = memberList.filter((m) => m.showOnHomepage);
 
   return (
     <StyledDiv>

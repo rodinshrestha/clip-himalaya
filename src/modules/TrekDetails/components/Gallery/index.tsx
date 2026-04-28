@@ -1,6 +1,6 @@
 'use client';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
-import { Images } from 'lucide-react';
+import { Images, ZoomIn } from 'lucide-react';
 
 import ImageWithFallback from '@/components/ImageWithFallBack';
 import { urlFor } from '@/sanity/client';
@@ -21,22 +21,25 @@ const Gallery = ({ data }: Props) => {
   return (
     <StyledDiv id="gallery">
       <TrekkingTitleSection icon={Images} title="GALLERY" />
+      <p className="gallery-hint">
+        <ZoomIn size={14} />
+        Click any image to view full size
+      </p>
       <PhotoProvider>
         <div className="photo-grid">
           {imageGallery.map((x, i) => {
             const imageUrl = urlFor(x.image).width(600).quality(80).url();
             return (
               <PhotoView key={i} src={imageUrl}>
-                <div
-                  className={`grid-item ${i === 0 ? 'grid-item--large' : ''}`}
-                >
+                <div className="grid-item">
                   <ImageWithFallback
                     src={imageUrl}
                     alt={`Gallery ${i + 1}`}
                     fill
                   />
                   <div className="grid-overlay">
-                    <Images size={20} />
+                    <ZoomIn size={22} />
+                    <span className="overlay-text">Preview</span>
                   </div>
                 </div>
               </PhotoView>
