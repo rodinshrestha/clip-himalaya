@@ -43,7 +43,7 @@ export const StyledDiv = styled.div`
 
   .features-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 40px;
 
     @media (max-width: ${({ theme }) => theme.breakPoints.smallScreen}) {
@@ -61,6 +61,14 @@ export const StyledDiv = styled.div`
     padding: 32px 20px;
     border-radius: 12px;
     transition: all 0.3s ease;
+    animation: fadeInUp 0.5s ease both;
+
+    &:nth-child(1) { animation-delay: 0s; }
+    &:nth-child(2) { animation-delay: 0.08s; }
+    &:nth-child(3) { animation-delay: 0.16s; }
+    &:nth-child(4) { animation-delay: 0.24s; }
+    &:nth-child(5) { animation-delay: 0.32s; }
+    &:nth-child(6) { animation-delay: 0.4s; }
 
     &:hover {
       background-color: ${({ theme }) => theme.color.grey['100']};

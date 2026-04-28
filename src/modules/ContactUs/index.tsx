@@ -80,7 +80,7 @@ const ContactUs = ({ data }: Props) => {
       {/* Hero Banner */}
       <div className="hero-section">
         <div className="hero-gradient" />
-        <ImageWithFallback src={bannerUrl} alt="contact-us-banner" fill />
+        <ImageWithFallback src={bannerUrl} alt="Contact Clip Himalaya for trek planning and bookings" fill />
         <Overlay />
         <div className="hero-text">
           <Container>

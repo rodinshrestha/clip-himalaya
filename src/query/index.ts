@@ -22,8 +22,8 @@ export const homePageQuery = `{
       title,
       animatedTextList,
       helperText,
-      sectionTitle,
-      popularTreks,
+      regionsLabel,
+      regionsHeading,
       contactUsTitle,
       contactUsInfo,
       contactUsNumber,
@@ -36,6 +36,14 @@ export const homePageQuery = `{
   },
   "memberList": *[_type == "ourTeamPage"][0]{
       memberList
+  },
+  "regionList": *[_type == "trekkingRegion"] | order(order asc) {
+    name,
+    slug,
+    image,
+    tagline,
+    elevation,
+    "trekCount": count(*[_type == "trekDetails" && region._ref == ^._id])
   }
 }`;
 
@@ -61,6 +69,8 @@ export const ourStoryQuery = `*[_type == "ourStoryPage"][0]{
     bannerTitle,
     bannerHelperText,
     ourStoryDescription,
+    valuesList,
+    sustainabilityStatement,
     galleryImages,
   }
 `;
@@ -122,6 +132,8 @@ export const trekPageQuery = `{
     slug,
     rating,
     difficult,
+    duration,
+    maxElevation,
     trekDescription,
     "regionName": region->name,
     "regionSlug": region->slug.current,
@@ -131,6 +143,8 @@ export const trekPageQuery = `{
     name,
     slug,
     image,
+    tagline,
+    elevation,
     "trekCount": count(*[_type == "trekDetails" && region._ref == ^._id])
   }
 }`;
@@ -139,7 +153,13 @@ export const regionDetailQuery = `{
   "region": *[_type == "trekkingRegion" && slug.current == $slug][0]{
     name,
     slug,
-    image
+    image,
+    tagline,
+    description,
+    culture,
+    bestSeasons,
+    whoItSuits,
+    elevation
   },
   "trekList": *[_type == "trekDetails" && region->slug.current == $slug] | order(title asc) {
     title,
@@ -147,6 +167,9 @@ export const regionDetailQuery = `{
     slug,
     rating,
     difficult,
+    duration,
+    maxElevation,
+    bestSeasons,
     trekDescription
   }
 }`;
@@ -174,7 +197,10 @@ export const activityDetailsQuery = `*[_type == "activityDetails" && slug.curren
   image,
   shortDescription,
   description,
-  highlights
+  highlights,
+  seoTitle,
+  seoDescription,
+  ogImage
 }`;
 
 export const trekDetailsQuery = `*[_type == "trekDetails" && slug.current == $slug][0]{
@@ -185,10 +211,25 @@ export const trekDetailsQuery = `*[_type == "trekDetails" && slug.current == $sl
   rating,
   difficult,
   trekDescription,
+  duration,
+  maxElevation,
+  bestSeasons,
+  startPoint,
+  endPoint,
+  groupSize,
+  permits,
   keyHighlights,
   itineraryDetails,
   costInclude,
   costExclude,
+  fitnessGuidance,
+  accommodationNotes,
+  permitDetails,
   essentialTips,
-  imageGallery
+  packingEssentials,
+  faqList,
+  imageGallery,
+  seoTitle,
+  seoDescription,
+  ogImage
 }`;

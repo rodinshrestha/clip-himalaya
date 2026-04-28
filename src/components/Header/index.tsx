@@ -122,12 +122,12 @@ const Header = ({ siteSettings }: Props) => {
                         ? urlFor(logoImage).url()
                         : '/images/logo-transparent.png'
                     }
-                    alt="clip-himalaya-logo"
+                    alt="Clip Himalaya - Nepal trekking company"
                     fill
                   />
                 </div>
                 <div className="title-content">
-                  <Typography as="h1">{siteTitle}</Typography>
+                  <Typography as="p" className="site-title">{siteTitle}</Typography>
                   <Typography as="body1">{siteHelperText}</Typography>
                 </div>
               </Link>

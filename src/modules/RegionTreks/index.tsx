@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { PortableText } from '@portabletext/react';
+
 import BreadCrumbs from '@/components/BreadCrumbs';
 import Col from '@/components/Col';
 import Container from '@/components/Container';
@@ -10,15 +12,24 @@ import Typography from '@/components/Typography';
 import { urlFor } from '@/sanity/client';
 import { TrekDetailsType } from '@/modules/TrekDetails/trek-details.types';
 import { ImageType } from '@/types/image.type';
+import { BlockType } from '@/types/block.type';
 
 import { StyledDiv } from './style';
 
+type RegionType = {
+  name: string;
+  slug: { current: string };
+  image: ImageType;
+  tagline?: string;
+  description?: BlockType[];
+  culture?: string;
+  bestSeasons?: string;
+  whoItSuits?: string;
+  elevation?: string;
+};
+
 type RegionTreksData = {
-  region: {
-    name: string;
-    slug: { current: string };
-    image: ImageType;
-  };
+  region: RegionType;
   trekList: TrekDetailsType[];
 };
 
@@ -31,6 +42,8 @@ const RegionTreks = ({ data }: Props) => {
   const bannerUrl = region.image
     ? urlFor(region.image).width(1920).quality(85).url()
     : '';
+
+  const hasContent = region.description || region.culture || region.bestSeasons || region.whoItSuits;
 
   return (
     <StyledDiv>
@@ -52,8 +65,13 @@ const RegionTreks = ({ data }: Props) => {
                 <div className="hero-inner">
                   <Typography as="h1">{region.name}</Typography>
                   <Typography as="p">
-                    Explore trekking packages in the {region.name}
+                    {region.tagline || `Explore trekking packages in the ${region.name}`}
                   </Typography>
+                  {region.elevation && (
+                    <Typography as="p" className="elevation-badge">
+                      {region.elevation}
+                    </Typography>
+                  )}
                 </div>
               </Col>
             </Row>
@@ -68,17 +86,59 @@ const RegionTreks = ({ data }: Props) => {
         ]}
       />
 
+      {/* Region Character Section */}
+      {hasContent && (
+        <Container>
+          <Row>
+            <Col>
+              <div className="region-content">
+                {region.description && (
+                  <div className="region-description">
+                    <PortableText value={region.description as any} />
+                  </div>
+                )}
+
+                <div className="region-info-grid">
+                  {region.culture && (
+                    <div className="info-card">
+                      <Typography as="h3">Culture & People</Typography>
+                      <Typography as="p">{region.culture}</Typography>
+                    </div>
+                  )}
+                  {region.bestSeasons && (
+                    <div className="info-card">
+                      <Typography as="h3">Best Seasons</Typography>
+                      <Typography as="p">{region.bestSeasons}</Typography>
+                    </div>
+                  )}
+                  {region.whoItSuits && (
+                    <div className="info-card">
+                      <Typography as="h3">Who It Suits</Typography>
+                      <Typography as="p">{region.whoItSuits}</Typography>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      )}
+
+      {/* Trek Listing */}
       <Container>
         <Row>
           <Col>
             <div className="region-header">
               <Typography as="h2" className="region-title">
-                {region.name} Packages
+                Treks in {region.name}
+              </Typography>
+              <Typography as="p" className="trek-count">
+                {trekList.length} {trekList.length === 1 ? 'trek' : 'treks'} available
               </Typography>
             </div>
             <div className="trek-wrapper">
               {trekList.map((trek, i) => {
-                const imgUrl = trek.image ? urlFor(trek.image).url() : '';
+                const imgUrl = trek.image ? urlFor(trek.image).width(600).quality(80).url() : '';
                 return (
                   <TrekCard
                     key={i}

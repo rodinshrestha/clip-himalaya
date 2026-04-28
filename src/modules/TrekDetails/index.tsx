@@ -7,6 +7,8 @@ import StickyButton from './components/StickyButton';
 import TrekDetailslandingPage from './components/TrekDetailsLandingPage';
 import TrekItinerary from './components/TrekItinerary';
 import TrekSummary from './components/TrekSummary';
+import QuickFacts from './components/QuickFacts';
+import TrekExtras from './components/TrekExtras';
 import { StyledDiv } from './style';
 import { TrekDetailsType } from './trek-details.types';
 
@@ -28,8 +30,10 @@ const TrekDetails = ({ data }: Props) => {
 
       <TrekDetailslandingPage setStickyBtn={setStickyBtn} data={data} />
       <BreadCrumbs crumbs={crumbs} />
+      <QuickFacts data={data} />
       <TrekSummary data={data} />
       <TrekItinerary data={data} />
+      <TrekExtras data={data} />
     </StyledDiv>
   );
 };

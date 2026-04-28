@@ -5,6 +5,7 @@ export type MemberType = {
   memberDesignation: string;
   memberImage: ImageType;
   memberName: string;
+  showOnHomepage?: boolean;
 };
 
 type Faq = {

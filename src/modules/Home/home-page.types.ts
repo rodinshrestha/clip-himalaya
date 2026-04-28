@@ -1,11 +1,6 @@
 import { ImageType } from '@/types/image.type';
 import { MemberType } from '../OurTeam/our-team.type';
 
-type PopularTrek = {
-  image: ImageType;
-  titles: string[];
-};
-
 export type FeatureItem = {
   icon: string;
   title: string;
@@ -19,12 +14,21 @@ export type TestimonialItem = {
   review: string;
 };
 
+export type RegionItem = {
+  name: string;
+  slug: { current: string };
+  image: ImageType;
+  tagline?: string;
+  elevation?: string;
+  trekCount: number;
+};
+
 type HomeData = {
   title: string;
   animatedTextList: string[];
   helperText: string;
-  sectionTitle: string;
-  popularTreks: PopularTrek[];
+  regionsLabel: string;
+  regionsHeading: string;
   contactUsTitle: string;
   contactUsInfo: string;
   contactUsNumber: string;
@@ -42,4 +46,5 @@ export type HomePageType = {
   memberList: {
     memberList: MemberType[];
   };
+  regionList: RegionItem[];
 };

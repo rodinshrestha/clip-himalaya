@@ -18,8 +18,28 @@ const OurTeamFaq = ({ data }: Props) => {
     title: x.question,
     description: x.answer,
   }));
+
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqList.map((x) => ({
+      '@type': 'Question',
+      name: x.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: x.answer,
+      },
+    })),
+  };
+
   return (
     <StyledDiv>
+      {faqList.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
       <Container>
         <Row>
           <Col>

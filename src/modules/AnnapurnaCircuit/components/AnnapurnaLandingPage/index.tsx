@@ -11,8 +11,8 @@ const AnnapurnaLandingPage = () => {
       <div className="image-wrapper">
         <Overlay overlayValue={0.4} />
         <ImageWithFallback
-          src="/images/annapurna-img.png"
-          alt="annuparna image"
+          src="/images/annapurna-img.jpg"
+          alt="Annapurna Circuit trek landscape"
           fill
         />
       </div>

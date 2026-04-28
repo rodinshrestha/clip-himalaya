@@ -30,7 +30,7 @@ const TrekLandingPage = ({ data }: Props) => {
       <div className="hero-gradient" />
       <ImageWithFallback
         src={bannerUrl}
-        alt="trek-banner"
+        alt="Trekking trails across Nepal Himalaya"
         fill
         priority
       />

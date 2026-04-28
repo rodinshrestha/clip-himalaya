@@ -22,7 +22,7 @@ export const StyledDiv = styled.div`
 
   .image-wrapper {
     width: 100%;
-    height: 240px;
+    aspect-ratio: 16 / 10;
     position: relative;
     overflow: hidden;
 
@@ -42,6 +42,9 @@ export const StyledDiv = styled.div`
       font-size: 20px;
       font-weight: 600;
       line-height: 1.3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .rating-wrapper {
@@ -62,7 +65,10 @@ export const StyledDiv = styled.div`
       font-size: 14px;
       line-height: 1.7;
       color: ${({ theme }) => theme.color.black['200']};
-      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
     .trek-btn {

@@ -47,7 +47,7 @@ const PopularTrek = ({ data, activeRegion, onClearFilter }: Props) => {
             <div className="trek-wrapper">
               {trekList.map((x, i) => {
                 const { image } = x || {};
-                const imgUrl = image ? urlFor(image).url() : '';
+                const imgUrl = image ? urlFor(image).width(600).quality(80).url() : '';
                 return (
                   <TrekCard
                     imgUrl={imgUrl}

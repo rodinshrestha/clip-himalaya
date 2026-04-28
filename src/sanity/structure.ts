@@ -87,15 +87,6 @@ export const structure: StructureResolver = (S) =>
                     .filter('_type == "trekDetails" && region._ref == "region-annapurna"')
                 ),
               S.listItem()
-                .id('treks-langtang')
-                .title('Langtang Region')
-                .child(
-                  S.documentList()
-                    .title('Langtang Region Treks')
-                    .schemaType('trekDetails')
-                    .filter('_type == "trekDetails" && region._ref == "region-langtang"')
-                ),
-              S.listItem()
                 .id('treks-manaslu')
                 .title('Manaslu Region')
                 .child(
@@ -103,34 +94,6 @@ export const structure: StructureResolver = (S) =>
                     .title('Manaslu Region Treks')
                     .schemaType('trekDetails')
                     .filter('_type == "trekDetails" && region._ref == "region-manaslu"')
-                ),
-              S.listItem()
-                .id('treks-dhaulagiri')
-                .title('Dhaulagiri Region')
-                .child(
-                  S.documentList()
-                    .title('Dhaulagiri Region Treks')
-                    .schemaType('trekDetails')
-                    .filter('_type == "trekDetails" && region._ref == "region-dhaulagiri"')
-                ),
-              S.listItem()
-                .id('treks-other')
-                .title('Other Region')
-                .child(
-                  S.documentList()
-                    .title('Other Region Treks')
-                    .schemaType('trekDetails')
-                    .filter('_type == "trekDetails" && region._ref == "region-other"')
-                ),
-              S.divider(),
-              S.listItem()
-                .id('treks-unassigned')
-                .title('Unassigned Treks')
-                .child(
-                  S.documentList()
-                    .title('Treks Without Region')
-                    .schemaType('trekDetails')
-                    .filter('_type == "trekDetails" && !defined(region)')
                 ),
             ])
         ),

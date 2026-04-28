@@ -31,7 +31,7 @@ const TrekkingRegions = ({ regions }: Props) => {
             <div className="region-grid">
               {regions.map((region, i) => {
                 const imgUrl = region.image
-                  ? urlFor(region.image).width(600).height(450).url()
+                  ? urlFor(region.image).width(600).height(450).fit('crop').crop('entropy').url()
                   : '';
                 const slug = region.slug?.current || '';
                 return (
