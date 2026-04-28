@@ -14,7 +14,7 @@ export const StyledDiv = styled.section`
     display: flex;
     align-items: center;
     gap: 6px;
-    color: ${({ theme }) => theme.colors?.textSecondary || '#888'};
+    color: ${({ theme }) => theme.color.grey['200']};
     font-size: 13px;
     font-family: ${({ theme }) => theme.fonts.poppins};
 
